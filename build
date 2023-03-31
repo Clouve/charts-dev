@@ -21,4 +21,4 @@ for d in "$SCRIPT_PATH"/src/*/; do
   helm package "src/$chart_name" -d dist
 done
 
-helm repo index dist --url https://clouve.github.io/charts/
+helm repo index dist --url https://clouve.github.io/charts/dist/

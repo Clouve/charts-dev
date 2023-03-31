@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230315
-    created: "2023-03-31T17:17:54.499020514Z"
+    created: "2023-03-31T17:25:08.122216964Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -20,7 +20,7 @@ entries:
     description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
       that can connect a wide variety of business operations such as sales, supply
       chain, finance, and project management.
-    digest: 0766048bf5210bd5d7a5379dda7e194beaa6ffd4c0b85ba7abe83773459cb205
+    digest: ad4e1004966606cb9221e6b8b3aed5b770c7783a05fc703ce395d23a89645152
     home: https://github.com/bitnami/charts/tree/main/bitnami/odoo
     icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
     keywords:
@@ -37,14 +37,14 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/odoo
     - https://www.odoo.com/
     urls:
-    - https://clouve.github.io/charts/odoo-23.0.10.tgz
+    - https://clouve.github.io/charts/dist/odoo-23.0.10.tgz
     version: 23.0.10
   orangehrm:
   - annotations:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-03-31T17:17:54.505087014Z"
+    created: "2023-03-31T17:25:08.128177506Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -57,7 +57,7 @@ entries:
       version: 1.x.x
     description: OrangeHRM is a free HR management system that offers a wealth of
       modules to suit the needs of your business.
-    digest: 000919b5f599d88e9d1ae0c43d263b6e6880c95c19d7a5f24dadb72449f66a41
+    digest: 2210b9ef31f48dc497f898559ffe65a8b3732db5ba316026f7ffa43ca3fd73af
     home: https://github.com/bitnami/charts/tree/master/bitnami/orangehrm
     icon: https://bitnami.com/assets/stacks/orangehrm/img/orangehrm-stack-220x234.png
     keywords:
@@ -76,7 +76,7 @@ entries:
     - https://github.com/bitnami/bitnami-docker-orangehrm
     - https://www.orangehrm.com
     urls:
-    - https://clouve.github.io/charts/orangehrm-11.0.1.tgz
+    - https://clouve.github.io/charts/dist/orangehrm-11.0.1.tgz
     version: 11.0.1
   suitecrm:
   - annotations:
@@ -84,7 +84,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-03-31T17:17:54.510635764Z"
+    created: "2023-03-31T17:25:08.133310422Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -97,7 +97,7 @@ entries:
       version: 2.x.x
     description: SuiteCRM is a completely open source, enterprise-grade Customer Relationship
       Management (CRM) application. SuiteCRM is a fork of the popular SugarCRM application.
-    digest: 42bb8711d780bac9f912fa0a2fc65312b7b06a08d3d184c4904538f25b116e97
+    digest: d2568d5fe9bab3255ba873583cee665119b635df1784394910fdb27dcc777d1e
     home: https://github.com/bitnami/charts/tree/main/bitnami/suitecrm
     icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
     keywords:
@@ -114,7 +114,7 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/suitecrm
     - https://www.suitecrm.com/
     urls:
-    - https://clouve.github.io/charts/suitecrm-11.2.12.tgz
+    - https://clouve.github.io/charts/dist/suitecrm-11.2.12.tgz
     version: 11.2.12
   wordpress:
   - annotations:
@@ -122,7 +122,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-03-31T17:17:54.51887193Z"
+    created: "2023-03-31T17:25:08.141963006Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -140,7 +140,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: 1e02987d57d2ba6b0ec83a628a60cd8c8b2d7ca679206a109e3877e2bd5dace8
+    digest: e29c2b7a8491003060cc805e00dc0dd94f0f72de6829c20af6c40b974e2a5530
     home: https://github.com/bitnami/charts/tree/main/bitnami/wordpress
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -159,6 +159,6 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/wordpress
     - https://wordpress.org/
     urls:
-    - https://clouve.github.io/charts/wordpress-15.2.60.tgz
+    - https://clouve.github.io/charts/dist/wordpress-15.2.60.tgz
     version: 15.2.60
-generated: "2023-03-31T17:17:54.492838472Z"
+generated: "2023-03-31T17:25:08.115698672Z"
