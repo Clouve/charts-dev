@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+SCRIPT_PATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+CHART_REPOS=("bitnami|https://charts.bitnami.com/bitnami" "bitnami-azure|https://marketplace.azurecr.io/helm/v1/repo")
+CLOUVE_CHARTS=("bitnami/wordpress" "bitnami/odoo" "bitnami/suitecrm" "bitnami-azure/orangehrm")
+
+rm -rf src/
+
+function helm() {
+  docker run -it --rm -a STDOUT \
+    -w "/clv" \
+    -v "$SCRIPT_PATH:/clv" \
+    -v "$SCRIPT_PATH/.helm/.config:/root/.config" \
+    -v "$SCRIPT_PATH/.helm:/root" \
+    --entrypoint "helm" \
+    alpine/helm "$@"
+}
+
+for repo in "${CHART_REPOS[@]}"; do
+  IFS='|' read -ra repo_arr <<< "$repo"
+  helm repo add "${repo_arr[0]}" "${repo_arr[1]}"
+done
+
+for chart in "${CLOUVE_CHARTS[@]}"; do
+  helm pull "$chart" -d src --untar
+done
+
+for d in "$SCRIPT_PATH"/src/*/; do
+  chart_name=$(basename "$d")
+  CONFIG_REPLACE="$chart_name-password"
+  CONFIG_REPLACEMENT="professional-services-password"
+  IFS=',' read -ra CONFIG_REPLACE_ARR <<< "$CONFIG_REPLACE"
+  IFS=',' read -ra CONFIG_REPLACEMENT_ARR <<< "$CONFIG_REPLACEMENT"
+  echo "PROCESSING $chart_name"
+  for i in "${!CONFIG_REPLACE_ARR[@]}"
+  do
+    if [[ -n "${CONFIG_REPLACE_ARR[i]}" && -n "${CONFIG_REPLACEMENT_ARR[i]}" ]]; then
+      echo "REPLACING [${CONFIG_REPLACE_ARR[i]}] WITH [${CONFIG_REPLACEMENT_ARR[i]}]"
+      find "$SCRIPT_PATH"/src/"$chart_name" -type f -not -path "*/\.*" -exec sed -i "" -e "s;${CONFIG_REPLACE_ARR[i]};${CONFIG_REPLACEMENT_ARR[i]};g" {} +
+    fi
+  done
+done

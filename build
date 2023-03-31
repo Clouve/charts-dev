@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+SCRIPT_PATH="$(
+  cd "$(dirname "$0")" || exit
+  pwd -P
+)"
+
+rm -rf dist/
+
+function helm() {
+  docker run -it --rm -a STDOUT \
+    -w "/clv" \
+    -v "$SCRIPT_PATH:/clv" \
+    --entrypoint "helm" \
+    alpine/helm "$@"
+}
+
+for d in "$SCRIPT_PATH"/src/*/; do
+  chart_name=$(basename "$d")
+  echo "PACKAGING src/$chart_name"
+  helm lint "src/$chart_name"
+  helm package "src/$chart_name" -d dist
+done
+
+helm repo index dist --url https://clouve.github.io/charts/
