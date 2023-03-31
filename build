@@ -4,7 +4,7 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-rm -rf dist/
+rm -rf repo/
 
 function helm() {
   docker run -it --rm -a STDOUT \
@@ -18,7 +18,7 @@ for d in "$SCRIPT_PATH"/src/*/; do
   chart_name=$(basename "$d")
   echo "PACKAGING src/$chart_name"
   helm lint "src/$chart_name"
-  helm package "src/$chart_name" -d dist
+  helm package "src/$chart_name" -d repo
 done
 
-helm repo index dist --url https://clouve.github.io/charts/dist/
+helm repo index repo --url https://clouve.github.io/charts/repo/
