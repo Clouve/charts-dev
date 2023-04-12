@@ -40,10 +40,10 @@ do
   chart_version="${CHART_ARR[1]}"
   chart_appVersion="${CHART_ARR[2]}"
   echo "PROCESSING $chart_name [version: $chart_version, appVersion: $chart_appVersion]"
-  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.tpl.json" \
+  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.json.tmpl" \
     -exec sed -i'.temp' -e "s/{{chart-version}}/${chart_version}/g; s/{{chart-appVersion}}/${chart_appVersion}/g" {} +
-  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.tpl.json" \
-    -exec sh -c 'cp "$1" "${1%.tpl.json}.json"' _ {} \;
-  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.tpl.json.temp" \
-    -exec sh -c 'mv "$1" "${1%.tpl.json.temp}.tpl.json"' _ {} \;
+  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.json.tmpl" \
+    -exec sh -c 'cp "$1" "${1%.json.tmpl}.json"' _ {} \;
+  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.json.tmpl.temp" \
+    -exec sh -c 'mv "$1" "${1%.json.tmpl.temp}.json.tmpl"' _ {} \;
 done
