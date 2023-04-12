@@ -146,7 +146,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ include "wordpress.secretName" . }}
-                  key: professional-services-password
+                  key: clouve-password
             - name: WORDPRESS_EMAIL
               value: {{ .Values.wordpressEmail | quote }}
             - name: WORDPRESS_FIRST_NAME

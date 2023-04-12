@@ -511,7 +511,7 @@ To upgrade to `8.0.0`, it should be done reusing the PVCs used to hold both the 
 Obtain the credentials and the names of the PVCs used to hold both the MariaDB and OrangeHRM data on your current release:
 
 ```console
-export ORANGEHRM_PASSWORD=$(kubectl get secret --namespace default orangehrm -o jsonpath="{.data.professional-services-password}" | base64 --decode)
+export ORANGEHRM_PASSWORD=$(kubectl get secret --namespace default orangehrm -o jsonpath="{.data.clouve-password}" | base64 --decode)
 export MARIADB_ROOT_PASSWORD=$(kubectl get secret --namespace default orangehrm-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
 export MARIADB_PASSWORD=$(kubectl get secret --namespace default orangehrm-mariadb -o jsonpath="{.data.mariadb-password}" | base64 --decode)
 export MARIADB_PVC=$(kubectl get pvc -l app=mariadb,component=master,release=orangehrm -o jsonpath="{.items[0].metadata.name}")

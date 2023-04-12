@@ -184,8 +184,8 @@ spec:
             - name: SUITECRM_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "suitecrm.secretName" . }}
-                  key: professional-services-password
+                  name: {{ include "common.names.fullname" . }}
+                  key: clouve-password
             - name: SUITECRM_EMAIL
               value: {{ .Values.suitecrmEmail | quote }}
             - name: SUITECRM_SMTP_NOTIFY_NAME

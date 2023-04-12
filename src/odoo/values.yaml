@@ -135,7 +135,7 @@ smtpUser: ""
 smtpPassword: ""
 smtpProtocol: ""
 ## @param existingSecret Name of existing secret containing Odoo credentials
-## NOTE: Must contain key `professional-services-password`
+## NOTE: Must contain key `clouve-password`
 ## NOTE: When it's set, the `odooPassword` parameter is ignored
 ##
 existingSecret: ""

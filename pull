@@ -4,8 +4,24 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-CHART_REPOS=("bitnami|https://charts.bitnami.com/bitnami" "bitnami-azure|https://marketplace.azurecr.io/helm/v1/repo")
-CLOUVE_CHARTS=("bitnami/wordpress" "bitnami/odoo" "bitnami/suitecrm" "bitnami-azure/orangehrm")
+CHART_REPOS=(
+  "bitnami|https://charts.bitnami.com/bitnami" \
+  "bitnami-azure|https://marketplace.azurecr.io/helm/v1/repo"
+)
+CLOUVE_CHARTS=(
+  "bitnami/dokuwiki" \
+  "bitnami/drupal" \
+  "bitnami/ghost" \
+  "bitnami/joomla" \
+  "bitnami/mediawiki" \
+  "bitnami/moodle" \
+  "bitnami/odoo" \
+  "bitnami-azure/orangehrm"
+  "bitnami/osclass" \
+  "bitnami/owncloud" \
+  "bitnami/suitecrm" \
+  "bitnami/wordpress"
+)
 
 rm -rf src/
 
@@ -31,7 +47,7 @@ done
 for d in "$SCRIPT_PATH"/src/*/; do
   chart_name=$(basename "$d")
   CONFIG_REPLACE="$chart_name-password"
-  CONFIG_REPLACEMENT="professional-services-password"
+  CONFIG_REPLACEMENT="clouve-password"
   IFS=',' read -ra CONFIG_REPLACE_ARR <<< "$CONFIG_REPLACE"
   IFS=',' read -ra CONFIG_REPLACEMENT_ARR <<< "$CONFIG_REPLACEMENT"
   echo "PROCESSING $chart_name"

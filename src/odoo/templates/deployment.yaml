@@ -156,7 +156,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ template "odoo.secretName" . }}
-                  key: professional-services-password
+                  key: clouve-password
             - name: ODOO_SKIP_BOOTSTRAP
               value: {{ ternary "yes" "no" .Values.odooSkipInstall | quote }}
             - name: ODOO_LOAD_DEMO_DATA

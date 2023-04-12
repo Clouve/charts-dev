@@ -179,8 +179,8 @@ spec:
             - name: ORANGEHRM_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "orangehrm.secretName" . }}
-                  key: professional-services-password
+                  name: {{ include "common.names.fullname" . }}
+                  key: clouve-password
             - name: ORANGEHRM_ENFORCE_PASSWORD_STRENGTH
               value: {{ ternary "yes" "no" .Values.orangehrmEnforcePasswordStrength | quote }}
             {{- if .Values.smtpHost }}
