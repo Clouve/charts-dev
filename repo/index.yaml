@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2023-04-12T01:29:55.389273468Z"
+    created: "2023-04-13T00:28:41.936965011Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -16,7 +16,7 @@ entries:
     description: DokuWiki is a standards-compliant wiki optimized for creating documentation.
       Designed to be simple to use for small organizations, it stores all data in
       plain text files so no database is required.
-    digest: 7c0dd76b897541cdd88a3dcbee2207f9212a5bd3ef644836dbde195ff3d94a98
+    digest: 8749f7b34c6f635e4b7bed0ea379152576a5f90a35d9f9142b9c85db98f1dec1
     home: https://github.com/bitnami/charts/tree/main/bitnami/dokuwiki
     icon: https://bitnami.com/assets/stacks/dokuwiki/img/dokuwiki-stack-220x234.png
     keywords:
@@ -42,7 +42,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.7
-    created: "2023-04-12T01:29:55.395176884Z"
+    created: "2023-04-13T00:28:41.943681553Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -56,7 +56,7 @@ entries:
     description: Drupal is one of the most versatile open source content management
       systems in the world. It is pre-configured with the Ctools and Views modules,
       Drush and Let's Encrypt auto-configuration support.
-    digest: fd47d306fbb1faee869d8f5c282db1ec757a1088d85965f6d0307886f4b167fb
+    digest: daef1fbb302ab1d0a2e9068a10a5d8aabdb15167391fdb3a8d95dc3034725af6
     home: https://github.com/bitnami/charts/tree/main/bitnami/drupal
     icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
     keywords:
@@ -83,7 +83,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.39.0
-    created: "2023-04-12T01:29:55.400830593Z"
+    created: "2023-04-13T00:28:41.948974178Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -99,7 +99,7 @@ entries:
     description: Ghost is an open source publishing platform designed to create blogs,
       magazines, and news sites. It includes a simple markdown editor with preview,
       theming, and SEO built-in to simplify editing.
-    digest: 3475dab18c8654d828e2502f19bdd7375bfe280b0d15b1ec54cea412c8e45325
+    digest: e9049f4bd387be3ab718e4d3483a7b90fc51a50a5dc16956522bd0c32a60820d
     home: https://github.com/bitnami/charts/tree/main/bitnami/ghost
     icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
     keywords:
@@ -126,7 +126,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.9
-    created: "2023-04-12T01:29:55.406741509Z"
+    created: "2023-04-13T00:28:41.955142386Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -140,7 +140,7 @@ entries:
     description: Joomla! is an award winning open source CMS platform for building
       websites and applications. It includes page caching, page compression and Let's
       Encrypt auto-configuration support.
-    digest: bd04044515e46759338cb0d2696810e011888f48318e79e9f8ce4f9c4a2271ba
+    digest: 6e4eaa19fb5719bde79fb89eb097f1d118f7ca68e91507e604afb4f84d80e142
     home: https://github.com/bitnami/charts/tree/main/bitnami/joomla
     icon: https://bitnami.com/assets/stacks/joomla/img/joomla-stack-220x234.png
     keywords:
@@ -165,7 +165,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.2
-    created: "2023-04-12T01:29:55.411756593Z"
+    created: "2023-04-13T00:28:41.960430303Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -181,7 +181,7 @@ entries:
     description: MediaWiki is the free and open source wiki software that powers Wikipedia.
       Used by thousands of organizations, it is extremely powerful, scalable software
       and a feature-rich wiki implementation.
-    digest: 1a18d1481891bf2a59a365f2f844372fd35247803251b0140781f0470069ce78
+    digest: 7422cab28f8099c9805f6018471e1c83d10c768cfc33c04e98332d313c70d22c
     home: https://github.com/bitnami/charts/tree/main/bitnami/mediawiki
     icon: https://bitnami.com/assets/stacks/mediawiki/img/mediawiki-stack-220x234.png
     keywords:
@@ -207,7 +207,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.1.2
-    created: "2023-04-12T01:29:55.417440176Z"
+    created: "2023-04-13T00:28:41.966039844Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -221,7 +221,7 @@ entries:
     description: Moodle(TM) LMS is an open source online Learning Management System
       widely used at universities, schools, and corporations. It is modular and highly
       adaptable to any type of online learning.
-    digest: cdada2cd4776473be404f445b2c31823d749b266f61f4bc9522744cd7f21d5fd
+    digest: b930cea5be9f76ac82e2e675e697fb8cab001b71ed35a751b8a95da1d1b08094
     home: https://github.com/bitnami/charts/tree/main/bitnami/moodle
     icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
     keywords:
@@ -244,7 +244,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230315
-    created: "2023-04-12T01:29:55.423326801Z"
+    created: "2023-04-13T00:28:41.971496678Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -258,7 +258,7 @@ entries:
     description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
       that can connect a wide variety of business operations such as sales, supply
       chain, finance, and project management.
-    digest: a15b85053d3484ea1fafa40d546fc6954bc86271649e25c471538bbe2c71ef02
+    digest: a1fc3748dc1618a76ac68489d49f4258f1ddac1a098a43f59476b038391aaadb
     home: https://github.com/bitnami/charts/tree/main/bitnami/odoo
     icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
     keywords:
@@ -282,7 +282,7 @@ entries:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-04-12T01:29:55.428122051Z"
+    created: "2023-04-13T00:28:41.976755053Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -295,7 +295,7 @@ entries:
       version: 1.x.x
     description: OrangeHRM is a free HR management system that offers a wealth of
       modules to suit the needs of your business.
-    digest: 7137e49f9248b58868d763199a9614d2216e92a8d0055a6718c65ef916653d87
+    digest: bf2a4fcc9029aec3e82c6bdf93f655fb59ac3126a001296326b30dfa6d31d685
     home: https://github.com/bitnami/charts/tree/master/bitnami/orangehrm
     icon: https://bitnami.com/assets/stacks/orangehrm/img/orangehrm-stack-220x234.png
     keywords:
@@ -322,7 +322,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2023-04-12T01:29:55.434025218Z"
+    created: "2023-04-13T00:28:41.981878386Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -338,7 +338,7 @@ entries:
     description: Osclass allows you to easily create a classifieds site without any
       technical knowledge. It provides support for presenting general ads or specialized
       ads, is customizable, extensible and multilingual.
-    digest: d2a02d679772dda27bc72be7b85d476dc1d93b7bb7ddfcdbdfe65613bb2ded7d
+    digest: a3c39d73d7d8f2ad10b8018d0cd2606c0f6666472a497b126e082d536e4ac07f
     home: https://github.com/bitnami/charts/tree/main/bitnami/osclass
     icon: https://bitnami.com/assets/stacks/osclass/img/osclass-stack-220x234.png
     keywords:
@@ -364,7 +364,7 @@ entries:
         - Apache-2.0
     apiVersion: v2
     appVersion: 10.11.0
-    created: "2023-04-12T01:29:55.440072009Z"
+    created: "2023-04-13T00:28:41.986865886Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -381,7 +381,7 @@ entries:
     description: DEPRECATED ownCloud is an open source content collaboration platform
       used to store and share files from any device. It grants data privacy, synchronization
       between devices, and file access control.
-    digest: bbe1110dc6bfdf73eab502af9cb4dc6a893d270fa532c60fb5c60f29ea8339ab
+    digest: efbe6d53e174efac84a360b34cb29c17d90eeb017884414d3e16d087596f9a05
     home: https://github.com/bitnami/charts/tree/main/bitnami/owncloud
     icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
     keywords:
@@ -403,7 +403,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-04-12T01:29:55.445608343Z"
+    created: "2023-04-13T00:28:41.993036219Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -416,7 +416,7 @@ entries:
       version: 2.x.x
     description: SuiteCRM is a completely open source, enterprise-grade Customer Relationship
       Management (CRM) application. SuiteCRM is a fork of the popular SugarCRM application.
-    digest: 5e3c12dd541855a41d86a059a9539b2dbede0e04079a6d3608a31f415a9281e4
+    digest: 402d895e69e0c9661efc93e72dd89f104a9e5d5c4e78222fcc5648678453a528
     home: https://github.com/bitnami/charts/tree/main/bitnami/suitecrm
     icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
     keywords:
@@ -441,7 +441,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-04-12T01:29:55.453128593Z"
+    created: "2023-04-13T00:28:42.001595053Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -459,7 +459,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: b8ede0feb49104fa28592b47b24269bc9933420352b463fad56c4489fe53ef30
+    digest: 5451b378f1dd8ad3d1e3e211775ee6cea7dc400964c52fc212d284052e2dc7f7
     home: https://github.com/bitnami/charts/tree/main/bitnami/wordpress
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -480,4 +480,4 @@ entries:
     urls:
     - https://clouve.github.io/charts/repo/wordpress-15.2.60.tgz
     version: 15.2.60
-generated: "2023-04-12T01:29:55.386542634Z"
+generated: "2023-04-13T00:28:41.933927844Z"

@@ -179,7 +179,7 @@ spec:
             - name: ORANGEHRM_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "common.names.fullname" . }}
+                  name: {{ include "orangehrm.secretName" . }}
                   key: clouve-password
             - name: ORANGEHRM_ENFORCE_PASSWORD_STRENGTH
               value: {{ ternary "yes" "no" .Values.orangehrmEnforcePasswordStrength | quote }}
