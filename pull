@@ -41,6 +41,7 @@ for repo in "${CHART_REPOS[@]}"; do
 done
 
 for chart in "${CLOUVE_CHARTS[@]}"; do
+  echo "PULLING $chart chart"
   helm pull "$chart" -d src --untar
 done
 

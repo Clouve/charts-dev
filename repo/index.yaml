@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2023-04-13T16:25:38.884706002Z"
+    created: "2023-04-20T17:24:52.871880965Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -16,7 +16,7 @@ entries:
     description: DokuWiki is a standards-compliant wiki optimized for creating documentation.
       Designed to be simple to use for small organizations, it stores all data in
       plain text files so no database is required.
-    digest: c933f0737f90194499c80b4ff240dbd770f57d69424885504416c86f7c28a9e3
+    digest: d8e36f68652fc0f7d2e8c37a984c6b99fc1e3dc4f14f50b98a7cbfcc595fcea1
     home: https://github.com/bitnami/charts/tree/main/bitnami/dokuwiki
     icon: https://bitnami.com/assets/stacks/dokuwiki/img/dokuwiki-stack-220x234.png
     keywords:
@@ -34,15 +34,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/dokuwiki
     - http://www.dokuwiki.org/
     urls:
-    - https://clouve.github.io/charts/repo/dokuwiki-13.1.19.tgz
-    version: 13.1.19
+    - https://clouve.github.io/charts/repo/dokuwiki-13.1.21.tgz
+    version: 13.1.21
   drupal:
   - annotations:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.7
-    created: "2023-04-13T16:25:38.890590835Z"
+    created: "2023-04-20T17:24:52.878074381Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -56,7 +56,7 @@ entries:
     description: Drupal is one of the most versatile open source content management
       systems in the world. It is pre-configured with the Ctools and Views modules,
       Drush and Let's Encrypt auto-configuration support.
-    digest: e863648c94323a5ae18dd0528dc0731a2e5e7b570e780b77dd97cf345c28ca21
+    digest: f358494db2c1178f9cf6c4352a35abe5d94ea95fce13e285c35995430ee62158
     home: https://github.com/bitnami/charts/tree/main/bitnami/drupal
     icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
     keywords:
@@ -75,15 +75,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/drupal
     - https://www.drupal.org/
     urls:
-    - https://clouve.github.io/charts/repo/drupal-13.0.12.tgz
-    version: 13.0.12
+    - https://clouve.github.io/charts/repo/drupal-13.0.13.tgz
+    version: 13.0.13
   ghost:
   - annotations:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 5.39.0
-    created: "2023-04-13T16:25:38.89646021Z"
+    appVersion: 5.44.0
+    created: "2023-04-20T17:24:52.88408409Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -99,7 +99,7 @@ entries:
     description: Ghost is an open source publishing platform designed to create blogs,
       magazines, and news sites. It includes a simple markdown editor with preview,
       theming, and SEO built-in to simplify editing.
-    digest: f639d14a1f297509342ef561e5f571e6f018a62152ffdea9a80eb489c37afdd5
+    digest: c839d667dbe84e122031eb98986cdd1b3c09f30d2527dc749f75e78bb8bdb839
     home: https://github.com/bitnami/charts/tree/main/bitnami/ghost
     icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
     keywords:
@@ -118,15 +118,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/ghost
     - https://www.ghost.org/
     urls:
-    - https://clouve.github.io/charts/repo/ghost-19.1.79.tgz
-    version: 19.1.79
+    - https://clouve.github.io/charts/repo/ghost-19.1.81.tgz
+    version: 19.1.81
   joomla:
   - annotations:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 4.2.9
-    created: "2023-04-13T16:25:38.902351793Z"
+    appVersion: 4.3.0
+    created: "2023-04-20T17:24:52.88932409Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -140,7 +140,7 @@ entries:
     description: Joomla! is an award winning open source CMS platform for building
       websites and applications. It includes page caching, page compression and Let's
       Encrypt auto-configuration support.
-    digest: dc83bf5173f2f3c2511d6aaf04f632eb0619894312bbc95fe25a125bf1776c3b
+    digest: f30cf883133d6f141636cbdda1ae44e14aba1f02c16beccf4b249090cca52032
     home: https://github.com/bitnami/charts/tree/main/bitnami/joomla
     icon: https://bitnami.com/assets/stacks/joomla/img/joomla-stack-220x234.png
     keywords:
@@ -157,15 +157,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/joomla
     - https://www.joomla.org/
     urls:
-    - https://clouve.github.io/charts/repo/joomla-13.3.18.tgz
-    version: 13.3.18
+    - https://clouve.github.io/charts/repo/joomla-13.3.20.tgz
+    version: 13.3.20
   mediawiki:
   - annotations:
       category: Wiki
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 1.39.2
-    created: "2023-04-13T16:25:38.907765877Z"
+    appVersion: 1.39.3
+    created: "2023-04-20T17:24:52.89534684Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -181,7 +181,7 @@ entries:
     description: MediaWiki is the free and open source wiki software that powers Wikipedia.
       Used by thousands of organizations, it is extremely powerful, scalable software
       and a feature-rich wiki implementation.
-    digest: 9c0d095735ec9bd7ea0037ecd1e3c9d6084301b71442f739bbb52852d169852c
+    digest: 562c222a53d6c688750f54da89014f27713672da68f17279df7a4a2246174581
     home: https://github.com/bitnami/charts/tree/main/bitnami/mediawiki
     icon: https://bitnami.com/assets/stacks/mediawiki/img/mediawiki-stack-220x234.png
     keywords:
@@ -199,15 +199,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/mediawiki
     - https://www.mediawiki.org/
     urls:
-    - https://clouve.github.io/charts/repo/mediawiki-14.3.17.tgz
-    version: 14.3.17
+    - https://clouve.github.io/charts/repo/mediawiki-14.3.18.tgz
+    version: 14.3.18
   moodle:
   - annotations:
       category: E-Learning
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.1.2
-    created: "2023-04-13T16:25:38.913828877Z"
+    created: "2023-04-20T17:24:52.900269215Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -221,7 +221,7 @@ entries:
     description: Moodle(TM) LMS is an open source online Learning Management System
       widely used at universities, schools, and corporations. It is modular and highly
       adaptable to any type of online learning.
-    digest: 571ea87a79a870d8e28fd3d0cdaa2a9239aff6dc007582051f9cfedf574435aa
+    digest: fd5a3fb50cf521486549101f0d4d8baf293359ff1b0dd16ab7e9eb1ee96f946e
     home: https://github.com/bitnami/charts/tree/main/bitnami/moodle
     icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
     keywords:
@@ -236,15 +236,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/moodle
     - https://www.moodle.org/
     urls:
-    - https://clouve.github.io/charts/repo/moodle-14.3.13.tgz
-    version: 14.3.13
+    - https://clouve.github.io/charts/repo/moodle-14.3.14.tgz
+    version: 14.3.14
   odoo:
   - annotations:
       category: CRM
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 16.0.20230315
-    created: "2023-04-13T16:25:38.921980002Z"
+    appVersion: 16.0.20230415
+    created: "2023-04-20T17:24:52.906197215Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -258,7 +258,7 @@ entries:
     description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
       that can connect a wide variety of business operations such as sales, supply
       chain, finance, and project management.
-    digest: 2da84f5dee17465cc4094c94698205abc906fb7f99b27bfc78b60c32b227e100
+    digest: a7934eed32231dd2cb9765326752414cdefa7e2863ab662dbbd50494c5475fd2
     home: https://github.com/bitnami/charts/tree/main/bitnami/odoo
     icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
     keywords:
@@ -275,14 +275,14 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/odoo
     - https://www.odoo.com/
     urls:
-    - https://clouve.github.io/charts/repo/odoo-23.0.10.tgz
-    version: 23.0.10
+    - https://clouve.github.io/charts/repo/odoo-23.0.12.tgz
+    version: 23.0.12
   orangehrm:
   - annotations:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-04-13T16:25:38.927649335Z"
+    created: "2023-04-20T17:24:52.911097756Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -295,7 +295,7 @@ entries:
       version: 1.x.x
     description: OrangeHRM is a free HR management system that offers a wealth of
       modules to suit the needs of your business.
-    digest: 23796b0453c4cc441b402598327fc2c4ea5aed5a68931a425a9fe3108b506221
+    digest: d53e2e49a1424e082ddf96809161d42a828d59203e0e22d2939b37c6d6ef473a
     home: https://github.com/bitnami/charts/tree/master/bitnami/orangehrm
     icon: https://bitnami.com/assets/stacks/orangehrm/img/orangehrm-stack-220x234.png
     keywords:
@@ -322,7 +322,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2023-04-13T16:25:38.933854752Z"
+    created: "2023-04-20T17:24:52.916504131Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -338,7 +338,7 @@ entries:
     description: Osclass allows you to easily create a classifieds site without any
       technical knowledge. It provides support for presenting general ads or specialized
       ads, is customizable, extensible and multilingual.
-    digest: f639feb22d90f9acaf04bf604a133fefe4581cfe32d70865d5828da1fd8821c3
+    digest: 5e4f581b92aada2ae169ca67e7b5f7fb5371774d6afa86c653cecfe9d244ccf9
     home: https://github.com/bitnami/charts/tree/main/bitnami/osclass
     icon: https://bitnami.com/assets/stacks/osclass/img/osclass-stack-220x234.png
     keywords:
@@ -355,8 +355,8 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/osclass
     - https://osclass.org/
     urls:
-    - https://clouve.github.io/charts/repo/osclass-14.2.15.tgz
-    version: 14.2.15
+    - https://clouve.github.io/charts/repo/osclass-14.2.16.tgz
+    version: 14.2.16
   owncloud:
   - annotations:
       category: Infrastructure
@@ -364,7 +364,7 @@ entries:
         - Apache-2.0
     apiVersion: v2
     appVersion: 10.11.0
-    created: "2023-04-13T16:25:38.939860377Z"
+    created: "2023-04-20T17:24:52.922612715Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -381,7 +381,7 @@ entries:
     description: DEPRECATED ownCloud is an open source content collaboration platform
       used to store and share files from any device. It grants data privacy, synchronization
       between devices, and file access control.
-    digest: 50920ef130a88648d20f5a001c77b3ade4101ac208fdcc4a214b4ba2252c01d0
+    digest: f62ae0d0b032251c3484f8ea1c94b647134d2204c3871fc0d0ebd836370f4453
     home: https://github.com/bitnami/charts/tree/main/bitnami/owncloud
     icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
     keywords:
@@ -403,7 +403,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-04-13T16:25:38.945164502Z"
+    created: "2023-04-20T17:24:52.927884006Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -416,7 +416,7 @@ entries:
       version: 2.x.x
     description: SuiteCRM is a completely open source, enterprise-grade Customer Relationship
       Management (CRM) application. SuiteCRM is a fork of the popular SugarCRM application.
-    digest: e8af4abf4fc4fc6ea217ad7916b8e4f15a006cf6d8788e7278b2eea560273575
+    digest: 3321b16c68c1b22370bbe54d49c2a311748341b1d0d0f860e1c67c55d99d02f4
     home: https://github.com/bitnami/charts/tree/main/bitnami/suitecrm
     icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
     keywords:
@@ -433,15 +433,15 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/suitecrm
     - https://www.suitecrm.com/
     urls:
-    - https://clouve.github.io/charts/repo/suitecrm-11.2.12.tgz
-    version: 11.2.12
+    - https://clouve.github.io/charts/repo/suitecrm-11.2.13.tgz
+    version: 11.2.13
   wordpress:
   - annotations:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-04-13T16:25:38.953228627Z"
+    created: "2023-04-20T17:24:52.93537509Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -459,7 +459,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: c8aad361ef5c4a7b7c8238c2297c372ac5dbfbf52382a2f861e6d3868c484e53
+    digest: ea11b5d1ec9a0625b30fa604e41c8d5d64edd31c26324e4750719a75edc6948c
     home: https://github.com/bitnami/charts/tree/main/bitnami/wordpress
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -478,6 +478,6 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/wordpress
     - https://wordpress.org/
     urls:
-    - https://clouve.github.io/charts/repo/wordpress-15.2.60.tgz
-    version: 15.2.60
-generated: "2023-04-13T16:25:38.881701627Z"
+    - https://clouve.github.io/charts/repo/wordpress-15.4.1.tgz
+    version: 15.4.1
+generated: "2023-04-20T17:24:52.869073298Z"
