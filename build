@@ -5,7 +5,7 @@ SCRIPT_PATH="$(
 )"
 MAGNETO_PATH="$SCRIPT_PATH/../magneto"
 
-rm -rf repo/
+rm -rf "$SCRIPT_PATH/repo/"
 
 function helm() {
   docker run -it --rm -a STDOUT \

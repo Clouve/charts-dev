@@ -23,7 +23,8 @@ CLOUVE_CHARTS=(
   "bitnami/wordpress"
 )
 
-rm -rf src/
+rm -rf "$SCRIPT_PATH/src/"
+rm -rf "$SCRIPT_PATH/.helm"
 
 function helm() {
   docker run -it --rm -a STDOUT \
