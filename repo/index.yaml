@@ -5,8 +5,42 @@ entries:
       category: Wiki
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 20230404.1.0
+    created: "2023-06-06T03:48:47.228187721Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: DokuWiki is a standards-compliant wiki optimized for creating documentation.
+      Designed to be simple to use for small organizations, it stores all data in
+      plain text files so no database is required.
+    digest: d7be4ff94a978b04075d5b97b2785d2052a2932a2b7c7484ae186cc9efd9e193
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/dokuwiki/img/dokuwiki-stack-220x234.png
+    keywords:
+    - dokuwiki
+    - wiki
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: dokuwiki
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/dokuwiki
+    urls:
+    - https://clouve.github.io/charts/repo/dokuwiki-14.1.2.tgz
+    version: 14.1.2
+  - annotations:
+      category: Wiki
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2023-04-20T17:24:52.871880965Z"
+    created: "2023-06-06T03:48:47.225488263Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -41,8 +75,47 @@ entries:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 10.0.9
+    created: "2023-06-06T03:48:47.240642638Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Drupal is one of the most versatile open source content management
+      systems in the world. It is pre-configured with the Ctools and Views modules,
+      Drush and Let's Encrypt auto-configuration support.
+    digest: 519c5b40c05b13286696844cfedc8d373fd89a43eeb7e3cc0cdb8525617cc263
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: drupal
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/drupal
+    urls:
+    - https://clouve.github.io/charts/repo/drupal-14.1.4.tgz
+    version: 14.1.4
+  - annotations:
+      category: CMS
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 10.0.7
-    created: "2023-04-20T17:24:52.878074381Z"
+    created: "2023-06-06T03:48:47.234233305Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -82,8 +155,49 @@ entries:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 5.50.0
+    created: "2023-06-06T03:48:47.251052388Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - ghost-database
+      version: 9.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Ghost is an open source publishing platform designed to create blogs,
+      magazines, and news sites. It includes a simple markdown editor with preview,
+      theming, and SEO built-in to simplify editing.
+    digest: 63d2ff091ef513b4525b0c8c8e852d84d7df30a6696b39ce21a15763d2d731ac
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: ghost
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/ghost
+    urls:
+    - https://clouve.github.io/charts/repo/ghost-19.3.10.tgz
+    version: 19.3.10
+  - annotations:
+      category: CMS
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 5.44.0
-    created: "2023-04-20T17:24:52.88408409Z"
+    created: "2023-06-06T03:48:47.246473221Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -125,8 +239,45 @@ entries:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 4.3.2
+    created: "2023-06-06T03:48:47.261116763Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Joomla! is an award winning open source CMS platform for building
+      websites and applications. It includes page caching, page compression and Let's
+      Encrypt auto-configuration support.
+    digest: 671e9da9b218900de9faef78bf79a4aa987c349eafeec1797949f35dc581e037
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/joomla/img/joomla-stack-220x234.png
+    keywords:
+    - joomla
+    - cms
+    - blog
+    - http
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: joomla
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/joomla
+    urls:
+    - https://clouve.github.io/charts/repo/joomla-14.1.3.tgz
+    version: 14.1.3
+  - annotations:
+      category: CMS
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 4.3.0
-    created: "2023-04-20T17:24:52.88932409Z"
+    created: "2023-06-06T03:48:47.256546596Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -165,7 +316,47 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2023-04-20T17:24:52.89534684Z"
+    created: "2023-06-06T03:48:47.271663013Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - mediawiki-database
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MediaWiki is the free and open source wiki software that powers Wikipedia.
+      Used by thousands of organizations, it is extremely powerful, scalable software
+      and a feature-rich wiki implementation.
+    digest: fa404fef1d214defe373cacc600a66390ddf0ee2ebf81fcf4549fe778147e746
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/mediawiki/img/mediawiki-stack-220x234.png
+    keywords:
+    - mediawiki
+    - wiki
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: mediawiki
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mediawiki
+    urls:
+    - https://clouve.github.io/charts/repo/mediawiki-15.1.2.tgz
+    version: 15.1.2
+  - annotations:
+      category: Wiki
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 1.39.3
+    created: "2023-06-06T03:48:47.26643168Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -206,8 +397,43 @@ entries:
       category: E-Learning
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 4.2.0
+    created: "2023-06-06T03:48:47.281931305Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Moodle(TM) LMS is an open source online Learning Management System
+      widely used at universities, schools, and corporations. It is modular and highly
+      adaptable to any type of online learning.
+    digest: 140eee8821411ced07de779af3771c0036df4c2fb983e64cfa629c9237113a7c
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
+    keywords:
+    - moodle
+    - learning
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: moodle
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/moodle
+    urls:
+    - https://clouve.github.io/charts/repo/moodle-16.1.2.tgz
+    version: 16.1.2
+  - annotations:
+      category: E-Learning
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 4.1.2
-    created: "2023-04-20T17:24:52.900269215Z"
+    created: "2023-06-06T03:48:47.277212096Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -243,8 +469,45 @@ entries:
       category: CRM
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 16.0.20230515
+    created: "2023-06-06T03:48:47.292703096Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
+      that can connect a wide variety of business operations such as sales, supply
+      chain, finance, and project management.
+    digest: 90cdb55b20dbafee68cb72243992a2a980416a9ab7e19c0c535317f8eca0dee7
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
+    keywords:
+    - odoo
+    - crm
+    - www
+    - http
+    - web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: odoo
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/odoo
+    urls:
+    - https://clouve.github.io/charts/repo/odoo-23.2.4.tgz
+    version: 23.2.4
+  - annotations:
+      category: CRM
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 16.0.20230415
-    created: "2023-04-20T17:24:52.906197215Z"
+    created: "2023-06-06T03:48:47.287727263Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -282,7 +545,7 @@ entries:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-04-20T17:24:52.911097756Z"
+    created: "2023-06-06T03:48:47.298065305Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -295,7 +558,7 @@ entries:
       version: 1.x.x
     description: OrangeHRM is a free HR management system that offers a wealth of
       modules to suit the needs of your business.
-    digest: d53e2e49a1424e082ddf96809161d42a828d59203e0e22d2939b37c6d6ef473a
+    digest: 492535938b5f9f09cc873f4d079589a6fd766079146edf1406f6483d8d46657d
     home: https://github.com/bitnami/charts/tree/master/bitnami/orangehrm
     icon: https://bitnami.com/assets/stacks/orangehrm/img/orangehrm-stack-220x234.png
     keywords:
@@ -321,8 +584,47 @@ entries:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 8.1.2
+    created: "2023-06-06T03:48:47.309635305Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - osclass-database
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Osclass allows you to easily create a classifieds site without any
+      technical knowledge. It provides support for presenting general ads or specialized
+      ads, is customizable, extensible and multilingual.
+    digest: 7fc32f1b5d7e200f9dcf90ef175e1312bc63f7cc52f3e585fc40e1b19803998d
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/osclass/img/osclass-stack-220x234.png
+    keywords:
+    - osclass
+    - classifieds
+    - http
+    - web
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: osclass
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/osclass
+    urls:
+    - https://clouve.github.io/charts/repo/osclass-15.1.1.tgz
+    version: 15.1.1
+  - annotations:
+      category: CMS
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 8.1.1
-    created: "2023-04-20T17:24:52.916504131Z"
+    created: "2023-06-06T03:48:47.30449668Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -364,7 +666,7 @@ entries:
         - Apache-2.0
     apiVersion: v2
     appVersion: 10.11.0
-    created: "2023-04-20T17:24:52.922612715Z"
+    created: "2023-06-06T03:48:47.314551013Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -381,7 +683,7 @@ entries:
     description: DEPRECATED ownCloud is an open source content collaboration platform
       used to store and share files from any device. It grants data privacy, synchronization
       between devices, and file access control.
-    digest: f62ae0d0b032251c3484f8ea1c94b647134d2204c3871fc0d0ebd836370f4453
+    digest: a189b5be883d3d0246ca21526c8eaf6f533a1b827d95be98a8e59aa53b3a49ce
     home: https://github.com/bitnami/charts/tree/main/bitnami/owncloud
     icon: https://bitnami.com/assets/stacks/owncloud/img/owncloud-stack-220x234.png
     keywords:
@@ -402,8 +704,44 @@ entries:
       category: CRM
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 7.13.3
+    created: "2023-06-06T03:48:47.325425471Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: SuiteCRM is a completely open source, enterprise-grade Customer Relationship
+      Management (CRM) application. SuiteCRM is a fork of the popular SugarCRM application.
+    digest: 5d34e0f6ec5e43ec42d1496c256bbdcbc6eefe7dd3d38a7f93528d552272f229
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
+    keywords:
+    - suitecrm
+    - crm
+    - http
+    - web
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: suitecrm
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/suitecrm
+    urls:
+    - https://clouve.github.io/charts/repo/suitecrm-12.1.2.tgz
+    version: 12.1.2
+  - annotations:
+      category: CRM
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-04-20T17:24:52.927884006Z"
+    created: "2023-06-06T03:48:47.320006596Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -440,8 +778,51 @@ entries:
       category: CMS
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 6.2.2
+    created: "2023-06-06T03:48:47.339319471Z"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 6.x.x
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: WordPress is the world's most popular blogging and content management
+      platform. Powerful yet simple, everyone from students to global corporations
+      use it to build beautiful, functional websites.
+    digest: 3543e48b34ecdb0b9c62fc16ef00fb61663822b36a58916af283ff5eb5f0319f
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - application
+    - blog
+    - cms
+    - http
+    - php
+    - web
+    - wordpress
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+    urls:
+    - https://clouve.github.io/charts/repo/wordpress-16.1.12.tgz
+    version: 16.1.12
+  - annotations:
+      category: CMS
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-04-20T17:24:52.93537509Z"
+    created: "2023-06-06T03:48:47.331996805Z"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -480,4 +861,4 @@ entries:
     urls:
     - https://clouve.github.io/charts/repo/wordpress-15.4.1.tgz
     version: 15.4.1
-generated: "2023-04-20T17:24:52.869073298Z"
+generated: "2023-06-06T03:48:47.222347971Z"

@@ -1,14 +1,24 @@
 # Clouve Charts
 
+- dokuwiki 14.1.2
 - dokuwiki 13.1.21
+- drupal 14.1.4
 - drupal 13.0.13
+- ghost 19.3.10
 - ghost 19.1.81
+- joomla 14.1.3
 - joomla 13.3.20
+- mediawiki 15.1.2
 - mediawiki 14.3.18
+- moodle 16.1.2
 - moodle 14.3.14
+- odoo 23.2.4
 - odoo 23.0.12
 - orangehrm 11.0.1
+- osclass 15.1.1
 - osclass 14.2.16
 - owncloud 12.2.11
+- suitecrm 12.1.2
 - suitecrm 11.2.13
+- wordpress 16.1.12
 - wordpress 15.4.1
