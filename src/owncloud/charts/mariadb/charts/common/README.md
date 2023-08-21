@@ -2,6 +2,13 @@
 
 A [Helm Library Chart](https://helm.sh/docs/topics/library_charts/#helm) for grouping common logic between bitnami charts.
 
+## Azure-ready Charts with Containers from marketplace.azurecr.io
+
+This Helm Chart has been configured to pull the Container Images from the Azure Marketplace Public Repository.
+The following command allows you to download and install all the charts from this repository.
+```bash
+$ helm repo add bitnami-azure https://marketplace.azurecr.io/helm/v1/repo
+```
 ## TL;DR
 
 ```yaml
@@ -43,11 +50,10 @@ The following table lists the helpers available in the library which are scoped 
 
 | Helper identifier             | Description                                          | Expected Input                                 |
 |-------------------------------|------------------------------------------------------|------------------------------------------------|
-| `common.affinities.nodes.soft`  | Return a soft nodeAffinity definition                 | `dict "key" "FOO" "values" (list "BAR" "BAZ")`  |
-| `common.affinities.nodes.hard`  | Return a hard nodeAffinity definition                 | `dict "key" "FOO" "values" (list "BAR" "BAZ")`  |
-| `common.affinities.pods.soft`   | Return a soft podAffinity/podAntiAffinity definition  | `dict "component" "FOO" "context" $`            |
-| `common.affinities.pods.hard`   | Return a hard podAffinity/podAntiAffinity definition  | `dict "component" "FOO" "context" $`            |
-| `common.affinities.topologyKey` | Return a topologyKey definition                       | `dict "topologyKey" "FOO"`                      |
+| `common.affinities.nodes.soft` | Return a soft nodeAffinity definition                | `dict "key" "FOO" "values" (list "BAR" "BAZ")` |
+| `common.affinities.nodes.hard` | Return a hard nodeAffinity definition                | `dict "key" "FOO" "values" (list "BAR" "BAZ")` |
+| `common.affinities.pods.soft`  | Return a soft podAffinity/podAntiAffinity definition | `dict "component" "FOO" "context" $`           |
+| `common.affinities.pods.hard`  | Return a hard podAffinity/podAntiAffinity definition | `dict "component" "FOO" "context" $`           |
 
 ### Capabilities
 
@@ -108,12 +114,12 @@ The following table lists the helpers available in the library which are scoped 
 
 ### Secrets
 
-| Helper identifier                 | Description                                                  | Expected Input                                                                                                                                                                                                                  |
-|-----------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `common.secrets.name`             | Generate the name of the secret.                             | `dict "existingSecret" .Values.path.to.the.existingSecret "defaultNameSuffix" "mySuffix" "context" $` see [ExistingSecret](#existingsecret) for the structure.                                                                  |
-| `common.secrets.key`              | Generate secret key.                                         | `dict "existingSecret" .Values.path.to.the.existingSecret "key" "keyName"` see [ExistingSecret](#existingsecret) for the structure.                                                                                             |
-| `common.secrets.passwords.manage` | Generate secret password or retrieve one if already created. | `dict "secret" "secret-name" "key" "keyName" "providedValues" (list "path.to.password1" "path.to.password2") "length" 10 "strong" false "chartName" "chartName" "context" $`, length, strong and chartNAme fields are optional. |
-| `common.secrets.exists`           | Returns whether a previous generated secret already exists.  | `dict "secret" "secret-name" "context" $`                                                                                                                                                                                       |
+| Helper identifier         | Description                                                  | Expected Input                                                                                                                                                                                                                  |
+|---------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `common.secrets.name`     | Generate the name of the secret.                             | `dict "existingSecret" .Values.path.to.the.existingSecret "defaultNameSuffix" "mySuffix" "context" $` see [ExistingSecret](#existingsecret) for the structure.                                                                  |
+| `common.secrets.key`      | Generate secret key.                                         | `dict "existingSecret" .Values.path.to.the.existingSecret "key" "keyName"` see [ExistingSecret](#existingsecret) for the structure.                                                                                             |
+| `common.passwords.manage` | Generate secret password or retrieve one if already created. | `dict "secret" "secret-name" "key" "keyName" "providedValues" (list "path.to.password1" "path.to.password2") "length" 10 "strong" false "chartName" "chartName" "context" $`, length, strong and chartNAme fields are optional. |
+| `common.secrets.exists`   | Returns whether a previous generated secret already exists.  | `dict "secret" "secret-name" "context" $`                                                                                                                                                                                       |
 
 ### Storage
 
@@ -168,7 +174,7 @@ registry:
 repository:
   type: string
   description: Repository and image name
-  example: bitnami/nginx
+  example: bitnami-azure/nginx
 
 tag:
   type: string
@@ -192,7 +198,7 @@ debug:
 
 ## An instance would be:
 # registry: docker.io
-# repository: bitnami/nginx
+# repository: bitnami-azure/nginx
 # tag: 1.16.1-debian-10-r63
 # pullPolicy: IfNotPresent
 # debug: false

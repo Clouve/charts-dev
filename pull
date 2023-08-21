@@ -18,7 +18,7 @@ CLOUVE_CHARTS=(
   "bitnami/odoo" \
   "bitnami-azure/orangehrm"
   "bitnami/osclass" \
-  "bitnami/owncloud" \
+  "bitnami-azure/owncloud" \
   "bitnami/suitecrm" \
   "bitnami/wordpress"
 )

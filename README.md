@@ -17,7 +17,7 @@
 - orangehrm 11.0.1
 - osclass 15.1.1
 - osclass 14.2.16
-- owncloud 12.2.11
+- owncloud 12.2.5
 - suitecrm 12.1.2
 - suitecrm 11.2.13
 - wordpress 16.1.12
