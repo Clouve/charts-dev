@@ -16,7 +16,6 @@ CLOUVE_CHARTS=(
   "bitnami/mediawiki" \
   "bitnami/moodle" \
   "bitnami/odoo" \
-  "bitnami-azure/orangehrm"
   "bitnami/osclass" \
   "bitnami-azure/owncloud" \
   "bitnami/suitecrm" \
