@@ -1,8 +1,11 @@
 annotations:
   category: CRM
+  images: |
+    - name: odoo
+      image: docker.io/bitnami/odoo:16.0.20230915-debian-11-r0
   licenses: Apache-2.0
 apiVersion: v2
-appVersion: 16.0.20230515
+appVersion: 16.0.20230915
 dependencies:
 - condition: postgresql.enabled
   name: postgresql
@@ -30,4 +33,4 @@ maintainers:
 name: odoo
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/odoo
-version: 23.2.4
+version: 23.3.3

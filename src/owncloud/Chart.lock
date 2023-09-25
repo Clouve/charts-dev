@@ -1,9 +1,0 @@
-dependencies:
-- name: mariadb
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 11.3.3
-- name: common
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 2.0.3
-digest: sha256:b07486cd16b9cd286e80b4d2d89ad1b728888ab04915aedc838548b8fb08331c
-generated: "2022-10-20T20:22:38.611265934Z"

@@ -4,22 +4,17 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-CHART_REPOS=(
-  "bitnami|https://charts.bitnami.com/bitnami" \
-  "bitnami-azure|https://marketplace.azurecr.io/helm/v1/repo"
-)
 CLOUVE_CHARTS=(
-  "bitnami/dokuwiki" \
-  "bitnami/drupal" \
-  "bitnami/ghost" \
-  "bitnami/joomla" \
-  "bitnami/mediawiki" \
-  "bitnami/moodle" \
-  "bitnami/odoo" \
-  "bitnami/osclass" \
-  "bitnami-azure/owncloud" \
-  "bitnami/suitecrm" \
-  "bitnami/wordpress"
+  "oci://registry-1.docker.io/bitnamicharts/dokuwiki" \
+  "oci://registry-1.docker.io/bitnamicharts/drupal" \
+  "oci://registry-1.docker.io/bitnamicharts/ghost" \
+  "oci://registry-1.docker.io/bitnamicharts/joomla" \
+  "oci://registry-1.docker.io/bitnamicharts/mediawiki" \
+  "oci://registry-1.docker.io/bitnamicharts/moodle" \
+  "oci://registry-1.docker.io/bitnamicharts/odoo" \
+  "oci://registry-1.docker.io/bitnamicharts/osclass" \
+  "oci://registry-1.docker.io/bitnamicharts/suitecrm" \
+  "oci://registry-1.docker.io/bitnamicharts/wordpress"
 )
 
 rm -rf "$SCRIPT_PATH/src/"
@@ -34,11 +29,6 @@ function helm() {
     --entrypoint "helm" \
     alpine/helm "$@"
 }
-
-for repo in "${CHART_REPOS[@]}"; do
-  IFS='|' read -ra repo_arr <<< "$repo"
-  helm repo add "${repo_arr[0]}" "${repo_arr[1]}"
-done
 
 for chart in "${CLOUVE_CHARTS[@]}"; do
   echo "PULLING $chart chart"
