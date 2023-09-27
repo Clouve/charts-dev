@@ -7,6 +7,7 @@
 - drupal 15.1.4
 - drupal 14.1.4
 - drupal 13.0.13
+- ghost 19.5.9
 - ghost 19.5.8
 - ghost 19.3.10
 - ghost 19.1.81

@@ -3,48 +3,6 @@ SCRIPT_PATH="$(
   cd "$(dirname "$0")" || exit
   pwd -P
 )"
-MAGNETO_PATH="$SCRIPT_PATH/../magneto"
-
-function helm() {
-  docker run -it --rm -a STDOUT \
-    -w "/clv" \
-    -v "$SCRIPT_PATH:/clv" \
-    --entrypoint "helm" \
-    alpine/helm "$@"
-}
-
-for d in "$SCRIPT_PATH"/src/*/; do
-  chart_name=$(basename "$d")
-  helm lint "src/$chart_name"
-  echo "PACKAGING src/$chart_name"
-  helm package "src/$chart_name" -d repo
-  helm package "src/$chart_name" -d temp-repo
-  echo "-------------------------------------"
-done
-
-echo "Indexing charts"
-helm repo index repo --url https://clouve.github.io/charts/repo/
-helm repo index temp-repo --url https://clouve.github.io/charts/repo/
-
-echo "Generating README.md"
-echo "# Clouve Charts" > README.md
-echo "" >> README.md
-
-yq '.entries | to_entries | .[] | "- " + .key + " " + .value.[].version' "$SCRIPT_PATH/repo/index.yaml" >> README.md
-
-CHARTS=$(yq e -o=j -I=0 '.entries | to_entries | .[] | .key + "," + .value.[].version + "," + .value.[].appVersion' "$SCRIPT_PATH/temp-repo/index.yaml")
-rm -rf "$SCRIPT_PATH/temp-repo/"
-
-for CHART in $CHARTS; do
-  IFS=',' read -ra CHART_ARR <<< "${CHART//\"/}"
-  chart_name="${CHART_ARR[0]}"
-  chart_version="${CHART_ARR[1]}"
-  chart_appVersion="${CHART_ARR[2]}"
-  echo "PROCESSING $chart_name [version: $chart_version, appVersion: $chart_appVersion]"
-  find "$MAGNETO_PATH/self-service/templates/$chart_name/.agent-config/helm" -name "*.json*" \
-    -exec sed -i'.temp' -E "s/\"version\": \".+\"/\"version\": \"${chart_version}\"/g" {} +
-  find "$MAGNETO_PATH/self-service/templates/$chart_name/.service-config" -name "*.json*" \
-    -exec sed -i'.temp' -E "s/\"serviceVersion\": \".+\"/\"serviceVersion\": \"${chart_appVersion}\"/g" {} +
-  find "$MAGNETO_PATH/self-service/templates/$chart_name" -name "*.temp" \
-    -exec sh -c 'rm "$1"' _ {} \;
-done
+"$SCRIPT_PATH"/pull
+"$SCRIPT_PATH"/process
+"$SCRIPT_PATH"/package
