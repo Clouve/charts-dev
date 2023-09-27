@@ -1,4 +1,4 @@
-# Clouve Charts dev
+# Clouve Charts
 
 - dokuwiki 14.2.2
 - dokuwiki 14.1.2
