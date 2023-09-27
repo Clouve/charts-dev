@@ -3,6 +3,7 @@
 - dokuwiki 14.2.2
 - dokuwiki 14.1.2
 - dokuwiki 13.1.21
+- drupal 15.1.5
 - drupal 15.1.4
 - drupal 14.1.4
 - drupal 13.0.13
@@ -18,6 +19,7 @@
 - moodle 17.1.2
 - moodle 16.1.2
 - moodle 14.3.14
+- odoo 23.3.4
 - odoo 23.3.3
 - odoo 23.2.4
 - odoo 23.0.12
@@ -28,6 +30,7 @@
 - suitecrm 13.1.1
 - suitecrm 12.1.2
 - suitecrm 11.2.13
+- wordpress 17.1.12
 - wordpress 17.1.10
 - wordpress 16.1.12
 - wordpress 15.4.1

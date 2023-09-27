@@ -115,7 +115,7 @@ spec:
             - name: JOOMLA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "joomla.secretName" . }}
+                  name: {{ include "joomla.secretName" . }}
                   key: clouve-password
             - name: JOOMLA_EMAIL
               value: {{ default "" .Values.joomlaEmail | quote }}

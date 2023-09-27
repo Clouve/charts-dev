@@ -34,19 +34,3 @@ for chart in "${CLOUVE_CHARTS[@]}"; do
   echo "PULLING $chart chart"
   helm pull "$chart" -d src --untar
 done
-
-for d in "$SCRIPT_PATH"/src/*/; do
-  chart_name=$(basename "$d")
-  CONFIG_REPLACE="$chart_name-password"
-  CONFIG_REPLACEMENT="clouve-password"
-  IFS=',' read -ra CONFIG_REPLACE_ARR <<< "$CONFIG_REPLACE"
-  IFS=',' read -ra CONFIG_REPLACEMENT_ARR <<< "$CONFIG_REPLACEMENT"
-  echo "PROCESSING $chart_name"
-  for i in "${!CONFIG_REPLACE_ARR[@]}"
-  do
-    if [[ -n "${CONFIG_REPLACE_ARR[i]}" && -n "${CONFIG_REPLACEMENT_ARR[i]}" ]]; then
-      echo "REPLACING [${CONFIG_REPLACE_ARR[i]}] WITH [${CONFIG_REPLACEMENT_ARR[i]}]"
-      find "$SCRIPT_PATH"/src/"$chart_name" -type f -not -path "*/\.*" -exec sed -i "" -e "s;${CONFIG_REPLACE_ARR[i]};${CONFIG_REPLACEMENT_ARR[i]};g" {} +
-    fi
-  done
-done
