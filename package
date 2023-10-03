@@ -23,14 +23,14 @@ for d in "$SCRIPT_PATH"/src/*/; do
 done
 
 echo "Indexing charts"
-helm repo index repo --url https://clouve.github.io/charts/repo/
-helm repo index temp-repo --url https://clouve.github.io/charts/repo/
+helm repo index repo --url "/charts/repo/"
+helm repo index temp-repo --url "/charts/repo/"
 
 echo "Generating README.md"
 echo "# Clouve Charts" > README.md
 echo "" >> README.md
 
-yq '.entries | to_entries | .[] | "- " + .key + " " + .value.[].version' "$SCRIPT_PATH/repo/index.yaml" >> README.md
+yq '.entries | to_entries | .[] | "- [" + .key + " " + .value.[].version + "]("+ .value.[].urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
 
 CHARTS=$(yq e -o=j -I=0 '.entries | to_entries | .[] | .key + "," + .value.[].version + "," + .value.[].appVersion' "$SCRIPT_PATH/temp-repo/index.yaml")
 rm -rf "$SCRIPT_PATH/temp-repo/"
