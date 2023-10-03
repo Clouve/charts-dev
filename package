@@ -27,8 +27,7 @@ helm repo index repo --url "/repo/"
 helm repo index temp-repo --url "/repo/"
 
 echo "Generating README.md"
-CHARTS_REPO_URL=$(cat CNAME)
-echo "# Clouve Charts ($CHARTS_REPO_URL)" > README.md
+echo "# Clouve Charts" > README.md
 echo "" >> README.md
 
 yq '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md

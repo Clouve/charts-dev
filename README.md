@@ -1,4 +1,4 @@
-# Clouve Charts (charts-dev.clouve.net)
+# Clouve Charts
 
 - [dokuwiki 14.2.2](/repo/dokuwiki-14.2.2.tgz)
 - [dokuwiki 14.1.2](/repo/dokuwiki-14.1.2.tgz)
