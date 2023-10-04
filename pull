@@ -18,17 +18,6 @@ CLOUVE_CHARTS=(
 )
 
 rm -rf "$SCRIPT_PATH/src/"
-rm -rf "$SCRIPT_PATH/.helm"
-
-function helm() {
-  docker run -it --rm -a STDOUT \
-    -w "/clv" \
-    -v "$SCRIPT_PATH:/clv" \
-    -v "$SCRIPT_PATH/.helm/.config:/root/.config" \
-    -v "$SCRIPT_PATH/.helm:/root" \
-    --entrypoint "helm" \
-    alpine/helm "$@"
-}
 
 for chart in "${CLOUVE_CHARTS[@]}"; do
   echo "PULLING $chart chart"
