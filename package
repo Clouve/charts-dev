@@ -4,14 +4,7 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 MAGNETO_PATH="$SCRIPT_PATH/../magneto"
-
-function helm() {
-  docker run -it --rm -a STDOUT \
-    -w "/clv" \
-    -v "$SCRIPT_PATH:/clv" \
-    --entrypoint "helm" \
-    alpine/helm "$@"
-}
+TIMESTAMP=$(date +"%Y-%m-%d-%H-%M-%S")
 
 for d in "$SCRIPT_PATH"/src/*/; do
   chart_name=$(basename "$d")
@@ -27,7 +20,7 @@ helm repo index repo --url "/repo/"
 helm repo index temp-repo --url "/repo/"
 
 echo "Generating README.md"
-echo "# Clouve Charts" > README.md
+echo "# Clouve Charts (Build ID: $TIMESTAMP)" > README.md
 echo "" >> README.md
 
 yq '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
