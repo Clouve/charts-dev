@@ -17,7 +17,7 @@ echo "Indexing charts"
 helm repo index repo --url "/repo/"
 
 echo "Generating README.md"
-echo "# Clouve Charts (Build ID: $TIMESTAMP)" > README.md
+echo "# Clouve's Charts (Build ID: $TIMESTAMP)" > README.md
 echo "" >> README.md
 
 yq '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
