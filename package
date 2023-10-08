@@ -3,7 +3,6 @@ SCRIPT_PATH="$(
   cd "$(dirname "$0")" || exit
   pwd -P
 )"
-TIMESTAMP=$(date +"%Y-%m-%d-%H-%M-%S")
 
 for d in "$SCRIPT_PATH"/src/*/; do
   chart_name=$(basename "$d")
@@ -16,8 +15,10 @@ done
 echo "Indexing charts"
 helm repo index repo --url "/repo/"
 
+BUILD_ID=$(yq '.generated' "$SCRIPT_PATH/repo/index.yaml")
+
 echo "Generating README.md"
-echo "# Clouve's Charts (Build ID: $TIMESTAMP)" > README.md
+echo "# Clouve's Charts (Build ID: $BUILD_ID)" > README.md
 echo "" >> README.md
 
 yq '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
