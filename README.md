@@ -1,4 +1,4 @@
-# Clouve's Charts (Build ID: 2023-10-04T18:00:27.370214-07:00)
+# Clouve's Charts (Build ID: 2023-10-25T15:10:28.62245-07:00)
 
 - [dokuwiki 14.2.2](/repo/dokuwiki-14.2.2.tgz)
 - [dokuwiki 14.1.2](/repo/dokuwiki-14.1.2.tgz)
@@ -20,6 +20,7 @@
 - [mediawiki 16.1.2](/repo/mediawiki-16.1.2.tgz)
 - [mediawiki 15.1.2](/repo/mediawiki-15.1.2.tgz)
 - [mediawiki 14.3.18](/repo/mediawiki-14.3.18.tgz)
+- [moodle 19.0.0](/repo/moodle-19.0.0.tgz)
 - [moodle 17.1.3](/repo/moodle-17.1.3.tgz)
 - [moodle 17.1.2](/repo/moodle-17.1.2.tgz)
 - [moodle 16.1.2](/repo/moodle-16.1.2.tgz)

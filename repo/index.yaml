@@ -13,7 +13,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2023-10-04T18:00:27.375212-07:00"
+    created: "2023-10-25T15:10:28.626653-07:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -47,7 +47,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2023-10-04T18:00:27.373248-07:00"
+    created: "2023-10-25T15:10:28.625069-07:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -81,7 +81,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2023-10-04T18:00:27.371957-07:00"
+    created: "2023-10-25T15:10:28.623827-07:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -124,7 +124,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2023-10-04T18:00:27.390228-07:00"
+    created: "2023-10-25T15:10:28.641716-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -170,7 +170,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2023-10-04T18:00:27.386634-07:00"
+    created: "2023-10-25T15:10:28.63814-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -209,7 +209,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.9
-    created: "2023-10-04T18:00:27.382557-07:00"
+    created: "2023-10-25T15:10:28.634181-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -248,7 +248,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.7
-    created: "2023-10-04T18:00:27.378714-07:00"
+    created: "2023-10-25T15:10:28.630293-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -294,7 +294,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.66.1
-    created: "2023-10-04T18:00:27.400683-07:00"
+    created: "2023-10-25T15:10:28.652122-07:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -340,7 +340,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.1
-    created: "2023-10-04T18:00:27.407543-07:00"
+    created: "2023-10-25T15:10:28.660141-07:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -386,7 +386,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.0
-    created: "2023-10-04T18:00:27.40409-07:00"
+    created: "2023-10-25T15:10:28.655379-07:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -427,7 +427,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.50.0
-    created: "2023-10-04T18:00:27.397016-07:00"
+    created: "2023-10-25T15:10:28.648466-07:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -468,7 +468,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.44.0
-    created: "2023-10-04T18:00:27.39389-07:00"
+    created: "2023-10-25T15:10:28.645295-07:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -516,7 +516,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2023-10-04T18:00:27.42166-07:00"
+    created: "2023-10-25T15:10:28.673917-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -558,7 +558,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2023-10-04T18:00:27.418323-07:00"
+    created: "2023-10-25T15:10:28.67028-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -595,7 +595,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.2
-    created: "2023-10-04T18:00:27.414501-07:00"
+    created: "2023-10-25T15:10:28.666959-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -632,7 +632,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2023-10-04T18:00:27.411161-07:00"
+    created: "2023-10-25T15:10:28.663517-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -676,7 +676,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2023-10-04T18:00:27.435828-07:00"
+    created: "2023-10-25T15:10:28.687942-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -721,7 +721,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.0
-    created: "2023-10-04T18:00:27.432488-07:00"
+    created: "2023-10-25T15:10:28.684554-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -761,7 +761,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2023-10-04T18:00:27.428678-07:00"
+    created: "2023-10-25T15:10:28.68087-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -801,7 +801,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2023-10-04T18:00:27.425359-07:00"
+    created: "2023-10-25T15:10:28.677553-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -842,6 +842,48 @@ entries:
       category: E-Learning
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r10
+        - name: moodle
+          image: docker.io/bitnami/moodle:4.3.0-debian-11-r0
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 4.3.0
+    created: "2023-10-25T15:10:28.705959-07:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Moodle(TM) LMS is an open source online Learning Management System
+      widely used at universities, schools, and corporations. It is modular and highly
+      adaptable to any type of online learning.
+    digest: 383a9c29271b95b8ce9307918d1d561bba6bcf9b867a12dea634ebb3bd6bf1db
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
+    keywords:
+    - moodle
+    - learning
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: moodle
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/moodle
+    urls:
+    - /repo/moodle-19.0.0.tgz
+    version: 19.0.0
+  - annotations:
+      category: E-Learning
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r0
         - name: moodle
           image: docker.io/bitnami/moodle:4.2.2-debian-11-r44
@@ -850,7 +892,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2023-10-04T18:00:27.450336-07:00"
+    created: "2023-10-25T15:10:28.702196-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -892,7 +934,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2023-10-04T18:00:27.446551-07:00"
+    created: "2023-10-25T15:10:28.698767-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -927,7 +969,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.0
-    created: "2023-10-04T18:00:27.443131-07:00"
+    created: "2023-10-25T15:10:28.694999-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -962,7 +1004,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.1.2
-    created: "2023-10-04T18:00:27.439449-07:00"
+    created: "2023-10-25T15:10:28.691647-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1002,7 +1044,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-04T18:00:27.471164-07:00"
+    created: "2023-10-25T15:10:28.725883-07:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1042,7 +1084,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-04T18:00:27.466439-07:00"
+    created: "2023-10-25T15:10:28.72173-07:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1082,7 +1124,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-04T18:00:27.462467-07:00"
+    created: "2023-10-25T15:10:28.717544-07:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1119,7 +1161,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230515
-    created: "2023-10-04T18:00:27.457781-07:00"
+    created: "2023-10-25T15:10:28.713497-07:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1156,7 +1198,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230415
-    created: "2023-10-04T18:00:27.453851-07:00"
+    created: "2023-10-25T15:10:28.709604-07:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1194,7 +1236,7 @@ entries:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-10-04T18:00:27.474551-07:00"
+    created: "2023-10-25T15:10:28.729156-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1241,7 +1283,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2023-10-04T18:00:27.485551-07:00"
+    created: "2023-10-25T15:10:28.740083-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1280,7 +1322,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2023-10-04T18:00:27.481653-07:00"
+    created: "2023-10-25T15:10:28.736604-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1319,7 +1361,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2023-10-04T18:00:27.478301-07:00"
+    created: "2023-10-25T15:10:28.732853-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1367,7 +1409,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2023-10-04T18:00:27.496101-07:00"
+    created: "2023-10-25T15:10:28.75118-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1403,7 +1445,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.3
-    created: "2023-10-04T18:00:27.492716-07:00"
+    created: "2023-10-25T15:10:28.747334-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1439,7 +1481,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-10-04T18:00:27.488942-07:00"
+    created: "2023-10-25T15:10:28.743927-07:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1484,7 +1526,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-04T18:00:27.523091-07:00"
+    created: "2023-10-25T15:10:28.778255-07:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1534,7 +1576,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-04T18:00:27.51741-07:00"
+    created: "2023-10-25T15:10:28.772683-07:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1584,7 +1626,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-04T18:00:27.512381-07:00"
+    created: "2023-10-25T15:10:28.767181-07:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1627,7 +1669,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.2
-    created: "2023-10-04T18:00:27.506786-07:00"
+    created: "2023-10-25T15:10:28.761563-07:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1670,7 +1712,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-10-04T18:00:27.501468-07:00"
+    created: "2023-10-25T15:10:28.756276-07:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1709,4 +1751,4 @@ entries:
     urls:
     - /repo/wordpress-15.4.1.tgz
     version: 15.4.1
-generated: "2023-10-04T18:00:27.370214-07:00"
+generated: "2023-10-25T15:10:28.62245-07:00"
