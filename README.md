@@ -1,4 +1,4 @@
-# Clouve's Charts (Build ID: 2023-11-17T11:37:41.705719-08:00)
+# Clouve's Charts (Build ID: 2023-11-17T14:08:46.747919-08:00)
 
 - [dokuwiki 14.3.1](/repo/dokuwiki-14.3.1.tgz)
 - [dokuwiki 14.2.5](/repo/dokuwiki-14.2.5.tgz)
@@ -24,7 +24,6 @@
 - [joomla 15.1.2](/repo/joomla-15.1.2.tgz)
 - [joomla 14.1.3](/repo/joomla-14.1.3.tgz)
 - [joomla 13.3.20](/repo/joomla-13.3.20.tgz)
-- [mariadb 14.1.2](/repo/mariadb-14.1.2.tgz)
 - [mediawiki 17.2.1](/repo/mediawiki-17.2.1.tgz)
 - [mediawiki 17.1.0](/repo/mediawiki-17.1.0.tgz)
 - [mediawiki 16.1.3](/repo/mediawiki-16.1.3.tgz)
