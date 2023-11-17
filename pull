@@ -5,6 +5,7 @@ SCRIPT_PATH="$(
 )"
 
 CLOUVE_CHARTS=(
+  "oci://registry-1.docker.io/bitnamicharts/mariadb" \
   "oci://registry-1.docker.io/bitnamicharts/dokuwiki" \
   "oci://registry-1.docker.io/bitnamicharts/drupal" \
   "oci://registry-1.docker.io/bitnamicharts/ghost" \

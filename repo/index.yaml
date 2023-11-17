@@ -5,6 +5,47 @@ entries:
       category: Wiki
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: dokuwiki
+          image: docker.io/bitnami/dokuwiki:20230404.1.0-debian-11-r102
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 20230404.1.0
+    created: "2023-11-17T11:37:41.712763-08:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: DokuWiki is a standards-compliant wiki optimized for creating documentation.
+      Designed to be simple to use for small organizations, it stores all data in
+      plain text files so no database is required.
+    digest: 65ba5ee06889bcad5368a1e300d74b4699cbd632ebda52ead583798fc0b86287
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/dokuwiki/img/dokuwiki-stack-220x234.png
+    keywords:
+    - dokuwiki
+    - wiki
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: dokuwiki
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/dokuwiki
+    urls:
+    - /repo/dokuwiki-14.3.1.tgz
+    version: 14.3.1
+  - annotations:
+      category: Wiki
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r10
         - name: dokuwiki
           image: docker.io/bitnami/dokuwiki:20230404.1.0-debian-11-r102
@@ -13,7 +54,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2023-10-25T15:15:19.691375-07:00"
+    created: "2023-11-17T11:37:41.71144-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -54,7 +95,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2023-10-25T15:15:19.690124-07:00"
+    created: "2023-11-17T11:37:41.710103-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -88,7 +129,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2023-10-25T15:15:19.688464-07:00"
+    created: "2023-11-17T11:37:41.708365-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -122,7 +163,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2023-10-25T15:15:19.686444-07:00"
+    created: "2023-11-17T11:37:41.707115-08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -157,6 +198,52 @@ entries:
       category: CMS
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: drupal
+          image: docker.io/bitnami/drupal:10.1.6-debian-11-r2
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 10.1.6
+    created: "2023-11-17T11:37:41.735715-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Drupal is one of the most versatile open source content management
+      systems in the world. It is pre-configured with the Ctools and Views modules,
+      Drush and Let's Encrypt auto-configuration support.
+    digest: f0e1e4810bf32188b127d38c97ae04571b93a62c4b14ca4c382dbdd39d28c95c
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
+    keywords:
+    - drupal
+    - cms
+    - blog
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: drupal
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/drupal
+    urls:
+    - /repo/drupal-16.1.3.tgz
+    version: 16.1.3
+  - annotations:
+      category: CMS
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r10
         - name: drupal
           image: docker.io/bitnami/drupal:10.1.5-debian-11-r3
@@ -165,7 +252,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.5
-    created: "2023-10-25T15:15:19.711674-07:00"
+    created: "2023-11-17T11:37:41.731704-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -211,7 +298,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2023-10-25T15:15:19.708006-07:00"
+    created: "2023-11-17T11:37:41.72806-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -257,7 +344,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2023-10-25T15:15:19.703668-07:00"
+    created: "2023-11-17T11:37:41.724029-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -296,7 +383,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.9
-    created: "2023-10-25T15:15:19.69937-07:00"
+    created: "2023-11-17T11:37:41.719981-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -335,7 +422,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.7
-    created: "2023-10-25T15:15:19.695555-07:00"
+    created: "2023-11-17T11:37:41.716634-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -375,13 +462,59 @@ entries:
       category: CMS
       images: |
         - name: ghost
+          image: docker.io/bitnami/ghost:5.73.2-debian-11-r0
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r91
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 5.73.2
+    created: "2023-11-17T11:37:41.759597-08:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - ghost-database
+      version: 9.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Ghost is an open source publishing platform designed to create blogs,
+      magazines, and news sites. It includes a simple markdown editor with preview,
+      theming, and SEO built-in to simplify editing.
+    digest: ffbdc680166471b537e5916528482a195420cef56888d5f2b168ddc9311a37e7
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
+    keywords:
+    - ghost
+    - blog
+    - http
+    - web
+    - application
+    - nodejs
+    - javascript
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: ghost
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/ghost
+    urls:
+    - /repo/ghost-19.6.7.tgz
+    version: 19.6.7
+  - annotations:
+      category: CMS
+      images: |
+        - name: ghost
           image: docker.io/bitnami/ghost:5.70.2-debian-11-r0
         - name: os-shell
           image: docker.io/bitnami/os-shell:11-debian-11-r90
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.70.2
-    created: "2023-10-25T15:15:19.726533-07:00"
+    created: "2023-11-17T11:37:41.749328-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -427,7 +560,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.66.1
-    created: "2023-10-25T15:15:19.723191-07:00"
+    created: "2023-11-17T11:37:41.745651-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -473,7 +606,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.1
-    created: "2023-10-25T15:15:19.734095-07:00"
+    created: "2023-11-17T11:37:41.756195-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -519,7 +652,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.0
-    created: "2023-10-25T15:15:19.730355-07:00"
+    created: "2023-11-17T11:37:41.752616-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -560,7 +693,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.50.0
-    created: "2023-10-25T15:15:19.719184-07:00"
+    created: "2023-11-17T11:37:41.742424-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -601,7 +734,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.44.0
-    created: "2023-10-25T15:15:19.715884-07:00"
+    created: "2023-11-17T11:37:41.738884-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -649,7 +782,49 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.0.0
-    created: "2023-10-25T15:15:19.751774-07:00"
+    created: "2023-11-17T11:37:41.780135-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Joomla! is an award winning open source CMS platform for building
+      websites and applications. It includes page caching, page compression and Let's
+      Encrypt auto-configuration support.
+    digest: a42f258cd0c957855d4892277247238c32e15c31c1a011ed7a12445d0bc36807
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/joomla/img/joomla-stack-220x234.png
+    keywords:
+    - joomla
+    - cms
+    - blog
+    - http
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: joomla
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/joomla
+    urls:
+    - /repo/joomla-17.1.1.tgz
+    version: 17.1.1
+  - annotations:
+      category: CMS
+      images: |
+        - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: joomla
+          image: docker.io/bitnami/joomla:5.0.0-debian-11-r1
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 5.0.0
+    created: "2023-11-17T11:37:41.776819-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -691,7 +866,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2023-10-25T15:15:19.748285-07:00"
+    created: "2023-11-17T11:37:41.773186-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -733,7 +908,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2023-10-25T15:15:19.744908-07:00"
+    created: "2023-11-17T11:37:41.769944-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -770,7 +945,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.2
-    created: "2023-10-25T15:15:19.741252-07:00"
+    created: "2023-11-17T11:37:41.766406-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -807,7 +982,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2023-10-25T15:15:19.737921-07:00"
+    created: "2023-11-17T11:37:41.763144-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -840,7 +1015,93 @@ entries:
     urls:
     - /repo/joomla-13.3.20.tgz
     version: 13.3.20
+  mariadb:
+  - annotations:
+      category: Database
+      images: |
+        - name: mariadb
+          image: docker.io/bitnami/mariadb:11.1.3-debian-11-r0
+        - name: mysqld-exporter
+          image: docker.io/bitnami/mysqld-exporter:0.15.0-debian-11-r71
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r91
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 11.1.3
+    created: "2023-11-17T11:37:41.782385-08:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MariaDB is an open source, community-developed SQL database server
+      that is widely in use around the world due to its enterprise features, flexibility,
+      and collaboration with leading tech firms.
+    digest: f91c7afec8ae0d179a0b4088aa455204944f5663730d865b0114e23261cfec5d
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    - prometheus
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
+    urls:
+    - /repo/mariadb-14.1.2.tgz
+    version: 14.1.2
   mediawiki:
+  - annotations:
+      category: Wiki
+      images: |
+        - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: mediawiki
+          image: docker.io/bitnami/mediawiki:1.40.1-debian-11-r4
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 1.40.1
+    created: "2023-11-17T11:37:41.803551-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - mediawiki-database
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MediaWiki is the free and open source wiki software that powers Wikipedia.
+      Used by thousands of organizations, it is extremely powerful, scalable software
+      and a feature-rich wiki implementation.
+    digest: bf27aabfeb7a489b524b72b9e04ca36027f9453ca7174bdbbdb49d9e5fd86655
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/mediawiki/img/mediawiki-stack-220x234.png
+    keywords:
+    - mediawiki
+    - wiki
+    - http
+    - web
+    - application
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: mediawiki
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mediawiki
+    urls:
+    - /repo/mediawiki-17.2.1.tgz
+    version: 17.2.1
   - annotations:
       category: Wiki
       images: |
@@ -851,7 +1112,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2023-10-25T15:15:19.769826-07:00"
+    created: "2023-11-17T11:37:41.800109-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -896,7 +1157,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2023-10-25T15:15:19.766498-07:00"
+    created: "2023-11-17T11:37:41.796385-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -941,7 +1202,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.0
-    created: "2023-10-25T15:15:19.762735-07:00"
+    created: "2023-11-17T11:37:41.792711-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -981,7 +1242,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2023-10-25T15:15:19.758989-07:00"
+    created: "2023-11-17T11:37:41.789343-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1021,7 +1282,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2023-10-25T15:15:19.755287-07:00"
+    created: "2023-11-17T11:37:41.785723-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1062,6 +1323,48 @@ entries:
       category: E-Learning
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: moodle
+          image: docker.io/bitnami/moodle:4.3.0-debian-11-r1
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 4.3.0
+    created: "2023-11-17T11:37:41.825236-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Moodle(TM) LMS is an open source online Learning Management System
+      widely used at universities, schools, and corporations. It is modular and highly
+      adaptable to any type of online learning.
+    digest: c90f3f04b7f98a69d200e95b8315d65e33bb1264ca7f63f4710c00856ca71cec
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
+    keywords:
+    - moodle
+    - learning
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: moodle
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/moodle
+    urls:
+    - /repo/moodle-19.1.1.tgz
+    version: 19.1.1
+  - annotations:
+      category: E-Learning
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r10
         - name: moodle
           image: docker.io/bitnami/moodle:4.3.0-debian-11-r0
@@ -1070,7 +1373,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2023-10-25T15:15:19.789103-07:00"
+    created: "2023-11-17T11:37:41.821803-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1112,7 +1415,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2023-10-25T15:15:19.785526-07:00"
+    created: "2023-11-17T11:37:41.818051-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1154,7 +1457,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2023-10-25T15:15:19.781417-07:00"
+    created: "2023-11-17T11:37:41.814648-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1189,7 +1492,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.0
-    created: "2023-10-25T15:15:19.777608-07:00"
+    created: "2023-11-17T11:37:41.810871-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1224,7 +1527,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.1.2
-    created: "2023-10-25T15:15:19.773772-07:00"
+    created: "2023-11-17T11:37:41.807474-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1260,11 +1563,51 @@ entries:
       category: CRM
       images: |
         - name: odoo
+          image: docker.io/bitnami/odoo:17.0.20231105-debian-11-r0
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 17.0.20231105
+    created: "2023-11-17T11:37:41.853764-08:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
+      that can connect a wide variety of business operations such as sales, supply
+      chain, finance, and project management.
+    digest: 11083d5a296be43404cf6314cafef2632f31fce65d9e2af3806aedf4d4c1c9cd
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
+    keywords:
+    - odoo
+    - crm
+    - www
+    - http
+    - web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: odoo
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/odoo
+    urls:
+    - /repo/odoo-25.0.1.tgz
+    version: 25.0.1
+  - annotations:
+      category: CRM
+      images: |
+        - name: odoo
           image: docker.io/bitnami/odoo:16.0.20231015-debian-11-r0
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20231015
-    created: "2023-10-25T15:15:19.814257-07:00"
+    created: "2023-11-17T11:37:41.849542-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1304,7 +1647,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-25T15:15:19.810026-07:00"
+    created: "2023-11-17T11:37:41.845728-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1344,7 +1687,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-25T15:15:19.805922-07:00"
+    created: "2023-11-17T11:37:41.841494-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1384,7 +1727,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2023-10-25T15:15:19.801571-07:00"
+    created: "2023-11-17T11:37:41.837246-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1421,7 +1764,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230515
-    created: "2023-10-25T15:15:19.79679-07:00"
+    created: "2023-11-17T11:37:41.833101-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1458,7 +1801,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230415
-    created: "2023-10-25T15:15:19.793166-07:00"
+    created: "2023-11-17T11:37:41.829117-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -1496,7 +1839,7 @@ entries:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2023-10-25T15:15:19.817615-07:00"
+    created: "2023-11-17T11:37:41.857529-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1535,6 +1878,52 @@ entries:
       category: CMS
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+        - name: osclass
+          image: docker.io/bitnami/osclass:8.1.2-debian-11-r100
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 8.1.2
+    created: "2023-11-17T11:37:41.87566-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - osclass-database
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Osclass allows you to easily create a classifieds site without any
+      technical knowledge. It provides support for presenting general ads or specialized
+      ads, is customizable, extensible and multilingual.
+    digest: 3544194885396cf3c75b40aef33692fed88f1b14a26e7212b0e7d65c7c45da72
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/osclass/img/osclass-stack-220x234.png
+    keywords:
+    - osclass
+    - classifieds
+    - http
+    - web
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: osclass
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/osclass
+    urls:
+    - /repo/osclass-17.1.1.tgz
+    version: 17.1.1
+  - annotations:
+      category: CMS
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.2-debian-11-r10
         - name: os-shell
           image: docker.io/bitnami/os-shell:11-debian-11-r90
@@ -1543,7 +1932,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2023-10-25T15:15:19.833008-07:00"
+    created: "2023-11-17T11:37:41.872141-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1589,7 +1978,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2023-10-25T15:15:19.829063-07:00"
+    created: "2023-11-17T11:37:41.868379-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1628,7 +2017,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2023-10-25T15:15:19.824994-07:00"
+    created: "2023-11-17T11:37:41.864959-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1667,7 +2056,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2023-10-25T15:15:19.821455-07:00"
+    created: "2023-11-17T11:37:41.860993-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1715,7 +2104,50 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2023-10-25T15:15:19.848286-07:00"
+    created: "2023-11-17T11:37:41.894342-08:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: SuiteCRM is a completely open source, enterprise-grade Customer Relationship
+      Management (CRM) application. SuiteCRM is a fork of the popular SugarCRM application.
+    digest: 65a078a52a40c13c5ae8c7e84f058c432224864acafe271091b082869536ed21
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
+    keywords:
+    - suitecrm
+    - crm
+    - http
+    - web
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: suitecrm
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/suitecrm
+    urls:
+    - /repo/suitecrm-14.1.0.tgz
+    version: 14.1.0
+  - annotations:
+      category: CRM
+      images: |
+        - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.1-debian-11-r2
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r25
+        - name: suitecrm
+          image: docker.io/bitnami/suitecrm:7.13.4-debian-11-r15
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.13.4
+    created: "2023-11-17T11:37:41.890773-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1758,7 +2190,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2023-10-25T15:15:19.844489-07:00"
+    created: "2023-11-17T11:37:41.886801-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1794,7 +2226,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.3
-    created: "2023-10-25T15:15:19.840916-07:00"
+    created: "2023-11-17T11:37:41.883283-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1830,7 +2262,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2023-10-25T15:15:19.836925-07:00"
+    created: "2023-11-17T11:37:41.879532-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1867,6 +2299,56 @@ entries:
       category: CMS
       images: |
         - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r1
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r91
+        - name: wordpress
+          image: docker.io/bitnami/wordpress:6.4.1-debian-11-r4
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 6.4.1
+    created: "2023-11-17T11:37:41.932409-08:00"
+    dependencies:
+    - condition: memcached.enabled
+      name: memcached
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 6.x.x
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: WordPress is the world's most popular blogging and content management
+      platform. Powerful yet simple, everyone from students to global corporations
+      use it to build beautiful, functional websites.
+    digest: 8397f4fb7c03912d20d1b282edb71e369dbc3c1c548d7899f69730aa814b3279
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+    keywords:
+    - application
+    - blog
+    - cms
+    - http
+    - php
+    - web
+    - wordpress
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: wordpress
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+    urls:
+    - /repo/wordpress-18.1.14.tgz
+    version: 18.1.14
+  - annotations:
+      category: CMS
+      images: |
+        - name: apache-exporter
           image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
         - name: os-shell
           image: docker.io/bitnami/os-shell:11-debian-11-r90
@@ -1875,7 +2357,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.2
-    created: "2023-10-25T15:15:19.882028-07:00"
+    created: "2023-11-17T11:37:41.926864-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1925,7 +2407,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-25T15:15:19.876544-07:00"
+    created: "2023-11-17T11:37:41.921421-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -1975,7 +2457,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-25T15:15:19.870591-07:00"
+    created: "2023-11-17T11:37:41.915684-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -2025,7 +2507,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2023-10-25T15:15:19.865032-07:00"
+    created: "2023-11-17T11:37:41.910533-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -2068,7 +2550,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.2
-    created: "2023-10-25T15:15:19.859311-07:00"
+    created: "2023-11-17T11:37:41.904939-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -2111,7 +2593,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2023-10-25T15:15:19.853673-07:00"
+    created: "2023-11-17T11:37:41.899654-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -2150,4 +2632,4 @@ entries:
     urls:
     - /repo/wordpress-15.4.1.tgz
     version: 15.4.1
-generated: "2023-10-25T15:15:19.684299-07:00"
+generated: "2023-11-17T11:37:41.705719-08:00"
