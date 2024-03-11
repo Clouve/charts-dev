@@ -1,6 +1,6 @@
 <!--- app-name: MariaDB -->
 
-# MariaDB packaged by Bitnami
+# Bitnami package for MariaDB
 
 MariaDB is an open source, community-developed SQL database server that is widely in use around the world due to its enterprise features, flexibility, and collaboration with leading tech firms.
 
@@ -11,10 +11,10 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 ## TL;DR
 
 ```console
-helm install my-release oci://REGISTRY_NAME/REPOSITORY_NAME/mariadb
+helm install my-release oci://registry-1.docker.io/bitnamicharts/mariadb
 ```
 
-> Note: You need to substitute the placeholders `REGISTRY_NAME` and `REPOSITORY_NAME` with a reference to your Helm chart registry and repository. For example, in the case of Bitnami, you need to use `REGISTRY_NAME=registry-1.docker.io` and `REPOSITORY_NAME=bitnamicharts`.
+Looking to use MariaDB in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the enterprise edition of Bitnami Application Catalog.
 
 ## Introduction
 
@@ -23,8 +23,6 @@ This chart bootstraps a [MariaDB](https://github.com/bitnami/containers/tree/mai
 MariaDB is developed as open source software and as a relational database it provides an SQL interface for accessing data. The latest versions of MariaDB also include GIS and JSON features.
 
 Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
-
-Looking to use MariaDB in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the enterprise edition of Bitnami Application Catalog.
 
 ## Prerequisites
 
@@ -116,6 +114,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `primary.command`                                           | Override default container command on MariaDB Primary container(s) (useful when using custom images)              | `[]`                |
 | `primary.args`                                              | Override default container args on MariaDB Primary container(s) (useful when using custom images)                 | `[]`                |
 | `primary.lifecycleHooks`                                    | for the MariaDB Primary container(s) to automate configuration before or after startup                            | `{}`                |
+| `primary.automountServiceAccountToken`                      | Mount Service Account token in pod                                                                                | `false`             |
 | `primary.hostAliases`                                       | Add deployment host aliases                                                                                       | `[]`                |
 | `primary.configuration`                                     | MariaDB Primary configuration to be injected as ConfigMap                                                         | `""`                |
 | `primary.existingConfigmap`                                 | Name of existing ConfigMap with MariaDB Primary configuration.                                                    | `""`                |
@@ -137,8 +136,12 @@ The command removes all the Kubernetes components associated with the chart and 
 | `primary.priorityClassName`                                 | Priority class for MariaDB primary pods assignment                                                                | `""`                |
 | `primary.runtimeClassName`                                  | Runtime Class for MariaDB primary pods                                                                            | `""`                |
 | `primary.podSecurityContext.enabled`                        | Enable security context for MariaDB primary pods                                                                  | `true`              |
+| `primary.podSecurityContext.fsGroupChangePolicy`            | Set filesystem group change policy                                                                                | `Always`            |
+| `primary.podSecurityContext.sysctls`                        | Set kernel settings using the sysctl interface                                                                    | `[]`                |
+| `primary.podSecurityContext.supplementalGroups`             | Set filesystem extra groups                                                                                       | `[]`                |
 | `primary.podSecurityContext.fsGroup`                        | Group ID for the mounted volumes' filesystem                                                                      | `1001`              |
 | `primary.containerSecurityContext.enabled`                  | MariaDB primary container securityContext                                                                         | `true`              |
+| `primary.containerSecurityContext.seLinuxOptions`           | Set SELinux options in container                                                                                  | `nil`               |
 | `primary.containerSecurityContext.runAsUser`                | User ID for the MariaDB primary container                                                                         | `1001`              |
 | `primary.containerSecurityContext.runAsNonRoot`             | Set primary container's Security Context runAsNonRoot                                                             | `true`              |
 | `primary.containerSecurityContext.privileged`               | Set primary container's Security Context privileged                                                               | `false`             |
@@ -212,6 +215,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `secondary.command`                                           | Override default container command on MariaDB Secondary container(s) (useful when using custom images)                | `[]`                |
 | `secondary.args`                                              | Override default container args on MariaDB Secondary container(s) (useful when using custom images)                   | `[]`                |
 | `secondary.lifecycleHooks`                                    | for the MariaDB Secondary container(s) to automate configuration before or after startup                              | `{}`                |
+| `secondary.automountServiceAccountToken`                      | Mount Service Account token in pod                                                                                    | `false`             |
 | `secondary.hostAliases`                                       | Add deployment host aliases                                                                                           | `[]`                |
 | `secondary.configuration`                                     | MariaDB Secondary configuration to be injected as ConfigMap                                                           | `""`                |
 | `secondary.existingConfigmap`                                 | Name of existing ConfigMap with MariaDB Secondary configuration.                                                      | `""`                |
@@ -233,8 +237,12 @@ The command removes all the Kubernetes components associated with the chart and 
 | `secondary.schedulerName`                                     | Name of the k8s scheduler (other than default)                                                                        | `""`                |
 | `secondary.podManagementPolicy`                               | podManagementPolicy to manage scaling operation of MariaDB secondary pods                                             | `""`                |
 | `secondary.podSecurityContext.enabled`                        | Enable security context for MariaDB secondary pods                                                                    | `true`              |
+| `secondary.podSecurityContext.fsGroupChangePolicy`            | Set filesystem group change policy                                                                                    | `Always`            |
+| `secondary.podSecurityContext.sysctls`                        | Set kernel settings using the sysctl interface                                                                        | `[]`                |
+| `secondary.podSecurityContext.supplementalGroups`             | Set filesystem extra groups                                                                                           | `[]`                |
 | `secondary.podSecurityContext.fsGroup`                        | Group ID for the mounted volumes' filesystem                                                                          | `1001`              |
 | `secondary.containerSecurityContext.enabled`                  | MariaDB secondary container securityContext                                                                           | `true`              |
+| `secondary.containerSecurityContext.seLinuxOptions`           | Set SELinux options in container                                                                                      | `nil`               |
 | `secondary.containerSecurityContext.runAsUser`                | User ID for the MariaDB secondary container                                                                           | `1001`              |
 | `secondary.containerSecurityContext.runAsNonRoot`             | Set secondary container's Security Context runAsNonRoot                                                               | `true`              |
 | `secondary.containerSecurityContext.privileged`               | Set secondary container's Security Context privileged                                                                 | `false`             |
@@ -335,6 +343,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `metrics.extraArgs`                                         | Extra args to be passed to mysqld_exporter                                                                                                | `{}`                              |
 | `metrics.extraVolumeMounts`                                 | Optionally specify extra list of additional volumeMounts for the MariaDB metrics container(s)                                             | `{}`                              |
 | `metrics.containerSecurityContext.enabled`                  | Enable security context for MariaDB metrics container                                                                                     | `false`                           |
+| `metrics.containerSecurityContext.seLinuxOptions`           | Set SELinux options in container                                                                                                          | `nil`                             |
 | `metrics.containerSecurityContext.runAsUser`                | User ID for the MariaDB metrics container                                                                                                 | `1001`                            |
 | `metrics.containerSecurityContext.runAsNonRoot`             | Set metrics container's Security Context runAsNonRoot                                                                                     | `true`                            |
 | `metrics.containerSecurityContext.privileged`               | Set metrics container's Security Context privileged                                                                                       | `false`                           |
@@ -412,11 +421,11 @@ helm install my-release -f values.yaml oci://REGISTRY_NAME/REPOSITORY_NAME/maria
 ```
 
 > Note: You need to substitute the placeholders `REGISTRY_NAME` and `REPOSITORY_NAME` with a reference to your Helm chart registry and repository. For example, in the case of Bitnami, you need to use `REGISTRY_NAME=registry-1.docker.io` and `REPOSITORY_NAME=bitnamicharts`.
-> **Tip**: You can use the default [values.yaml](values.yaml)
+> **Tip**: You can use the default [values.yaml](https://github.com/bitnami/charts/tree/main/bitnami/mariadb/values.yaml)
 
 ## Configuration and installation details
 
-### [Rolling VS Immutable tags](https://docs.bitnami.com/containers/how-to/understand-rolling-tags-containers/)
+### [Rolling VS Immutable tags](https://docs.bitnami.com/tutorials/understand-rolling-tags-containers)
 
 It is strongly recommended to use immutable tags in a production environment. This ensures your deployment does not change automatically if the same tag is updated with a different image.
 
@@ -434,15 +443,59 @@ The allowed extensions are `.sh`, `.sql` and `.sql.gz`.
 
 These scripts are treated differently depending on their extension. While `.sh` scripts are executed on all the nodes, `.sql` and `.sql.gz` scripts are only executed on the primary nodes. This is because `.sh` scripts support conditional tests to identify the type of node they are running on, while such tests are not supported in `.sql` or `.sql.gz` files.
 
-[Refer to the chart documentation for more information and a usage example](https://docs.bitnami.com/kubernetes/infrastructure/mariadb/configuration/customize-new-instance/).
+When using a `.sh` script, you may wish to perform a "one-time" action like creating a database. This can be achieved by adding a condition in the script to ensure that it is executed only on one node, as shown in the example below:
+
+```yaml
+initdbScripts:
+  my_init_script.sh: |
+    #!/bin/sh
+    if [[ $(hostname) == *primary* ]]; then
+      echo "Primary node"
+      mysql -P 3306 -uroot -prandompassword -e "create database new_database";
+    else
+      echo "No primary node"
+    fi
+```
 
 ### Sidecars and Init Containers
 
-If additional containers are needed in the same pod as MariaDB (such as additional metrics or logging exporters), they can be defined using the sidecars parameter.
+If additional containers are needed in the same pod as MariaDB (such as additional metrics or logging exporters), they can be defined using the `sidecars` parameter.
 
-The Helm chart already includes sidecar containers for the Prometheus exporters. These can be activated by adding the `--set enable-metrics=true` parameter at deployment time. The `sidecars` parameter should therefore only be used for any extra sidecar containers. [See an example of configuring and using sidecar containers](https://docs.bitnami.com/kubernetes/infrastructure/mariadb/configuration/configure-sidecar-init-containers/).
+```yaml
+sidecars:
+- name: your-image-name
+  image: your-image
+  imagePullPolicy: Always
+  ports:
+  - name: portname
+    containerPort: 1234
+```
 
-Similarly, additional containers can be added to MariaDB pods using the `initContainers` parameter. [See an example of configuring and using init containers](https://docs.bitnami.com/kubernetes/infrastructure/mariadb/configuration/configure-sidecar-init-containers/).
+If these sidecars export extra ports, extra port definitions can be added using the `service.extraPorts` parameter (where available), as shown in the example below:
+
+```yaml
+service:
+  extraPorts:
+  - name: extraPort
+    port: 11311
+    targetPort: 11311
+```
+
+> NOTE: This Helm chart already includes sidecar containers for the Prometheus exporters (where applicable). These can be activated by adding the `--enable-metrics=true` parameter at deployment time. The `sidecars` parameter should therefore only be used for any extra sidecar containers.
+
+If additional init containers are needed in the same pod, they can be defined using the `initContainers` parameter. Here is an example:
+
+```yaml
+initContainers:
+  - name: your-image-name
+    image: your-image
+    imagePullPolicy: Always
+    ports:
+      - name: portname
+        containerPort: 1234
+```
+
+Learn more about [sidecar containers](https://kubernetes.io/docs/concepts/workloads/pods/) and [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/).
 
 ## Persistence
 
@@ -513,8 +566,6 @@ Affected values:
 
 [On November 13, 2020, Helm v2 support was formally finished](https://github.com/helm/charts#status-of-the-project), this major version is the result of the required changes applied to the Helm Chart to be able to incorporate the different features added in Helm v3 and to be consistent with the Helm project itself regarding the Helm v2 EOL.
 
-[Learn more about this change and related upgrade considerations](https://docs.bitnami.com/kubernetes/infrastructure/mariadb/administration/upgrade-helm3/).
-
 ### To 8.0.0
 
 - Several parameters were renamed or disappeared in favor of new ones on this major version:
@@ -569,7 +620,7 @@ kubectl delete statefulset opencart-mariadb --cascade=false
 
 ## License
 
-Copyright &copy; 2023 VMware, Inc.
+Copyright &copy; 2024 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
