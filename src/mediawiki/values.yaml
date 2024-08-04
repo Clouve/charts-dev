@@ -1,4 +1,4 @@
-# Copyright VMware, Inc.
+# Copyright Broadcom, Inc. All Rights Reserved.
 # SPDX-License-Identifier: APACHE-2.0
 
 ## @section Global parameters
@@ -8,7 +8,8 @@
 
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
-## @param global.storageClass Global StorageClass for Persistent Volume(s)
+## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
+## @param global.storageClass DEPRECATED: use global.defaultStorageClass instead
 ##
 global:
   imageRegistry: ""
@@ -17,6 +18,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
+  defaultStorageClass: ""
   storageClass: ""
   ## Compatibility adaptations for Kubernetes platforms
   ##
@@ -65,7 +67,7 @@ extraDeploy: []
 image:
   registry: docker.io
   repository: bitnami/mediawiki
-  tag: 1.41.1-debian-12-r3
+  tag: 1.42.1-debian-12-r3
   digest: ""
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -275,9 +277,7 @@ startupProbe:
 ## Configure extra options for liveness probe
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
 ## @param livenessProbe.enabled Enable livenessProbe
-## @param livenessProbe.httpGet.path Request path for livenessProbe
-## @param livenessProbe.httpGet.port Port for livenessProbe
-## @param livenessProbe.httpGet.httpHeaders [array] Headers for livenessProbe
+## @param livenessProbe.tcpSocket.port Request port for livenessProbe
 ## @param livenessProbe.initialDelaySeconds Initial delay seconds for livenessProbe
 ## @param livenessProbe.periodSeconds Period seconds for livenessProbe
 ## @param livenessProbe.timeoutSeconds Timeout seconds for livenessProbe
@@ -286,12 +286,8 @@ startupProbe:
 ##
 livenessProbe:
   enabled: true
-  httpGet:
-    path: /api.php?action=query&meta=siteinfo&format=none
+  tcpSocket:
     port: http
-    httpHeaders:
-      - name: Host
-        value: "{{ include \"mediawiki.host\" . }}"
   initialDelaySeconds: 120
   periodSeconds: 10
   timeoutSeconds: 5
@@ -410,6 +406,16 @@ extraVolumeMounts: []
 ##         containerPort: 1234
 ##
 initContainers: []
+## Pod Disruption Budget configuration
+## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
+## @param pdb.create Enable/disable a Pod Disruption Budget creation
+## @param pdb.minAvailable Minimum number/percentage of pods that should remain scheduled
+## @param pdb.maxUnavailable Maximum number/percentage of pods that may be made unavailable. Defaults to `1` if both `pdb.minAvailable` and `pdb.maxUnavailable` are empty.
+##
+pdb:
+  create: true
+  minAvailable: ""
+  maxUnavailable: ""
 ## @param sidecars Add additional sidecar containers to the Mediawki pods
 ## Example:
 ## sidecars:
@@ -732,7 +738,7 @@ metrics:
   image:
     registry: docker.io
     repository: bitnami/apache-exporter
-    tag: 1.0.7-debian-12-r3
+    tag: 1.0.8-debian-12-r6
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
@@ -829,7 +835,7 @@ networkPolicy:
   ## @param networkPolicy.allowExternalEgress Allow the pod to access any range of port and all destinations.
   ##
   allowExternalEgress: true
-  ## @param networkPolicy.extraIngress [array] Add extra ingress rules to the NetworkPolice
+  ## @param networkPolicy.extraIngress [array] Add extra ingress rules to the NetworkPolicy
   ## e.g:
   ## extraIngress:
   ##   - ports:

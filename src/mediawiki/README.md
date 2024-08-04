@@ -14,7 +14,7 @@ Trademarks: This software listing is packaged by Bitnami. The respective tradema
 helm install my-release oci://registry-1.docker.io/bitnamicharts/mediawiki
 ```
 
-Looking to use MediaWiki in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the enterprise edition of Bitnami Application Catalog.
+Looking to use MediaWiki in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
 
 ## Introduction
 
@@ -53,7 +53,7 @@ Bitnami charts allow setting resource requests and limits for all containers ins
 
 To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcePreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
-### [Rolling VS Immutable tags](https://docs.bitnami.com/tutorials/understand-rolling-tags-containers)
+### [Rolling VS Immutable tags](https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-understand-rolling-tags-containers-index.html)
 
 It is strongly recommended to use immutable tags in a production environment. This ensures your deployment does not change automatically if the same tag is updated with a different image.
 
@@ -122,7 +122,8 @@ See the [Parameters](#parameters) section to configure the PVC or to disable per
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | `global.imageRegistry`                                | Global Docker image registry                                                                                                                                                                                                                                                                                                                                        | `""`   |
 | `global.imagePullSecrets`                             | Global Docker registry secret names as an array                                                                                                                                                                                                                                                                                                                     | `[]`   |
-| `global.storageClass`                                 | Global StorageClass for Persistent Volume(s)                                                                                                                                                                                                                                                                                                                        | `""`   |
+| `global.defaultStorageClass`                          | Global default StorageClass for Persistent Volume(s)                                                                                                                                                                                                                                                                                                                | `""`   |
+| `global.storageClass`                                 | DEPRECATED: use global.defaultStorageClass instead                                                                                                                                                                                                                                                                                                                  | `""`   |
 | `global.compatibility.openshift.adaptSecurityContext` | Adapt the securityContext sections of the deployment to make them compatible with Openshift restricted-v2 SCC: remove runAsUser, runAsGroup and fsGroup and let the platform use their allowed default IDs. Possible values: auto (apply if the detected running cluster is Openshift), force (perform the adaptation always), disabled (do not perform adaptation) | `auto` |
 
 ### Common parameters
@@ -204,9 +205,7 @@ See the [Parameters](#parameters) section to configure the PVC or to disable per
 | `startupProbe.failureThreshold`                     | Failure threshold for startupProbe                                                                                                                                                                                | `6`                                               |
 | `startupProbe.successThreshold`                     | Success threshold for startupProbe                                                                                                                                                                                | `1`                                               |
 | `livenessProbe.enabled`                             | Enable livenessProbe                                                                                                                                                                                              | `true`                                            |
-| `livenessProbe.httpGet.path`                        | Request path for livenessProbe                                                                                                                                                                                    | `/api.php?action=query&meta=siteinfo&format=none` |
-| `livenessProbe.httpGet.port`                        | Port for livenessProbe                                                                                                                                                                                            | `http`                                            |
-| `livenessProbe.httpGet.httpHeaders`                 | Headers for livenessProbe                                                                                                                                                                                         | `[]`                                              |
+| `livenessProbe.tcpSocket.port`                      | Request port for livenessProbe                                                                                                                                                                                    | `http`                                            |
 | `livenessProbe.initialDelaySeconds`                 | Initial delay seconds for livenessProbe                                                                                                                                                                           | `120`                                             |
 | `livenessProbe.periodSeconds`                       | Period seconds for livenessProbe                                                                                                                                                                                  | `10`                                              |
 | `livenessProbe.timeoutSeconds`                      | Timeout seconds for livenessProbe                                                                                                                                                                                 | `5`                                               |
@@ -240,6 +239,9 @@ See the [Parameters](#parameters) section to configure the PVC or to disable per
 | `extraVolumes`                                      | Optionally specify extra list of additional volumes for Mediawki pods                                                                                                                                             | `[]`                                              |
 | `extraVolumeMounts`                                 | Optionally specify extra list of additional volumeMounts for Mediawki container(s)                                                                                                                                | `[]`                                              |
 | `initContainers`                                    | Add additional init containers to the Mediawki pods                                                                                                                                                               | `[]`                                              |
+| `pdb.create`                                        | Enable/disable a Pod Disruption Budget creation                                                                                                                                                                   | `true`                                            |
+| `pdb.minAvailable`                                  | Minimum number/percentage of pods that should remain scheduled                                                                                                                                                    | `""`                                              |
+| `pdb.maxUnavailable`                                | Maximum number/percentage of pods that may be made unavailable. Defaults to `1` if both `pdb.minAvailable` and `pdb.maxUnavailable` are empty.                                                                    | `""`                                              |
 | `sidecars`                                          | Add additional sidecar containers to the Mediawki pods                                                                                                                                                            | `[]`                                              |
 | `persistence.enabled`                               | Enable persistence using PVC                                                                                                                                                                                      | `true`                                            |
 | `persistence.storageClass`                          | PVC Storage Class for MediaWiki volume                                                                                                                                                                            | `""`                                              |
@@ -338,7 +340,7 @@ See the [Parameters](#parameters) section to configure the PVC or to disable per
 | `networkPolicy.enabled`                 | Specifies whether a NetworkPolicy should be created             | `true` |
 | `networkPolicy.allowExternal`           | Don't require server label for connections                      | `true` |
 | `networkPolicy.allowExternalEgress`     | Allow the pod to access any range of port and all destinations. | `true` |
-| `networkPolicy.extraIngress`            | Add extra ingress rules to the NetworkPolice                    | `[]`   |
+| `networkPolicy.extraIngress`            | Add extra ingress rules to the NetworkPolicy                    | `[]`   |
 | `networkPolicy.extraEgress`             | Add extra ingress rules to the NetworkPolicy                    | `[]`   |
 | `networkPolicy.ingressNSMatchLabels`    | Labels to match to allow traffic from other namespaces          | `{}`   |
 | `networkPolicy.ingressNSPodMatchLabels` | Pod labels to match to allow traffic from other namespaces      | `{}`   |
@@ -377,6 +379,10 @@ helm install my-release -f values.yaml oci://REGISTRY_NAME/REPOSITORY_NAME/media
 Find more information about how to deal with common errors related to Bitnami's Helm charts in [this troubleshooting guide](https://docs.bitnami.com/general/how-to/troubleshoot-helm-chart-issues).
 
 ## Upgrading
+
+### To 21.0.0
+
+This major release bumps the MariaDB version to 11.4. Follow the [upstream instructions](https://mariadb.com/kb/en/upgrading-from-mariadb-11-3-to-mariadb-11-4/) for upgrading from MariaDB 11.3 to 11.4. No major issues are expected during the upgrade.
 
 ### To 20.0.0
 
@@ -477,7 +483,7 @@ Please read the update notes carefully.
 
 ##### Useful links
 
-- <https://docs.bitnami.com/tutorials/resolve-helm2-helm3-post-migration-issues/>
+- <https://docs.vmware.com/en/VMware-Tanzu-Application-Catalog/services/tutorials/GUID-resolve-helm2-helm3-post-migration-issues-index.html>
 - <https://helm.sh/docs/topics/v2_v3_migration/>
 - <https://helm.sh/blog/migrate-from-helm-v2-to-helm-v3/>
 
