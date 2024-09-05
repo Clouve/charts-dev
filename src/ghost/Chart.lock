@@ -1,9 +1,9 @@
 dependencies:
 - name: mysql
-  repository: oci://registry-1.docker.io/bitnamicharts
-  version: 11.1.14
+  repository: https://marketplace.azurecr.io/helm/v1/repo
+  version: 9.3.5
 - name: common
-  repository: oci://registry-1.docker.io/bitnamicharts
-  version: 2.20.5
-digest: sha256:cb6e197525536b96ee12f0dd0cfd75a97af8f6b02ec5906c94200eb7567430ce
-generated: "2024-07-26T19:34:58.682172952Z"
+  repository: https://marketplace.azurecr.io/helm/v1/repo
+  version: 2.0.3
+digest: sha256:4baac4e14cb0221b4e4301f1570e3ce3b162843c5443119e5210f90f6810eaaa
+generated: "2022-10-22T00:08:18.488889246Z"

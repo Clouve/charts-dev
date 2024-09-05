@@ -4,17 +4,19 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
+helm repo add --force-update requarks https://charts.js.wiki
+helm repo add --force-update bitnami-azure https://marketplace.azurecr.io/helm/v1/repo
+
 CLOUVE_CHARTS=(
-  "oci://registry-1.docker.io/bitnamicharts/dokuwiki" \
-  "oci://registry-1.docker.io/bitnamicharts/drupal" \
-  "oci://registry-1.docker.io/bitnamicharts/ghost" \
-  "oci://registry-1.docker.io/bitnamicharts/joomla" \
-  "oci://registry-1.docker.io/bitnamicharts/mediawiki" \
-  "oci://registry-1.docker.io/bitnamicharts/moodle" \
-  "oci://registry-1.docker.io/bitnamicharts/odoo" \
-  "oci://registry-1.docker.io/bitnamicharts/osclass" \
-  "oci://registry-1.docker.io/bitnamicharts/suitecrm" \
-  "oci://registry-1.docker.io/bitnamicharts/wordpress"
+  "bitnami-azure/drupal" \
+  "bitnami-azure/ghost" \
+  "bitnami-azure/joomla" \
+  "bitnami-azure/mediawiki" \
+  "bitnami-azure/moodle" \
+  "bitnami-azure/odoo" \
+  "bitnami-azure/suitecrm" \
+  "requarks/wiki" \
+  "bitnami-azure/wordpress"
 )
 
 rm -rf "$SCRIPT_PATH/src/"

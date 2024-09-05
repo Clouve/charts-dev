@@ -1,29 +1,21 @@
 annotations:
   category: CMS
-  images: |
-    - name: ghost
-      image: docker.io/bitnami/ghost:5.89.0-debian-12-r0
-    - name: os-shell
-      image: docker.io/bitnami/os-shell:12-debian-12-r27
-  licenses: Apache-2.0
 apiVersion: v2
-appVersion: 5.89.0
+appVersion: 5.20.0
 dependencies:
 - condition: mysql.enabled
   name: mysql
-  repository: oci://registry-1.docker.io/bitnamicharts
+  repository: https://marketplace.azurecr.io/helm/v1/repo
   tags:
   - ghost-database
-  version: 11.x.x
+  version: 9.x.x
 - name: common
-  repository: oci://registry-1.docker.io/bitnamicharts
+  repository: https://marketplace.azurecr.io/helm/v1/repo
   tags:
   - bitnami-common
   version: 2.x.x
-description: Ghost is an open source publishing platform designed to create blogs,
-  magazines, and news sites. It includes a simple markdown editor with preview, theming,
-  and SEO built-in to simplify editing.
-home: https://bitnami.com
+description: Ghost is an open source publishing platform designed to create blogs, magazines, and news sites. It includes a simple markdown editor with preview, theming, and SEO built-in to simplify editing.
+home: https://github.com/bitnami/charts/tree/main/bitnami/ghost
 icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
 keywords:
 - ghost
@@ -34,9 +26,10 @@ keywords:
 - nodejs
 - javascript
 maintainers:
-- name: Broadcom, Inc. All Rights Reserved.
+- name: Bitnami
   url: https://github.com/bitnami/charts
 name: ghost
 sources:
-- https://github.com/bitnami/charts/tree/main/bitnami/ghost
-version: 21.1.27
+- https://github.com/bitnami/containers/tree/main/bitnami/ghost
+- https://www.ghost.org/
+version: 19.1.24

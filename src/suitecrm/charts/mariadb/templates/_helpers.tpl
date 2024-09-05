@@ -1,8 +1,3 @@
-{{/*
-Copyright VMware, Inc.
-SPDX-License-Identifier: APACHE-2.0
-*/}}
-
 {{/* vim: set filetype=mustache: */}}
 
 {{- define "mariadb.primary.fullname" -}}
@@ -51,7 +46,7 @@ Get the initialization scripts ConfigMap name.
 */}}
 {{- define "mariadb.initdbScriptsCM" -}}
 {{- if .Values.initdbScriptsConfigMap -}}
-{{- printf "%s" (tpl .Values.initdbScriptsConfigMap $) -}}
+{{- printf "%s" .Values.initdbScriptsConfigMap -}}
 {{- else -}}
 {{- printf "%s-init-scripts" (include "mariadb.primary.fullname" .) -}}
 {{- end -}}
@@ -115,7 +110,7 @@ Return the secret with MariaDB credentials
 */}}
 {{- define "mariadb.secretName" -}}
     {{- if .Values.auth.existingSecret -}}
-        {{- printf "%s" (tpl .Values.auth.existingSecret $) -}}
+        {{- printf "%s" .Values.auth.existingSecret -}}
     {{- else -}}
         {{- printf "%s" (include "common.names.fullname" .) -}}
     {{- end -}}
@@ -150,15 +145,5 @@ Compile all warnings into a single message, and call fail.
 mariadb: architecture
     Invalid architecture selected. Valid values are "standalone" and
     "replication". Please set a valid architecture (--set architecture="xxxx")
-{{- end -}}
-{{- end -}}
-
-{{/*
-Get existing password to access MariaDB
-*/}}
-{{- define "mariadb.secret.existPassword" -}}
-{{- $secret := (lookup "v1" "Secret" .Release.Namespace (include "mariadb.secretName" .)).data -}}
-{{- if hasKey $secret "mariadb-password" }}
-    {{- true -}}
 {{- end -}}
 {{- end -}}

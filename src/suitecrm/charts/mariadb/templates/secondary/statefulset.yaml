@@ -1,25 +1,22 @@
-{{- /*
-Copyright VMware, Inc.
-SPDX-License-Identifier: APACHE-2.0
-*/}}
-
 {{- if eq .Values.architecture "replication" }}
 apiVersion: {{ include "common.capabilities.statefulset.apiVersion" . }}
 kind: StatefulSet
 metadata:
   name: {{ include "mariadb.secondary.fullname" . }}
   namespace: {{ .Release.Namespace | quote }}
-  labels: {{- include "common.labels.standard" ( dict "customLabels" .Values.commonLabels "context" $ ) | nindent 4 }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
     app.kubernetes.io/component: secondary
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
   {{- if .Values.commonAnnotations }}
   annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
   {{- end }}
 spec:
   replicas: {{ .Values.secondary.replicaCount }}
   revisionHistoryLimit: {{ .Values.secondary.revisionHistoryLimit }}
-  {{- $podLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.secondary.podLabels .Values.commonLabels ) "context" . ) }}
   selector:
-    matchLabels: {{- include "common.labels.matchLabels" ( dict "customLabels" $podLabels "context" $ ) | nindent 6 }}
+    matchLabels: {{ include "common.labels.matchLabels" . | nindent 6 }}
       app.kubernetes.io/component: secondary
   serviceName: {{ include "mariadb.secondary.fullname" . }}
   podManagementPolicy: {{ .Values.secondary.podManagementPolicy }}
@@ -35,8 +32,14 @@ spec:
         {{- if .Values.secondary.podAnnotations }}
         {{- include "common.tplvalues.render" (dict "value" .Values.secondary.podAnnotations "context" $) | nindent 8 }}
         {{- end }}
-      labels: {{- include "common.labels.standard" ( dict "customLabels" $podLabels "context" $ ) | nindent 8 }}
+      labels: {{- include "common.labels.standard" . | nindent 8 }}
         app.kubernetes.io/component: secondary
+        {{- if .Values.secondary.podLabels }}
+        {{- include "common.tplvalues.render" (dict "value" .Values.secondary.podLabels "context" $) | nindent 8 }}
+        {{- end }}
+        {{- if .Values.commonLabels }}
+        {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 8 }}
+        {{- end }}
     spec:
       {{- include "mariadb.imagePullSecrets" . | nindent 6 }}
       {{- if or .Values.secondary.schedulerName .Values.schedulerName }}
@@ -50,8 +53,8 @@ spec:
       affinity: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.affinity "context" $) | nindent 8 }}
       {{- else }}
       affinity:
-        podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.secondary.podAffinityPreset "component" "secondary" "customLabels" $podLabels "context" $) | nindent 10 }}
-        podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.secondary.podAntiAffinityPreset "component" "secondary" "customLabels" $podLabels "context" $) | nindent 10 }}
+        podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.secondary.podAffinityPreset "component" "secondary" "context" $) | nindent 10 }}
+        podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.secondary.podAntiAffinityPreset "component" "secondary" "context" $) | nindent 10 }}
         nodeAffinity: {{- include "common.affinities.nodes" (dict "type" .Values.secondary.nodeAffinityPreset.type "key" .Values.secondary.nodeAffinityPreset.key "values" .Values.secondary.nodeAffinityPreset.values) | nindent 10 }}
       {{- end }}
       {{- if .Values.secondary.nodeSelector }}
@@ -67,11 +70,6 @@ spec:
       priorityClassName: {{ .Values.secondary.priorityClassName | quote }}
       {{- else if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName | quote }}
-      {{- end }}
-      {{- if .Values.secondary.runtimeClassName }}
-      runtimeClassName: {{ .Values.secondary.runtimeClassName | quote }}
-      {{- else if .Values.runtimeClassName }}
-      runtimeClassName: {{ .Values.runtimeClassName | quote }}
       {{- end }}
       {{- if .Values.secondary.podSecurityContext.enabled }}
       securityContext: {{- omit .Values.secondary.podSecurityContext "enabled" | toYaml | nindent 8 }}
@@ -184,9 +182,7 @@ spec:
             - name: mysql
               containerPort: 3306
           {{- if not .Values.diagnosticMode.enabled }}
-          {{- if .Values.secondary.customStartupProbe }}
-          startupProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customStartupProbe "context" $) | nindent 12 }}
-          {{- else if .Values.secondary.startupProbe.enabled }}
+          {{- if .Values.secondary.startupProbe.enabled }}
           startupProbe: {{- omit .Values.secondary.startupProbe "enabled" | toYaml | nindent 12 }}
             exec:
               command:
@@ -198,10 +194,10 @@ spec:
                       password_aux=$(cat "$MARIADB_MASTER_ROOT_PASSWORD_FILE")
                   fi
                   mysqladmin status -uroot -p"${password_aux}"
+          {{- else if .Values.secondary.customStartupProbe }}
+          startupProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customStartupProbe "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.secondary.customLivenessProbe }}
-          livenessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customLivenessProbe "context" $) | nindent 12 }}
-          {{- else if .Values.secondary.livenessProbe.enabled }}
+          {{- if .Values.secondary.livenessProbe.enabled }}
           livenessProbe: {{- omit .Values.secondary.livenessProbe "enabled" | toYaml | nindent 12 }}
             exec:
               command:
@@ -213,10 +209,10 @@ spec:
                       password_aux=$(cat "$MARIADB_MASTER_ROOT_PASSWORD_FILE")
                   fi
                   mysqladmin status -uroot -p"${password_aux}"
+          {{- else if .Values.secondary.customLivenessProbe }}
+          livenessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customLivenessProbe "context" $) | nindent 12 }}
           {{- end }}
-          {{- if .Values.secondary.customReadinessProbe }}
-          readinessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customReadinessProbe "context" $) | nindent 12 }}
-          {{- else if .Values.secondary.readinessProbe.enabled }}
+          {{- if .Values.secondary.readinessProbe.enabled }}
           readinessProbe: {{- omit .Values.secondary.readinessProbe "enabled" | toYaml | nindent 12 }}
             exec:
               command:
@@ -228,6 +224,8 @@ spec:
                       password_aux=$(cat "$MARIADB_MASTER_ROOT_PASSWORD_FILE")
                   fi
                   mysqladmin status -uroot -p"${password_aux}"
+          {{- else if .Values.secondary.customReadinessProbe }}
+          readinessProbe: {{- include "common.tplvalues.render" (dict "value" .Values.secondary.customReadinessProbe "context" $) | nindent 12 }}
           {{- end }}
           {{- end }}
           {{- if .Values.secondary.resources }}
@@ -281,7 +279,7 @@ spec:
               if [[ -f "${MARIADB_ROOT_PASSWORD_FILE:-}" ]]; then
                   password_aux=$(cat "$MARIADB_ROOT_PASSWORD_FILE")
               fi
-              MYSQLD_EXPORTER_PASSWORD=${password_aux} /bin/mysqld_exporter --mysqld.address=localhost:3306 --mysqld.username=root {{- range .Values.metrics.extraArgs.primary }} {{ . }} {{- end }}
+              DATA_SOURCE_NAME="root:${password_aux}@(localhost:3306)/" /bin/mysqld_exporter {{- range .Values.metrics.extraArgs.secondary }} {{ . }} {{- end }}
           {{- end }}
           ports:
             - name: metrics
@@ -341,8 +339,7 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: data
-        {{- $claimLabels := include "common.tplvalues.merge" ( dict "values" ( list .Values.secondary.persistence.labels .Values.commonLabels ) "context" . ) }}
-        labels: {{- include "common.labels.matchLabels" ( dict "customLabels" $claimLabels "context" $ ) | nindent 10 }}
+        labels: {{ include "common.labels.matchLabels" . | nindent 10 }}
           app.kubernetes.io/component: secondary
         {{- if .Values.secondary.persistence.annotations }}
         annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.secondary.persistence.annotations "context" $ ) | nindent 10 }}
