@@ -6,6 +6,7 @@ SCRIPT_PATH="$(
 
 helm repo add --force-update requarks https://charts.js.wiki
 helm repo add --force-update bitnami-azure https://marketplace.azurecr.io/helm/v1/repo
+helm repo add --force-update nerkho https://charts.nerkho.ch
 
 CLOUVE_CHARTS=(
   "bitnami-azure/drupal" \
@@ -16,7 +17,8 @@ CLOUVE_CHARTS=(
   "bitnami-azure/odoo" \
   "bitnami-azure/suitecrm" \
   "requarks/wiki" \
-  "bitnami-azure/wordpress"
+  "bitnami-azure/wordpress" \
+  "nerkho/bluesky-pds"
 )
 
 rm -rf "$SCRIPT_PATH/src/"
