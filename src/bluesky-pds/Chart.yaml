@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: 0.4.67
+description: A Helm chart to deploy a Bluesky PDS
+name: bluesky-pds
+type: application
+version: 0.1.2
