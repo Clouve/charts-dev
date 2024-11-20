@@ -5,13 +5,13 @@ metadata:
   name: {{ include "bluesky-pds.fullname" . }}
   labels:
     {{- include "bluesky-pds.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
   annotations:
     {{- if .Values.ingress.certManager }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
+    {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- end }}
 spec:
   rules:
     - host: {{ .Values.pdsHostname }}
