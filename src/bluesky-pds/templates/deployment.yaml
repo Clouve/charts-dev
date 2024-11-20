@@ -24,84 +24,67 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "bluesky-pds.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: PDS_HOSTNAME
-              value: {{ .Values.pds.config.hostname }}
-            {{- if .Values.pds.config.secrets.existingSecret }}
-            - name: PDS_JWT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.pds.config.secrets.existingSecret }}
-                  key: jwtSecret
+            {{- if .Values.existingSecret }}
             - name: PDS_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.pds.config.secrets.existingSecret }}
-                  key: adminPassword
-            - name: PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.pds.config.secrets.existingSecret }}
-                  key: plcRotationKey
+                  name: {{ .Values.existingSecret }}
+                  key: clouve-password
             {{- else }}
-            - name: PDS_JWT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: "{{ include "bluesky-pds.fullname" . }}-secret"
-                  key: jwtSecret
             - name: PDS_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: "{{ include "bluesky-pds.fullname" . }}-secret"
-                  key: adminPassword
+                  key: clouve-password
+            {{- end }}
+            - name: PDS_JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "bluesky-pds.fullname" . }}-secret"
+                  key: jwt-secret
             - name: PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX
               valueFrom:
                 secretKeyRef:
                   name: "{{ include "bluesky-pds.fullname" . }}-secret"
-                  key: plcRotationKey
-            {{- end }}
+                  key: plc-rotation-key
+            - name: PDS_HOSTNAME
+              value: {{ .Values.pdsHostname }}
             - name: PDS_DATA_DIRECTORY
-              value: "{{ .Values.pds.config.dataDir }}"
+              value: "{{ .Values.pdsDataDir }}"
             - name: PDS_BLOBSTORE_DISK_LOCATION
-              value: "{{ .Values.pds.config.blobstoreLocation }}"
+              value: "{{ .Values.pdsBlobstoreDiskLocation }}"
             - name: PDS_DID_PLC_URL
-              value: "{{ .Values.pds.config.didPlcUrl }}"
+              value: "{{ .Values.pdsDidPlcUrl }}"
             - name: PDS_BSKY_APP_VIEW_URL
-              value: "{{ .Values.pds.config.bskyAppViewUrl }}"
+              value: "{{ .Values.pdsBskyAppViewUrl }}"
             - name: PDS_BSKY_APP_VIEW_DID
-              value: "{{ .Values.pds.config.bskyAppViewDid }}"
+              value: "{{ .Values.pdsBskyAppViewDid }}"
             - name: PDS_REPORT_SERVICE_URL
-              value: "{{ .Values.pds.config.reportSvcUrl }}"
+              value: "{{ .Values.pdsReportSvcUrl }}"
             - name: PDS_REPORT_SERVICE_DID
-              value: "{{ .Values.pds.config.reportSvcDid }}"
+              value: "{{ .Values.pdsReportSvcDid }}"
             - name: PDS_CRAWLERS
-              value: "{{ .Values.pds.config.crawlers }}"
+              value: "{{ .Values.pdsCrawlers }}"
+            - name: PDS_INVITE_REQUIRED
+              value: "0"
             - name: LOG_ENABLED
-              value: "{{ .Values.pds.config.logEnabled }}"
+              value: "0"
           ports:
-            - name: pds-port
+            - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           volumeMounts:
             - name: data
-              mountPath: {{ .Values.pds.dataStorage.mountPath }}
+              mountPath: {{ .Values.pdsDataDir }}
           livenessProbe:
-            httpGet:
-              path: /xrpc/_health
-              port: pds-port
-          # readinessProbe:
-          #   httpGet:
-          #     path: /
-          #     port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:

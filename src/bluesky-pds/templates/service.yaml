@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: pds-port
+      targetPort: http
       protocol: TCP
-      name: pds-port
+      name: http
   selector:
     {{- include "bluesky-pds.selectorLabels" . | nindent 4 }}

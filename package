@@ -4,13 +4,19 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-for d in "$SCRIPT_PATH"/src/*/; do
-  chart_name=$(basename "$d")
-  helm lint "src/$chart_name"
-  echo "PACKAGING src/$chart_name"
-  helm package "src/$chart_name" -d repo
-  echo "-------------------------------------"
-done
+function pack() {
+  charts_dir=$1
+  for d in "$SCRIPT_PATH/$charts_dir"/*/; do
+    chart_name=$(basename "$d")
+    helm lint "$charts_dir/$chart_name"
+    echo "PACKAGING $charts_dir/$chart_name"
+    helm package "$charts_dir/$chart_name" -d repo
+    echo "-------------------------------------"
+  done
+}
+
+pack "lib"
+pack "src"
 
 echo "Indexing charts"
 helm repo index repo --url "/repo/"

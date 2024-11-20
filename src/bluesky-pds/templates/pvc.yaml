@@ -6,10 +6,13 @@ metadata:
     {{- include "bluesky-pds.labels" . | nindent 4 }}
 spec:
   accessModes:
+  {{- if not (empty .Values.persistence.accessModes) }}
+  {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  {{- else }}
     - ReadWriteOnce
+  {{- end }}
   resources:
     requests:
-      storage: {{ .Values.pds.dataStorage.size }}
-  {{- if ne .Values.pds.dataStorage.storageClass "" }}
-  storageClassName: {{ .Values.pds.dataStorage.storageClass }}
-  {{- end }}
+      storage: {{ .Values.persistence.size | quote }}

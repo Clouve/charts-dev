@@ -4,8 +4,8 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-for d in "$SCRIPT_PATH"/src/*/; do
+for d in "$SCRIPT_PATH"/lib/*/; do
   CHART_NAME=$(basename "$d")
   echo "PROCESSING CHART: $CHART_NAME"
-  find "$SCRIPT_PATH"/src/"$CHART_NAME" -type f -exec "$SCRIPT_PATH/process_file" $CHART_NAME {} \;
+  find "$SCRIPT_PATH"/lib/"$CHART_NAME" -type f -exec "$SCRIPT_PATH/process_file" $CHART_NAME {} \;
 done
