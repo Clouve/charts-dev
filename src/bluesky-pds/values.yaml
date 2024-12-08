@@ -13,8 +13,12 @@ pdsDidPlcUrl: "https://plc.directory"
 pdsBskyAppViewUrl: "https://api.bsky.app"
 pdsBskyAppViewDid: "did:web:api.bsky.app"
 pdsReportSvcUrl: "https://mod.bsky.app"
-pdsReportSvcDid: "did:plc:ar7c4by46qjdydhdevvrndac"
+pdsReportSvcDid: "did:plc:ewvi7nxzyoun6zhxrhs64oiz"
 pdsCrawlers: "https://bsky.network"
+pdsInviteRequired: "0"
+pdsEmailSmtpUrl: ""
+pdsEmailFromAddress: ""
+logEnabled: "0"
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 replicaCount: 1
@@ -32,6 +36,7 @@ imagePullSecrets: []
 # This is to override the chart name.
 nameOverride: ""
 fullnameOverride: ""
+existingSecret: ""
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:

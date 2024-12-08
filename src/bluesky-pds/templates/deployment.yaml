@@ -71,9 +71,13 @@ spec:
             - name: PDS_CRAWLERS
               value: "{{ .Values.pdsCrawlers }}"
             - name: PDS_INVITE_REQUIRED
-              value: "0"
+              value: "{{ .Values.pdsInviteRequired }}"
+            - name: PDS_EMAIL_SMTP_URL
+              value: "{{ .Values.pdsEmailSmtpUrl }}"
+            - name: PDS_EMAIL_FROM_ADDRESS
+              value: "{{ .Values.pdsEmailFromAddress }}"
             - name: LOG_ENABLED
-              value: "0"
+              value: "{{ .Values.logEnabled }}"
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

@@ -1,12 +1,12 @@
 dependencies:
 - name: memcached
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 6.3.0
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 7.5.3
 - name: mariadb
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 11.3.3
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 20.1.1
 - name: common
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 2.1.2
-digest: sha256:7be6dd79c891836faf325ecdedb3b86091af077da4a2453c68b5809a61bcebca
-generated: "2022-11-09T08:31:51.4365291Z"
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 2.27.2
+digest: sha256:13c9c1f9eafa7d4a9edf5febf5975cccca69b19840e0fab29d9a98e21ee58515
+generated: "2024-12-03T15:57:28.120379949Z"

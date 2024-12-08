@@ -5,18 +5,18 @@ SCRIPT_PATH="$(
 )"
 
 helm repo add --force-update requarks https://charts.js.wiki
-helm repo add --force-update bitnami-azure https://marketplace.azurecr.io/helm/v1/repo
+helm repo add --force-update bitnami https://charts.bitnami.com/bitnami
 
 CLOUVE_CHARTS=(
-  "bitnami-azure/drupal" \
-  "bitnami-azure/ghost" \
-  "bitnami-azure/joomla" \
-  "bitnami-azure/mediawiki" \
-  "bitnami-azure/moodle" \
-  "bitnami-azure/odoo" \
-  "bitnami-azure/suitecrm" \
+  "bitnami/drupal" \
+  "bitnami/ghost" \
+  "bitnami/joomla" \
+  "bitnami/mediawiki" \
+  "bitnami/moodle" \
+  "bitnami/odoo" \
+  "bitnami/suitecrm" \
   "requarks/wiki" \
-  "bitnami-azure/wordpress"
+  "bitnami/wordpress"
 )
 
 rm -rf "$SCRIPT_PATH/lib/"

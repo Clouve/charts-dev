@@ -1,3 +1,5 @@
+This Helm chart is deprecated on our side and will not receive new updates.
+
 CHART NAME: {{ .Chart.Name }}
 CHART VERSION: {{ .Chart.Version }}
 APP VERSION: {{ .Chart.AppVersion }}
@@ -57,7 +59,7 @@ host. To configure Joomla! to use and external database host:
 
 1. Complete your Joomla! deployment by running:
 
-  helm upgrade --namespace {{ .Release.Namespace }} {{ .Release.Name }} --set service.type={{ .Values.service.type }},mariadb.enabled=false,externalDatabase.host=YOUR_EXTERNAL_DATABASE_HOST my-repo/joomla
+  helm upgrade --namespace {{ .Release.Namespace }} {{ .Release.Name }} --set service.type={{ .Values.service.type }},mariadb.enabled=false,externalDatabase.host=YOUR_EXTERNAL_DATABASE_HOST oci://registry-1.docker.io/bitnamicharts/joomla
 
 {{- end }}
 
@@ -87,3 +89,4 @@ host. To configure Joomla! to use and external database host:
 WARNING: Review values for the following password in the command, if they are correct please ignore this notice.
   {{- include "common.validations.values.multiple.empty" (dict "required" (list $requiredExternalPassword) "context" $) -}}
 {{- end -}}
+{{- include "common.warnings.resources" (dict "sections" (list "metrics" "") "context" $) }}

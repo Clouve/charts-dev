@@ -49,14 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "bluesky-pds.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "bluesky-pds.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "bluesky-pds.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}

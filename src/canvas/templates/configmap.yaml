@@ -1,0 +1,98 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "canvas.fullname" . }}-config
+  labels:
+    {{- include "canvas.labels" . | nindent 4 }}
+data:
+  database.yml: |
+    production:
+      adapter: postgresql
+      encoding: utf8
+      host: <%= ENV.fetch("POSTGRES_HOST") %>
+      database: <%= ENV.fetch("POSTGRES_DB") %>
+      username: <%= ENV.fetch("POSTGRES_USER") %>
+      password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+      timeout: 5000
+
+  redis.yml: |
+    production:
+      url:
+        - redis://<%= ENV.fetch("REDIS_HOST") %>:6379
+      connect_timeout: 0.5
+      circuit_breaker:
+        error_threshold: 1
+        error_timeout: 2
+
+  security.yml: |
+    production: &default
+      encryption_key: <%= ENV.fetch("ENCRYPTION_KEY") %>
+
+  domain.yml: |
+    production:
+      domain: <%= ENV.fetch("RAILS_HOST_WITH_PORT") %>
+
+  cache_store.yml: |
+    cache_store: redis_cache_store
+
+  file_store.yml: |
+    production:
+      storage: local
+      path_prefix: tmp/files
+
+  delayed_jobs.yml: |
+    production:
+      workers:
+        - queue: canvas_queue
+          workers: 2
+          max_priority: 10
+        - queue: canvas_queue
+          workers: 4
+          # if set, workers will process this many jobs and then die, causing the pool
+          # to spawn another worker. this can help return memory to the OS.
+          # worker_max_job_count: 20
+          #
+          # if set, workers will die and re-spawn of they exceed this memory usage
+          # threshold. they will only die between jobs, not during a job.
+          # worker_max_memory_usage: 1073741824
+          #
+          # disable periodic jobs auditor -- this isn't normally necessary
+          # disable_periodic_jobs: true
+          #
+          # health_check: # see inst-jobs documentation for possible options
+          #   type: consul
+          #   service_name: canvas_jobs
+    default:
+      workers:
+        - queue: canvas_queue
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "canvas.fullname" . }}-config-environments
+  labels:
+    {{- include "canvas.labels" . | nindent 4 }}
+data:
+  production-local.rb: |
+    config.force_ssl = false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "canvas.fullname" . }}-env
+  labels:
+    {{- include "canvas.labels" . | nindent 4 }}
+data:
+  REDIS_HOST: "{{ include "canvas.fullname" . }}-redis-master"
+  POSTGRES_HOST: "{{ include "canvas.fullname" . }}-postgresql"
+  POSTGRES_DB: "{{ .Values.postgresql.auth.database }}"
+  POSTGRES_USER: "{{ .Values.postgresql.auth.username }}"
+  ENCRYPTION_KEY: "{{ .Values.canvasEncryptionKey }}"
+  RAILS_HOST_WITH_PORT: "{{ .Values.canvasHostname }}"
+  CANVAS_LMS_ACCOUNT_NAME: "{{ .Values.canvasLmsAccountName }}"
+  CANVAS_LMS_ADMIN_EMAIL: "{{ .Values.canvasLmsAdminEmail }}"
+  CANVAS_LMS_STATS_COLLECTION: "opt_out"
+  NGINX_MAX_UPLOAD_SIZE: "50M"
+  RAILS_ENV: "production"
+  UPDATE_ENCRYPTION_KEY_HASH: "1"

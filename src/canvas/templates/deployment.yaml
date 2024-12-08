@@ -1,0 +1,138 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "canvas.fullname" . }}
+  labels:
+    {{- include "canvas.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "canvas.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "canvas.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          env:
+            {{- if .Values.existingSecret }}
+            - name: CANVAS_LMS_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.existingSecret }}
+                  key: clouve-password
+            {{- else }}
+            - name: CANVAS_LMS_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "canvas.fullname" . }}-secrets"
+                  key: clouve-password
+            {{- end }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "canvas.fullname" . }}-postgresql"
+                  key: password
+          envFrom:
+            - configMapRef:
+                name: {{ include "canvas.fullname" . }}-env
+          volumeMounts:
+            - name: {{ include "canvas.fullname" . }}-config
+              mountPath: /clouve/canvas/config
+            - name: {{ include "canvas.fullname" . }}-config-environments
+              mountPath: /clouve/canvas/config/environments
+            - name: {{ include "canvas.fullname" . }}-data
+              mountPath: /usr/src
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: {{ .Chart.Name }}-job
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "sleep 5; bundle exec script/delayed_job run" ]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          env:
+            {{- if .Values.existingSecret }}
+            - name: CANVAS_LMS_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.existingSecret }}
+                  key: clouve-password
+            {{- else }}
+            - name: CANVAS_LMS_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "canvas.fullname" . }}-secrets"
+                  key: clouve-password
+            {{- end }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ include "canvas.fullname" . }}-postgresql"
+                  key: password
+          envFrom:
+            - configMapRef:
+                name: {{ include "canvas.fullname" . }}-env
+          volumeMounts:
+            - name: {{ include "canvas.fullname" . }}-config
+              mountPath: /clouve/canvas/config
+            - name: {{ include "canvas.fullname" . }}-config-environments
+              mountPath: /clouve/canvas/config/environments
+            - name: {{ include "canvas.fullname" . }}-data
+              mountPath: /usr/src
+      volumes:
+        - name: {{ include "canvas.fullname" . }}-config
+          configMap:
+            name: {{ include "canvas.fullname" . }}-config
+        - name: {{ include "canvas.fullname" . }}-config-environments
+          configMap:
+            name: {{ include "canvas.fullname" . }}-config-environments
+        - name: {{ include "canvas.fullname" . }}-data
+          persistentVolumeClaim:
+            claimName: "{{ include "canvas.fullname" . }}-data"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

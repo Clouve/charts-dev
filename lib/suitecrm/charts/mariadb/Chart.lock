@@ -1,6 +1,6 @@
 dependencies:
 - name: common
-  repository: https://marketplace.azurecr.io/helm/v1/repo
-  version: 2.0.3
-digest: sha256:7cb717a649a70e5260c88d1389cde043f972f16d6b262035fd720ce94fac5a39
-generated: "2022-09-20T00:14:45.089295076Z"
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 2.13.3
+digest: sha256:9a971689db0c66ea95ac2e911c05014c2b96c6077c991131ff84f2982f88fb83
+generated: "2023-10-20T19:50:53.486382513Z"
