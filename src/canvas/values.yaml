@@ -123,14 +123,14 @@ livenessProbe:
   failureThreshold: 6
 readinessProbe:
   httpGet:
-    path: /
+    path: /login/canvas
     port: http
     scheme: HTTP
-  initialDelaySeconds: 30
+  initialDelaySeconds: 60
   periodSeconds: 10
-  timeoutSeconds: 5
+  timeoutSeconds: 30
   successThreshold: 1
-  failureThreshold: 6
+  failureThreshold: 10
 
 delayedJobs:
   livenessProbe:
