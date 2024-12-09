@@ -78,8 +78,15 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command: [ "/bin/bash", "-c", "--" ]
-          args: [ "sleep 5; bundle exec script/delayed_job run" ]
+          command:
+            - /bin/bash
+            - -c
+            - |
+              until cat /usr/src/.db_initialized; do
+                echo 'Waiting for canvas to initialize ...';
+                sleep 5;
+              done;
+              bundle exec script/delayed_job run;
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -114,6 +121,8 @@ spec:
               mountPath: /clouve/canvas/config/environments
             - name: {{ include "canvas.fullname" . }}-data
               mountPath: /usr/src
+          livenessProbe:
+            {{- toYaml .Values.delayedJobs.livenessProbe | nindent 12 }}
       volumes:
         - name: {{ include "canvas.fullname" . }}-config
           configMap:

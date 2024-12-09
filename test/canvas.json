@@ -4,11 +4,6 @@
       "password": "dbPassword"
     }
   },
-  "ingress": {
-    "enabled": false,
-    "certManager": true,
-    "tls": true
-  },
   "canvasEncryptionKey": "79951047abd5730502398817b2cfa02d7fbc1c63094c5786e506de590f43a58c",
   "canvasHostname": "localhost:8080",
   "canvasLmsAccountName": "Test Account",
