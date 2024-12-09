@@ -74,7 +74,7 @@ metadata:
   labels:
     {{- include "canvas.labels" . | nindent 4 }}
 data:
-  production-local.rb: |
+  production.rb: |
     config.force_ssl = false
 ---
 apiVersion: v1
