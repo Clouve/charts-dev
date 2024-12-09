@@ -117,20 +117,19 @@ livenessProbe:
       - cat
       - /usr/src/.db_initialized
   initialDelaySeconds: 60
-  periodSeconds: 10
   timeoutSeconds: 5
+  periodSeconds: 10
   successThreshold: 1
   failureThreshold: 6
 readinessProbe:
   httpGet:
     path: /login/canvas
     port: http
-    scheme: HTTP
   initialDelaySeconds: 60
+  timeoutSeconds: 60
   periodSeconds: 10
-  timeoutSeconds: 30
   successThreshold: 1
-  failureThreshold: 10
+  failureThreshold: 6
 
 delayedJobs:
   livenessProbe:

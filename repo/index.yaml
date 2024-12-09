@@ -3,9 +3,9 @@ entries:
   bluesky-pds:
   - apiVersion: v2
     appVersion: 0.4.67
-    created: "2024-12-09T11:12:44.70207-08:00"
+    created: "2024-12-09T11:43:50.853789-08:00"
     description: A Helm chart for Bluesky PDS
-    digest: dee03b675272c613b82372f4c6f0fa0aaf5dad1e8d683883e432725418654c02
+    digest: 68cef8e6bf8604690015366c933bf262115b720c74580af3b555530ba9bbd5b7
     icon: https://cdn.demo.clouve.com/self-service/bluesky-pds/.service-config/icon.png
     name: bluesky-pds
     type: application
@@ -14,7 +14,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.4.67
-    created: "2024-12-09T11:12:44.701876-08:00"
+    created: "2024-12-09T11:43:50.853588-08:00"
     description: A Helm chart for Bluesky PDS
     digest: 1ee37f318c001f4d1201b8e6d663b3ef3db6cc3fe6c6fa3a84ae24fc3b5a9b66
     icon: https://cdn.demo.clouve.com/self-service/bluesky-pds/.service-config/icon.png
@@ -25,7 +25,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.4.67
-    created: "2024-12-09T11:12:44.701304-08:00"
+    created: "2024-12-09T11:43:50.853409-08:00"
     description: A Helm chart for Bluesky PDS
     digest: 889b56d779306fd4e62ebde28e4ee90e6efb255bcd840fb6d3404cfa24959ad9
     icon: https://cdn.demo.clouve.com/self-service/bluesky-pds/.service-config/icon.png
@@ -37,7 +37,30 @@ entries:
   canvas:
   - apiVersion: v2
     appVersion: 2024.12.08
-    created: "2024-12-09T11:12:44.723742-08:00"
+    created: "2024-12-09T11:43:50.878861-08:00"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.x.x
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.x.x
+    description: Canvas LMS (Learning Management System) is a cloud-based educational
+      platform designed for schools, colleges, universities, and businesses to manage
+      and deliver online learning. Developed by Instructure, it provides tools for
+      creating, sharing, and grading assignments, facilitating communication, and
+      integrating external applications. Canvas supports features like video conferencing,
+      mobile access, analytics, and third-party app integrations, making it a flexible
+      solution for both traditional and online learning environments.
+    digest: 719cd51adee3377020bd23708ded839334a615acb8bfd0aa4750283ce6ac5864
+    name: canvas
+    type: application
+    urls:
+    - /repo/canvas-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 2024.12.08
+    created: "2024-12-09T11:43:50.873963-08:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -60,7 +83,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 2024.12.08
-    created: "2024-12-09T11:12:44.718751-08:00"
+    created: "2024-12-09T11:43:50.869067-08:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -83,7 +106,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 2024.12.08
-    created: "2024-12-09T11:12:44.713846-08:00"
+    created: "2024-12-09T11:43:50.863875-08:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -106,7 +129,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 2024.12.08
-    created: "2024-12-09T11:12:44.708262-08:00"
+    created: "2024-12-09T11:43:50.858995-08:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -140,7 +163,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20240206.1.0
-    created: "2024-12-09T11:12:44.735972-08:00"
+    created: "2024-12-09T11:43:50.887037-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -181,7 +204,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20240206.1.0
-    created: "2024-12-09T11:12:44.734554-08:00"
+    created: "2024-12-09T11:43:50.886081-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -222,7 +245,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20240206.1.0
-    created: "2024-12-09T11:12:44.732875-08:00"
+    created: "2024-12-09T11:43:50.885135-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -263,7 +286,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20240206.1.0
-    created: "2024-12-09T11:12:44.731432-08:00"
+    created: "2024-12-09T11:43:50.884164-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -304,7 +327,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2024-12-09T11:12:44.73013-08:00"
+    created: "2024-12-09T11:43:50.882998-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -345,7 +368,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2024-12-09T11:12:44.728861-08:00"
+    created: "2024-12-09T11:43:50.882157-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -386,7 +409,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2024-12-09T11:12:44.727472-08:00"
+    created: "2024-12-09T11:43:50.88135-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -420,7 +443,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20230404.1.0
-    created: "2024-12-09T11:12:44.726304-08:00"
+    created: "2024-12-09T11:43:50.880507-08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -454,7 +477,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 20220731.1.0
-    created: "2024-12-09T11:12:44.725138-08:00"
+    created: "2024-12-09T11:43:50.879673-08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -497,7 +520,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.0.9
-    created: "2024-12-09T11:12:44.769713-08:00"
+    created: "2024-12-09T11:43:50.917365-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -511,7 +534,7 @@ entries:
     description: Drupal is one of the most versatile open source content management
       systems in the world. It is pre-configured with the Ctools and Views modules,
       Drush and Let's Encrypt auto-configuration support.
-    digest: 2e03883631821e02a8ec36ea1a4e25f6f96583976b049382ae1f12ad30f33565
+    digest: e8187dd3f1ef612c4bca33d87df6289509e4621af1243b38cde7c8246374d1db
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/drupal/img/drupal-stack-220x234.png
     keywords:
@@ -543,7 +566,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.3.1
-    created: "2024-12-09T11:12:44.766938-08:00"
+    created: "2024-12-09T11:43:50.914454-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -589,7 +612,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.2.6
-    created: "2024-12-09T11:12:44.764097-08:00"
+    created: "2024-12-09T11:43:50.912049-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -635,7 +658,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.2.6
-    created: "2024-12-09T11:12:44.761472-08:00"
+    created: "2024-12-09T11:43:50.909413-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -681,7 +704,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.2.4
-    created: "2024-12-09T11:12:44.758464-08:00"
+    created: "2024-12-09T11:43:50.906947-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -727,7 +750,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.6
-    created: "2024-12-09T11:12:44.75598-08:00"
+    created: "2024-12-09T11:43:50.904287-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -773,7 +796,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.5
-    created: "2024-12-09T11:12:44.753069-08:00"
+    created: "2024-12-09T11:43:50.902038-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -819,7 +842,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2024-12-09T11:12:44.750609-08:00"
+    created: "2024-12-09T11:43:50.899264-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -865,7 +888,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.1.4
-    created: "2024-12-09T11:12:44.747492-08:00"
+    created: "2024-12-09T11:43:50.896934-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -904,7 +927,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.9
-    created: "2024-12-09T11:12:44.745036-08:00"
+    created: "2024-12-09T11:43:50.894348-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -943,7 +966,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 10.0.7
-    created: "2024-12-09T11:12:44.742026-08:00"
+    created: "2024-12-09T11:43:50.891896-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -982,7 +1005,7 @@ entries:
       category: CMS
     apiVersion: v2
     appVersion: 9.4.8
-    created: "2024-12-09T11:12:44.739188-08:00"
+    created: "2024-12-09T11:43:50.88963-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1028,7 +1051,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.104.1
-    created: "2024-12-09T11:12:44.803098-08:00"
+    created: "2024-12-09T11:43:50.948577-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1044,7 +1067,7 @@ entries:
     description: Ghost is an open source publishing platform designed to create blogs,
       magazines, and news sites. It includes a simple markdown editor with preview,
       theming, and SEO built-in to simplify editing.
-    digest: 2e0e22736ebbcdf633ce3d52ed24fb6571eb68fcd922de2c34aad1cb671e5227
+    digest: 5b7875095dd0f4d71a1c8f44b80ba4f6788dfcc0f87cb23a456bc31b5612e2ea
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/ghost/img/ghost-stack-220x234.png
     keywords:
@@ -1074,7 +1097,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.104.0
-    created: "2024-12-09T11:12:44.806441-08:00"
+    created: "2024-12-09T11:43:50.951167-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1120,7 +1143,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.89.0
-    created: "2024-12-09T11:12:44.800467-08:00"
+    created: "2024-12-09T11:43:50.945723-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1166,7 +1189,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.82.8
-    created: "2024-12-09T11:12:44.797574-08:00"
+    created: "2024-12-09T11:43:50.943249-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1212,7 +1235,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.82.5
-    created: "2024-12-09T11:12:44.795017-08:00"
+    created: "2024-12-09T11:43:50.940536-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1258,7 +1281,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.80.2
-    created: "2024-12-09T11:12:44.777611-08:00"
+    created: "2024-12-09T11:43:50.924643-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1304,7 +1327,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.73.2
-    created: "2024-12-09T11:12:44.791977-08:00"
+    created: "2024-12-09T11:43:50.937879-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1350,7 +1373,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.70.2
-    created: "2024-12-09T11:12:44.784792-08:00"
+    created: "2024-12-09T11:43:50.931246-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1396,7 +1419,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.66.1
-    created: "2024-12-09T11:12:44.782228-08:00"
+    created: "2024-12-09T11:43:50.928777-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1442,7 +1465,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.1
-    created: "2024-12-09T11:12:44.78956-08:00"
+    created: "2024-12-09T11:43:50.935705-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1488,7 +1511,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.65.0
-    created: "2024-12-09T11:12:44.787154-08:00"
+    created: "2024-12-09T11:43:50.933303-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1529,7 +1552,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.50.0
-    created: "2024-12-09T11:12:44.779792-08:00"
+    created: "2024-12-09T11:43:50.926701-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1570,7 +1593,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.44.0
-    created: "2024-12-09T11:12:44.774847-08:00"
+    created: "2024-12-09T11:43:50.921941-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1611,7 +1634,7 @@ entries:
       category: CMS
     apiVersion: v2
     appVersion: 5.20.0
-    created: "2024-12-09T11:12:44.772441-08:00"
+    created: "2024-12-09T11:43:50.919511-08:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -1659,7 +1682,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.1.2
-    created: "2024-12-09T11:12:44.834039-08:00"
+    created: "2024-12-09T11:43:50.977826-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1674,7 +1697,7 @@ entries:
     description: DEPRECATED Joomla! is an award winning open source CMS platform for
       building websites and applications. It includes page caching, page compression
       and Let's Encrypt auto-configuration support.
-    digest: deec0067a4df2c39996ecfbc668cdfe09a76c9aca4c0da9cae7411a354f09d86
+    digest: 422d14795c137fe05355ec2462d6d60eae67a5ab4946d3f00b63285cf2e64f05
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/joomla/img/joomla-stack-220x234.png
     keywords:
@@ -1699,7 +1722,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.1.2
-    created: "2024-12-09T11:12:44.831695-08:00"
+    created: "2024-12-09T11:43:50.975195-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1741,7 +1764,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.1.0
-    created: "2024-12-09T11:12:44.828866-08:00"
+    created: "2024-12-09T11:43:50.97277-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1783,7 +1806,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.0.3
-    created: "2024-12-09T11:12:44.826453-08:00"
+    created: "2024-12-09T11:43:50.970127-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1825,7 +1848,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.0.0
-    created: "2024-12-09T11:12:44.823692-08:00"
+    created: "2024-12-09T11:43:50.967794-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1867,7 +1890,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 5.0.0
-    created: "2024-12-09T11:12:44.820982-08:00"
+    created: "2024-12-09T11:43:50.965269-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1909,7 +1932,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2024-12-09T11:12:44.818766-08:00"
+    created: "2024-12-09T11:43:50.962973-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1951,7 +1974,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.4
-    created: "2024-12-09T11:12:44.816228-08:00"
+    created: "2024-12-09T11:43:50.960431-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -1988,7 +2011,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.2
-    created: "2024-12-09T11:12:44.813824-08:00"
+    created: "2024-12-09T11:43:50.958124-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2025,7 +2048,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2024-12-09T11:12:44.808926-08:00"
+    created: "2024-12-09T11:43:50.953471-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2062,7 +2085,7 @@ entries:
       category: CMS
     apiVersion: v2
     appVersion: 4.2.4
-    created: "2024-12-09T11:12:44.811653-08:00"
+    created: "2024-12-09T11:43:50.955682-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2106,7 +2129,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.42.1
-    created: "2024-12-09T11:12:44.862367-08:00"
+    created: "2024-12-09T11:43:51.004248-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2123,7 +2146,7 @@ entries:
     description: DEPRECATED MediaWiki is the free and open source wiki software that
       powers Wikipedia. Used by thousands of organizations, it is extremely powerful,
       scalable software and a feature-rich wiki implementation.
-    digest: 3d527d9089ce162c2b94b83dcd4852e0215f0122cf0577f96a2b170895c363fa
+    digest: 327285d9209e445a326551692059eff628d2082159203cdfa36e277df4172618
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/mediawiki/img/mediawiki-stack-220x234.png
     keywords:
@@ -2149,7 +2172,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.42.1
-    created: "2024-12-09T11:12:44.859764-08:00"
+    created: "2024-12-09T11:43:51.001321-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2194,7 +2217,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.41.1
-    created: "2024-12-09T11:12:44.856922-08:00"
+    created: "2024-12-09T11:43:50.998601-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2239,7 +2262,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.41.0
-    created: "2024-12-09T11:12:44.854281-08:00"
+    created: "2024-12-09T11:43:50.996293-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2284,7 +2307,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2024-12-09T11:12:44.851952-08:00"
+    created: "2024-12-09T11:43:50.993783-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2329,7 +2352,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2024-12-09T11:12:44.849414-08:00"
+    created: "2024-12-09T11:43:50.99156-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2374,7 +2397,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.1
-    created: "2024-12-09T11:12:44.847154-08:00"
+    created: "2024-12-09T11:43:50.989108-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2419,7 +2442,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.40.0
-    created: "2024-12-09T11:12:44.844378-08:00"
+    created: "2024-12-09T11:43:50.986976-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2459,7 +2482,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2024-12-09T11:12:44.841671-08:00"
+    created: "2024-12-09T11:43:50.984612-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2499,7 +2522,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.39.3
-    created: "2024-12-09T11:12:44.836615-08:00"
+    created: "2024-12-09T11:43:50.979983-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2539,7 +2562,7 @@ entries:
       category: Wiki
     apiVersion: v2
     appVersion: 1.38.4
-    created: "2024-12-09T11:12:44.839203-08:00"
+    created: "2024-12-09T11:43:50.98247-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2588,7 +2611,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.5.1
-    created: "2024-12-09T11:12:44.89379-08:00"
+    created: "2024-12-09T11:43:51.036955-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2602,7 +2625,7 @@ entries:
     description: Moodle(TM) LMS is an open source online Learning Management System
       widely used at universities, schools, and corporations. It is modular and highly
       adaptable to any type of online learning.
-    digest: 27207000a8d1cfbbb5daf14c3765c5de7598d36196722173246cadf62edc23c3
+    digest: 88df136844389a8e88f90c25041c0be3185bf60cb6cdaa475e907d3ad580078d
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
     keywords:
@@ -2630,7 +2653,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.5.0
-    created: "2024-12-09T11:12:44.890953-08:00"
+    created: "2024-12-09T11:43:51.034234-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2672,7 +2695,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.4.1
-    created: "2024-12-09T11:12:44.888084-08:00"
+    created: "2024-12-09T11:43:51.03107-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2714,7 +2737,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.4.0
-    created: "2024-12-09T11:12:44.885233-08:00"
+    created: "2024-12-09T11:43:51.028128-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2756,7 +2779,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.3
-    created: "2024-12-09T11:12:44.88278-08:00"
+    created: "2024-12-09T11:43:51.025344-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2798,7 +2821,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2024-12-09T11:12:44.879901-08:00"
+    created: "2024-12-09T11:43:51.022253-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2840,7 +2863,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2024-12-09T11:12:44.877505-08:00"
+    created: "2024-12-09T11:43:51.019945-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2882,7 +2905,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2024-12-09T11:12:44.874908-08:00"
+    created: "2024-12-09T11:43:51.017216-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2924,7 +2947,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.2
-    created: "2024-12-09T11:12:44.872408-08:00"
+    created: "2024-12-09T11:43:51.014623-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2959,7 +2982,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.2.0
-    created: "2024-12-09T11:12:44.869791-08:00"
+    created: "2024-12-09T11:43:51.012359-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -2994,7 +3017,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.1.2
-    created: "2024-12-09T11:12:44.867514-08:00"
+    created: "2024-12-09T11:43:51.009628-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3029,7 +3052,7 @@ entries:
       category: E-Learning
     apiVersion: v2
     appVersion: 4.0.4
-    created: "2024-12-09T11:12:44.864868-08:00"
+    created: "2024-12-09T11:43:51.007419-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3069,7 +3092,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 18.0.20241205
-    created: "2024-12-09T11:12:44.931402-08:00"
+    created: "2024-12-09T11:43:51.076313-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3083,7 +3106,7 @@ entries:
     description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
       that can connect a wide variety of business operations such as sales, supply
       chain, finance, and project management.
-    digest: 8402059d90dc3688cacae19e0522f95279c06f18ecb96aff1c47d3cd7c3e181d
+    digest: d0953d1e7ed4cb4875bfc74a5a94accc848b1a4aca9cb4f25edff3258bf3e83a
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
     keywords:
@@ -3109,7 +3132,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240705
-    created: "2024-12-09T11:12:44.928465-08:00"
+    created: "2024-12-09T11:43:51.072884-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3149,7 +3172,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240505
-    created: "2024-12-09T11:12:44.925079-08:00"
+    created: "2024-12-09T11:43:51.069662-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3189,7 +3212,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240305
-    created: "2024-12-09T11:12:44.92228-08:00"
+    created: "2024-12-09T11:43:51.066792-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3229,7 +3252,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20240305
-    created: "2024-12-09T11:12:44.919078-08:00"
+    created: "2024-12-09T11:43:51.063459-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3269,7 +3292,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.20231105
-    created: "2024-12-09T11:12:44.915992-08:00"
+    created: "2024-12-09T11:43:51.059718-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3309,7 +3332,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20231015
-    created: "2024-12-09T11:12:44.913111-08:00"
+    created: "2024-12-09T11:43:51.057206-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3349,7 +3372,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2024-12-09T11:12:44.910183-08:00"
+    created: "2024-12-09T11:43:51.053898-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3389,7 +3412,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2024-12-09T11:12:44.907626-08:00"
+    created: "2024-12-09T11:43:51.051443-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3429,7 +3452,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230915
-    created: "2024-12-09T11:12:44.904812-08:00"
+    created: "2024-12-09T11:43:51.0485-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3466,7 +3489,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230515
-    created: "2024-12-09T11:12:44.901835-08:00"
+    created: "2024-12-09T11:43:51.045142-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3503,7 +3526,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.0.20230415
-    created: "2024-12-09T11:12:44.899254-08:00"
+    created: "2024-12-09T11:43:51.042275-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3540,7 +3563,7 @@ entries:
       category: CRM
     apiVersion: v2
     appVersion: 16.0.20221015
-    created: "2024-12-09T11:12:44.896822-08:00"
+    created: "2024-12-09T11:43:51.039963-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -3578,7 +3601,7 @@ entries:
       category: HumanResourceManagement
     apiVersion: v2
     appVersion: 4.9.0-0
-    created: "2024-12-09T11:12:44.933951-08:00"
+    created: "2024-12-09T11:43:51.078556-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3625,7 +3648,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.2.0
-    created: "2024-12-09T11:12:44.948809-08:00"
+    created: "2024-12-09T11:43:51.093666-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3669,7 +3692,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2024-12-09T11:12:44.946211-08:00"
+    created: "2024-12-09T11:43:51.09119-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3715,7 +3738,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2024-12-09T11:12:44.943791-08:00"
+    created: "2024-12-09T11:43:51.088493-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3761,7 +3784,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2024-12-09T11:12:44.941088-08:00"
+    created: "2024-12-09T11:43:51.086066-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3800,7 +3823,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.2
-    created: "2024-12-09T11:12:44.938812-08:00"
+    created: "2024-12-09T11:43:51.083549-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3839,7 +3862,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.1.1
-    created: "2024-12-09T11:12:44.936314-08:00"
+    created: "2024-12-09T11:43:51.081174-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3887,7 +3910,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2024-12-09T11:12:44.966244-08:00"
+    created: "2024-12-09T11:43:51.111405-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3902,7 +3925,7 @@ entries:
     description: DEPRECATED SuiteCRM is a completely open source, enterprise-grade
       Customer Relationship Management (CRM) application. SuiteCRM is a fork of the
       popular SugarCRM application.
-    digest: d48bd2157f20d54bd55a2d50531cd4722f57fcec9efdaf84152a1551e1d65fe2
+    digest: cbf750f51560edca07a5128042d9aeff1d29c36255ae0ba164b6578da5c10c7b
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/suitecrm/img/suitecrm-stack-220x234.png
     keywords:
@@ -3929,7 +3952,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2024-12-09T11:12:44.963952-08:00"
+    created: "2024-12-09T11:43:51.108805-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -3972,7 +3995,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2024-12-09T11:12:44.961328-08:00"
+    created: "2024-12-09T11:43:51.106416-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -4015,7 +4038,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.4
-    created: "2024-12-09T11:12:44.959072-08:00"
+    created: "2024-12-09T11:43:51.103639-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -4051,7 +4074,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.3
-    created: "2024-12-09T11:12:44.956694-08:00"
+    created: "2024-12-09T11:43:51.101293-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -4087,7 +4110,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 7.13.2
-    created: "2024-12-09T11:12:44.951114-08:00"
+    created: "2024-12-09T11:43:51.096275-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -4123,7 +4146,7 @@ entries:
       category: CRM
     apiVersion: v2
     appVersion: 7.12.7
-    created: "2024-12-09T11:12:44.953888-08:00"
+    created: "2024-12-09T11:43:51.098568-08:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -4158,14 +4181,14 @@ entries:
   wiki:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-12-09T11:12:44.968636-08:00"
+    created: "2024-12-09T11:43:51.11301-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 8.10.14
     description: The most powerful and extensible open source Wiki software.
-    digest: 8cb11cc6ab7985c8534e20404bbaab377d5eca84b3ed7b1bbbf54463ab6762f5
+    digest: 471f7efba4f3da85b84dd7597237a5fb46dc5fa8a1a70f37006ec2486c4d2dbb
     home: https://wiki.js.org
     icon: https://cdn.js.wiki/images/wikijs-butterfly.svg
     keywords:
@@ -4191,7 +4214,7 @@ entries:
     version: 2.2.22
   - apiVersion: v2
     appVersion: latest
-    created: "2024-12-09T11:12:44.967843-08:00"
+    created: "2024-12-09T11:43:51.112222-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -4235,7 +4258,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.7.1
-    created: "2024-12-09T11:12:45.019348-08:00"
+    created: "2024-12-09T11:43:51.16303-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4253,7 +4276,7 @@ entries:
     description: WordPress is the world's most popular blogging and content management
       platform. Powerful yet simple, everyone from students to global corporations
       use it to build beautiful, functional websites.
-    digest: 0630875f89e1657d175a4980ebacf2dc9c897017bd3efcb77289615532862489
+    digest: 62fd89dd7b7369caccf8800959a88cab6fcdb41ce8f861efe420b144c105c03b
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
     keywords:
@@ -4285,7 +4308,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.6.1
-    created: "2024-12-09T11:12:45.01528-08:00"
+    created: "2024-12-09T11:43:51.158351-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4335,7 +4358,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.5.3
-    created: "2024-12-09T11:12:45.010956-08:00"
+    created: "2024-12-09T11:43:51.154015-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4385,7 +4408,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.5.2
-    created: "2024-12-09T11:12:45.006729-08:00"
+    created: "2024-12-09T11:43:51.149686-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4435,7 +4458,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.3
-    created: "2024-12-09T11:12:45.002585-08:00"
+    created: "2024-12-09T11:43:51.1458-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4485,7 +4508,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.4.1
-    created: "2024-12-09T11:12:44.998748-08:00"
+    created: "2024-12-09T11:43:51.141832-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4535,7 +4558,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.2
-    created: "2024-12-09T11:12:44.994852-08:00"
+    created: "2024-12-09T11:43:51.138531-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4585,7 +4608,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2024-12-09T11:12:44.991054-08:00"
+    created: "2024-12-09T11:43:51.134853-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4635,7 +4658,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2024-12-09T11:12:44.9871-08:00"
+    created: "2024-12-09T11:43:51.131064-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4685,7 +4708,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.3.1
-    created: "2024-12-09T11:12:44.98352-08:00"
+    created: "2024-12-09T11:43:51.12733-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4728,7 +4751,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.2
-    created: "2024-12-09T11:12:44.979849-08:00"
+    created: "2024-12-09T11:43:51.123704-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4771,7 +4794,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 6.2.0
-    created: "2024-12-09T11:12:44.976238-08:00"
+    created: "2024-12-09T11:43:51.120399-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4814,7 +4837,7 @@ entries:
       category: CMS
     apiVersion: v2
     appVersion: 6.1.0
-    created: "2024-12-09T11:12:44.972513-08:00"
+    created: "2024-12-09T11:43:51.116799-08:00"
     dependencies:
     - condition: memcached.enabled
       name: memcached
@@ -4853,4 +4876,4 @@ entries:
     urls:
     - /repo/wordpress-15.2.13.tgz
     version: 15.2.13
-generated: "2024-12-09T11:12:44.700723-08:00"
+generated: "2024-12-09T11:43:50.853137-08:00"
