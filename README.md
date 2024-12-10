@@ -1,8 +1,9 @@
-# Clouve's Charts (Build ID: 2024-12-09T13:58:34.699503-08:00)
+# Clouve's Charts (Build ID: 2024-12-09T19:06:15.397991-08:00)
 
 - [bluesky-pds 0.1.2](/repo/bluesky-pds-0.1.2.tgz)
 - [bluesky-pds 0.1.1](/repo/bluesky-pds-0.1.1.tgz)
 - [bluesky-pds 0.1.0](/repo/bluesky-pds-0.1.0.tgz)
+- [canvas 0.1.7](/repo/canvas-0.1.7.tgz)
 - [canvas 0.1.6](/repo/canvas-0.1.6.tgz)
 - [canvas 0.1.5](/repo/canvas-0.1.5.tgz)
 - [canvas 0.1.4](/repo/canvas-0.1.4.tgz)
@@ -108,6 +109,7 @@
 - [suitecrm 11.2.4](/repo/suitecrm-11.2.4.tgz)
 - [wiki 2.2.22](/repo/wiki-2.2.22.tgz)
 - [wiki 2.2.21](/repo/wiki-2.2.21.tgz)
+- [wordpress 24.0.11](/repo/wordpress-24.0.11.tgz)
 - [wordpress 24.0.10](/repo/wordpress-24.0.10.tgz)
 - [wordpress 23.0.13](/repo/wordpress-23.0.13.tgz)
 - [wordpress 22.2.7](/repo/wordpress-22.2.7.tgz)
