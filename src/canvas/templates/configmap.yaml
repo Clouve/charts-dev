@@ -23,6 +23,11 @@ data:
       workers:
         - queue: canvas_queue
 
+  domain.yml: |
+    production:
+      domain: "<%= ENV.fetch("RAILS_HOST_WITH_PORT") %>"
+      ssl: true
+
   file_store.yml: |
     production:
       storage: local
