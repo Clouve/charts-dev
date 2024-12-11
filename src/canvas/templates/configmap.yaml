@@ -56,7 +56,16 @@ data:
   security.yml: |
     production:
       encryption_key: <%= ENV.fetch("ENCRYPTION_KEY") %>
-
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "canvas.fullname" . }}-config-environments
+  labels:
+    {{- include "canvas.labels" . | nindent 4 }}
+data:
+  production-local.rb: |
+    config.force_ssl = false
 ---
 apiVersion: v1
 kind: ConfigMap
