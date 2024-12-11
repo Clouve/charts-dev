@@ -1,9 +1,10 @@
-# Clouve's Charts (Build ID: 2024-12-10T19:28:27.478112-08:00)
+# Clouve's Charts (Build ID: 2024-12-10T20:19:33.975687-08:00)
 
 - [bluesky-pds 0.1.3](/repo/bluesky-pds-0.1.3.tgz)
 - [bluesky-pds 0.1.2](/repo/bluesky-pds-0.1.2.tgz)
 - [bluesky-pds 0.1.1](/repo/bluesky-pds-0.1.1.tgz)
 - [bluesky-pds 0.1.0](/repo/bluesky-pds-0.1.0.tgz)
+- [canvas 0.2.0](/repo/canvas-0.2.0.tgz)
 - [canvas 0.1.9](/repo/canvas-0.1.9.tgz)
 - [canvas 0.1.8](/repo/canvas-0.1.8.tgz)
 - [canvas 0.1.7](/repo/canvas-0.1.7.tgz)

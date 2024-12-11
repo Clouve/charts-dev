@@ -64,8 +64,6 @@ spec:
           volumeMounts:
             - name: {{ include "canvas.fullname" . }}-config
               mountPath: /clouve/canvas/config
-            - name: {{ include "canvas.fullname" . }}-config-environments
-              mountPath: /clouve/canvas/config/environments
             - name: {{ include "canvas.fullname" . }}-data
               mountPath: /usr/src
           livenessProbe:
@@ -117,8 +115,6 @@ spec:
           volumeMounts:
             - name: {{ include "canvas.fullname" . }}-config
               mountPath: /clouve/canvas/config
-            - name: {{ include "canvas.fullname" . }}-config-environments
-              mountPath: /clouve/canvas/config/environments
             - name: {{ include "canvas.fullname" . }}-data
               mountPath: /usr/src
           livenessProbe:
@@ -127,9 +123,6 @@ spec:
         - name: {{ include "canvas.fullname" . }}-config
           configMap:
             name: {{ include "canvas.fullname" . }}-config
-        - name: {{ include "canvas.fullname" . }}-config-environments
-          configMap:
-            name: {{ include "canvas.fullname" . }}-config-environments
         - name: {{ include "canvas.fullname" . }}-data
           persistentVolumeClaim:
             claimName: "{{ include "canvas.fullname" . }}-data"
