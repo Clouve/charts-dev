@@ -5,6 +5,9 @@
 pdsAdminPassword: ""
 pdsJwtSecret: ""
 pdsPlcRotationKey: ""
+pdsEmailSmtpUrl: ""
+pdsEmailFromAddress: ""
+pdsInviteRequired: "0"
 
 pdsHostname: "pds.local"
 pdsDataDir: "/pds"
@@ -15,9 +18,6 @@ pdsBskyAppViewDid: "did:web:api.bsky.app"
 pdsReportSvcUrl: "https://mod.bsky.app"
 pdsReportSvcDid: "did:plc:ewvi7nxzyoun6zhxrhs64oiz"
 pdsCrawlers: "https://bsky.network"
-pdsInviteRequired: "0"
-pdsEmailSmtpUrl: ""
-pdsEmailFromAddress: ""
 logEnabled: "0"
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
@@ -29,7 +29,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.4.67"
+  tag: "0.4.74"
 
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
