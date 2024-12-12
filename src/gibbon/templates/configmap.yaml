@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gibbon.fullname" . }}-env
+  labels:
+    {{- include "gibbon.labels" . | nindent 4 }}
+data:
+  DB_HOST: "{{ include "gibbon.fullname" . }}-mysql"
+  DB_NAME: "{{ .Values.mysql.auth.database }}"
+  DB_USER: "{{ .Values.mysql.auth.username }}"
+  GIBBON_URL: "{{ .Values.gibbonProtocol }}://{{ .Values.gibbonHostname }}"
+  GIBBON_TITLE: "{{ .Values.adminTitle }}"
+  GIBBON_FIRSTNAME: "{{ .Values.adminFirstName }}"
+  GIBBON_LASTNAME: "{{ .Values.adminLastName }}"
+  GIBBON_EMAIL: "{{ .Values.adminEmail }}"
+  GIBBON_USERNAME: "{{ .Values.adminUsername }}"
+  GIBBON_SYSTEM_NAME: "{{ .Values.organizationName }}"
+  GIBBON_ORGANISATION_NAME: "{{ .Values.organizationName }}"
+  GIBBON_ORGANISATION_INITIALS: "{{ .Values.organizationName }}"
+  DEMO_DATA: "{{ .Values.demoData }}"

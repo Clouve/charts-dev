@@ -1,0 +1,16 @@
+{
+  "mysql": {
+    "auth": {
+      "password": "dbPassword",
+      "rootPassword": "rootPassword"
+    }
+  },
+  "gibbonHostname": "localhost:8080",
+  "adminTitle": "",
+  "adminFirstName": "John",
+  "adminLastName": "Peter",
+  "adminEmail": "test@test.com",
+  "adminUsername": "Test_User",
+  "adminPassword": "gibbonPassword",
+  "organizationName": "Test University"
+}

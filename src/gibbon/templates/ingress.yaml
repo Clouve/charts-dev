@@ -1,0 +1,33 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gibbon.fullname" . }}
+  labels:
+    {{- include "gibbon.labels" . | nindent 4 }}
+  annotations:
+    {{- if .Values.ingress.certManager }}
+    kubernetes.io/tls-acme: "true"
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  rules:
+    - host: {{ .Values.gibbonHostname }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.path }}
+            pathType: {{ .Values.ingress.pathType }}
+            backend:
+              service:
+                name: {{ include "gibbon.fullname" $ }}
+                port:
+                  number: {{ $.Values.service.port }}
+  {{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+        - {{ .Values.gibbonHostname | quote }}
+      secretName: {{ printf "%s-tls" .Values.gibbonHostname }}
+  {{- end }}
+{{- end }}

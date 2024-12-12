@@ -1,4 +1,4 @@
-# Default values for canvas.
+# Default values for gibbon.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -6,28 +6,26 @@
 
 # Ref: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: clouve/canvas
+  repository: clouve/gibbon
   pullPolicy: IfNotPresent
-  tag: "2024.12.10-0"
+  tag: "28.0.01-1"
 
 existingSecret: ""
-canvasHostname: canvas.local
-canvasLmsAccountName: ""
-canvasLmsAdminEmail: ""
-canvasLmsAdminPassword: ""
-canvasEncryptionKey: ""
+gibbonProtocol: "http"
+gibbonHostname: "gibbon.local"
+adminTitle: ""
+adminFirstName: ""
+adminLastName: ""
+adminEmail: ""
+adminUsername: ""
+adminPassword: ""
+organizationName: ""
+demoData: "N"
 
-postgresql:
-  architecture: standalone
+mysql:
   auth:
-    database: canvas
-    username: canvas
-
-redis:
-  architecture: standalone
-  auth:
-    enabled: false
-
+    database: gibbon
+    username: gibbon
 
 # Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -42,41 +40,27 @@ ingress:
 persistence:
   accessModes:
     - ReadWriteOnce
-  size: 25Gi
+  size: 10Gi
 
 # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
-  exec:
-    command:
-      - cat
-      - /usr/src/.db_initialized
-  initialDelaySeconds: 60
+  tcpSocket:
+    port: http
+  initialDelaySeconds: 600
   timeoutSeconds: 5
-  periodSeconds: 30
+  periodSeconds: 10
   successThreshold: 1
-  failureThreshold: 10
+  failureThreshold: 6
 readinessProbe:
   httpGet:
-    path: /login/canvas
+    path: /index.php
     port: http
-  initialDelaySeconds: 60
-  timeoutSeconds: 90
-  periodSeconds: 30
+    scheme: HTTP
+  initialDelaySeconds: 30
+  timeoutSeconds: 3
+  periodSeconds: 5
   successThreshold: 1
-  failureThreshold: 10
-
-delayedJobs:
-  livenessProbe:
-    exec:
-      command:
-        - cat
-        - /usr/src/.db_initialized
-    initialDelaySeconds: 60
-    periodSeconds: 10
-    timeoutSeconds: 5
-    successThreshold: 1
-    failureThreshold: 6
-
+  failureThreshold: 6
 # <------------------------- Clouve variables
 
 # This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
