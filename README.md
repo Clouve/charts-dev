@@ -1,4 +1,4 @@
-# Clouve's Charts (Build ID: 2024-12-12T14:06:24.855768-08:00)
+# Clouve's Charts (Build ID: 2024-12-12T14:22:56.438639-08:00)
 
 - [bluesky-pds 0.1.3](/repo/bluesky-pds-0.1.3.tgz)
 - [bluesky-pds 0.1.2](/repo/bluesky-pds-0.1.2.tgz)
@@ -56,6 +56,7 @@
 - [ghost 19.3.10](/repo/ghost-19.3.10.tgz)
 - [ghost 19.1.81](/repo/ghost-19.1.81.tgz)
 - [ghost 19.1.24](/repo/ghost-19.1.24.tgz)
+- [gibbon 0.1.1](/repo/gibbon-0.1.1.tgz)
 - [gibbon 0.1.0](/repo/gibbon-0.1.0.tgz)
 - [joomla 20.0.4](/repo/joomla-20.0.4.tgz)
 - [joomla 20.0.3](/repo/joomla-20.0.3.tgz)

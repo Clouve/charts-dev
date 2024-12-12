@@ -3,6 +3,8 @@ SCRIPT_PATH="$(
   cd "$(dirname "$0")" || exit
   pwd -P
 )"
-"$SCRIPT_PATH"/pull
+if [ "$1" == "pull" ]; then
+  "$SCRIPT_PATH"/pull
+fi
 "$SCRIPT_PATH"/process
 "$SCRIPT_PATH"/package
