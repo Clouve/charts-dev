@@ -9,7 +9,7 @@ pdsEmailSmtpUrl: ""
 pdsEmailFromAddress: ""
 pdsInviteRequired: "0"
 
-pdsHostname: "pds.local"
+hostname: "pds.local"
 pdsDataDir: "/pds"
 pdsBlobstoreDiskLocation: "/pds/blocks"
 pdsDidPlcUrl: "https://plc.directory"

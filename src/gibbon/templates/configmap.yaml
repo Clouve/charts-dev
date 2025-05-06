@@ -9,7 +9,7 @@ data:
   DB_HOST: "{{ include "gibbon.fullname" . }}-mysql"
   DB_NAME: "{{ .Values.mysql.auth.database }}"
   DB_USER: "{{ .Values.mysql.auth.username }}"
-  GIBBON_URL: "{{ .Values.gibbonProtocol }}://{{ .Values.gibbonHostname }}"
+  GIBBON_URL: "{{ .Values.gibbonProtocol }}://{{ .Values.hostname }}"
   GIBBON_TITLE: "{{ .Values.adminTitle }}"
   GIBBON_FIRSTNAME: "{{ .Values.adminFirstName }}"
   GIBBON_LASTNAME: "{{ .Values.adminLastName }}"

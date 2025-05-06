@@ -11,7 +11,7 @@ data:
   POSTGRES_DB: "{{ .Values.postgresql.auth.database }}"
   POSTGRES_USER: "{{ .Values.postgresql.auth.username }}"
   ENCRYPTION_KEY: "{{ .Values.canvasEncryptionKey }}"
-  RAILS_HOST_WITH_PORT: "{{ .Values.canvasHostname }}"
+  RAILS_HOST_WITH_PORT: "{{ .Values.hostname }}"
   CANVAS_LMS_ACCOUNT_NAME: "{{ .Values.canvasLmsAccountName }}"
   CANVAS_LMS_ADMIN_EMAIL: "{{ .Values.canvasLmsAdminEmail }}"
   CANVAS_LMS_STATS_COLLECTION: "opt_out"

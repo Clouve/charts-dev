@@ -12,7 +12,7 @@ image:
 
 existingSecret: ""
 gibbonProtocol: "http"
-gibbonHostname: "gibbon.local"
+hostname: "gibbon.local"
 adminTitle: ""
 adminFirstName: ""
 adminLastName: ""

@@ -53,7 +53,7 @@ spec:
                   name: "{{ include "bluesky-pds.fullname" . }}-secret"
                   key: plc-rotation-key
             - name: PDS_HOSTNAME
-              value: {{ .Values.pdsHostname }}
+              value: {{ .Values.hostname }}
             - name: PDS_DATA_DIRECTORY
               value: "{{ .Values.pdsDataDir }}"
             - name: PDS_BLOBSTORE_DISK_LOCATION
