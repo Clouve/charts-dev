@@ -16,13 +16,22 @@ helm install my-release oci://registry-1.docker.io/bitnamicharts/drupal
 
 Looking to use Drupal in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
 
+## ⚠️ Important Notice: Upcoming changes to the Bitnami Catalog
+
+Beginning August 28th, 2025, Bitnami will evolve its public catalog to offer a curated set of hardened, security-focused images under the new [Bitnami Secure Images initiative](https://news.broadcom.com/app-dev/broadcom-introduces-bitnami-secure-images-for-production-ready-containerized-applications). As part of this transition:
+
+- Granting community users access for the first time to security-optimized versions of popular container images.
+- Bitnami will begin deprecating support for non-hardened, Debian-based software images in its free tier and will gradually remove non-latest tags from the public catalog. As a result, community users will have access to a reduced number of hardened images. These images are published only under the “latest” tag and are intended for development purposes
+- Starting August 28th, over two weeks, all existing container images, including older or versioned tags (e.g., 2.50.0, 10.6), will be migrated from the public catalog (docker.io/bitnami) to the “Bitnami Legacy” repository (docker.io/bitnamilegacy), where they will no longer receive updates.
+- For production workloads and long-term support, users are encouraged to adopt Bitnami Secure Images, which include hardened containers, smaller attack surfaces, CVE transparency (via VEX/KEV), SBOMs, and enterprise support.
+
+These changes aim to improve the security posture of all Bitnami users by promoting best practices for software supply chain integrity and up-to-date deployments. For more details, visit the [Bitnami Secure Images announcement](https://github.com/bitnami/containers/issues/83267).
+
 ## Introduction
 
 This chart bootstraps a [Drupal](https://github.com/bitnami/containers/tree/main/bitnami/drupal) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 It also packages the [Bitnami MariaDB chart](https://github.com/bitnami/charts/tree/main/bitnami/mariadb) which is required for bootstrapping a MariaDB deployment as a database for the Drupal application.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -51,7 +60,7 @@ The command deploys Drupal on the Kubernetes cluster in the default configuratio
 
 Bitnami charts allow setting resource requests and limits for all containers inside the chart deployment. These are inside the `resources` value (check parameter table). Setting requests is essential for production workloads and these should be adapted to your specific use case.
 
-To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcePreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcesPreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ### [Rolling VS Immutable tags](https://techdocs.broadcom.com/us/en/vmware-tanzu/application-catalog/tanzu-application-catalog/services/tac-doc/apps-tutorials-understand-rolling-tags-containers-index.html)
 
@@ -170,15 +179,16 @@ helm install my-release --set persistence.existingClaim=PVC_NAME oci://REGISTRY_
 
 ### Common parameters
 
-| Name                | Description                                                                                                | Value |
-| ------------------- | ---------------------------------------------------------------------------------------------------------- | ----- |
-| `kubeVersion`       | Force target Kubernetes version (using Helm capabilities if not set)                                       | `""`  |
-| `nameOverride`      | String to partially override drupal.fullname template (will maintain the release name)                     | `""`  |
-| `fullnameOverride`  | String to fully override drupal.fullname template                                                          | `""`  |
-| `namespaceOverride` | String to fully override common.names.namespace                                                            | `""`  |
-| `commonAnnotations` | Common annotations to add to all Drupal resources (sub-charts are not considered). Evaluated as a template | `{}`  |
-| `commonLabels`      | Common labels to add to all Drupal resources (sub-charts are not considered). Evaluated as a template      | `{}`  |
-| `extraDeploy`       | Array of extra objects to deploy with the release (evaluated as a template).                               | `[]`  |
+| Name                | Description                                                                                                | Value  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- | ------ |
+| `kubeVersion`       | Force target Kubernetes version (using Helm capabilities if not set)                                       | `""`   |
+| `nameOverride`      | String to partially override drupal.fullname template (will maintain the release name)                     | `""`   |
+| `fullnameOverride`  | String to fully override drupal.fullname template                                                          | `""`   |
+| `namespaceOverride` | String to fully override common.names.namespace                                                            | `""`   |
+| `commonAnnotations` | Common annotations to add to all Drupal resources (sub-charts are not considered). Evaluated as a template | `{}`   |
+| `commonLabels`      | Common labels to add to all Drupal resources (sub-charts are not considered). Evaluated as a template      | `{}`   |
+| `extraDeploy`       | Array of extra objects to deploy with the release (evaluated as a template).                               | `[]`   |
+| `usePasswordFiles`  | Mount credentials as files instead of using environment variables                                          | `true` |
 
 ### Drupal parameters
 
@@ -452,6 +462,14 @@ Find more information about how to deal with common errors related to Bitnami's 
 
 ## Upgrading
 
+### To 22.0.4
+
+This version addresses CVE-2025-41240. For more details, please refer to the advisory at https://github.com/bitnami/charts/security/advisories/GHSA-wgg9-9qgw-529w.
+
+### To 22.0.0
+
+This major release bumps the MariaDB version to 11.8. Follow the [upstream instructions](https://mariadb.com/kb/en/upgrading-from-mariadb-11-4-to-mariadb-11-8/) for upgrading from MariaDB 11.4 to 11.8. No major issues are expected during the upgrade.
+
 ### To 21.1.0
 
 This version introduces image verification for security purposes. To disable it, set `global.security.allowInsecureImages` to `true`. More details at [GitHub issue](https://github.com/bitnami/charts/issues/30850).
@@ -622,7 +640,7 @@ kubectl delete statefulset drupal-mariadb --cascade=false
 
 ## License
 
-Copyright &copy; 2024 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -634,3 +652,4 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
+limitations under the License.

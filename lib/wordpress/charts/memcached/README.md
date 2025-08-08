@@ -20,8 +20,6 @@ Looking to use Memcached in production? Try [VMware Tanzu Application Catalog](h
 
 This chart bootstraps a [Memcached](https://github.com/bitnami/containers/tree/main/bitnami/memcached) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
-
 ## Prerequisites
 
 - Kubernetes 1.23+
@@ -47,7 +45,7 @@ These commands deploy Memcached on the Kubernetes cluster in the default configu
 
 Bitnami charts allow setting resource requests and limits for all containers inside the chart deployment. These are inside the `resources` value (check parameter table). Setting requests is essential for production workloads and these should be adapted to your specific use case.
 
-To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcePreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcesPreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ### Prometheus metrics
 
@@ -183,6 +181,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `auth.username`               | Memcached admin user                                                                                      | `""`                        |
 | `auth.password`               | Memcached admin password                                                                                  | `""`                        |
 | `auth.existingPasswordSecret` | Existing secret with Memcached credentials (must contain a value for `memcached-password` key)            | `""`                        |
+| `auth.usePasswordFiles`       | Mount credentials as files instead of using environment variables                                         | `true`                      |
 | `command`                     | Override default container command (useful when using custom images)                                      | `[]`                        |
 | `args`                        | Override default container args (useful when using custom images)                                         | `[]`                        |
 | `extraEnvVars`                | Array with extra environment variables to add to Memcached nodes                                          | `[]`                        |
@@ -378,6 +377,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `metrics.serviceMonitor.interval`                           | Interval at which metrics should be scraped.                                                                                                                                                                                                          | `""`                                 |
 | `metrics.serviceMonitor.scrapeTimeout`                      | Timeout after which the scrape is ended                                                                                                                                                                                                               | `""`                                 |
 | `metrics.serviceMonitor.labels`                             | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus                                                                                                                                                                 | `{}`                                 |
+| `metrics.serviceMonitor.podTargetLabels`                    | Labels from the Kubernetes pod to be transferred to the created metrics                                                                                                                                                                               | `[]`                                 |
 | `metrics.serviceMonitor.selector`                           | Prometheus instance selector labels                                                                                                                                                                                                                   | `{}`                                 |
 | `metrics.serviceMonitor.relabelings`                        | RelabelConfigs to apply to samples before scraping                                                                                                                                                                                                    | `[]`                                 |
 | `metrics.serviceMonitor.metricRelabelings`                  | MetricRelabelConfigs to apply to samples before ingestion                                                                                                                                                                                             | `[]`                                 |
@@ -477,7 +477,7 @@ kubectl patch deployment memcached --type=json -p='[{"op": "remove", "path": "/s
 
 ## License
 
-Copyright &copy; 2024 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

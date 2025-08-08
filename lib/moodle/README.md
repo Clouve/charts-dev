@@ -1,12 +1,12 @@
 <!--- app-name: Bitnami LMS powered by Moodle&trade; LMS -->
 
-# Bitnami LMS powered by Moodle(TM) LMS
+# Bitnami LMS powered by Moodle&trade; LMS
 
-Moodle(TM) LMS is an open source online Learning Management System widely used at universities, schools, and corporations. It is modular and highly adaptable to any type of online learning.
+Moodle&trade; LMS is an open source online Learning Management System widely used at universities, schools, and corporations. It is modular and highly adaptable to any type of online learning.
 
 [Overview of Bitnami LMS powered by Moodle&trade; LMS](http://moodle.org/)
 
-Disclaimer: The respective trademarks mentioned in the offering are owned by the respective companies. We do not provide commercial license of any of these products. This listing has an open source license. Moodle(TM) LMS is run and maintained by Moodle HQ, that is a completely and separate project from Bitnami.
+Disclaimer: The respective trademarks mentioned in the offering are owned by the respective companies. We do not provide commercial license of any of these products. This listing has an open source license. Moodle&trade; LMS is run and maintained by Moodle HQ, that is a completely and separate project from Bitnami.
 
 ## TL;DR
 
@@ -21,8 +21,6 @@ Looking to use Bitnami LMS powered by Moodle&trade; LMS in production? Try [VMwa
 This chart bootstraps a [Moodle&trade;](https://github.com/bitnami/containers/tree/main/bitnami/moodle) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 It also packages the [Bitnami MariaDB chart](https://github.com/bitnami/charts/tree/main/bitnami/mariadb) which is required for bootstrapping a MariaDB deployment for the database requirements of the Moodle&trade; application.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -51,7 +49,7 @@ The command deploys Moodle&trade; on the Kubernetes cluster in the default confi
 
 Bitnami charts allow setting resource requests and limits for all containers inside the chart deployment. These are inside the `resources` value (check parameter table). Setting requests is essential for production workloads and these should be adapted to your specific use case.
 
-To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcePreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcesPreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ### Update credentials
 
@@ -105,7 +103,7 @@ These are the *3 mandatory parameters* when *Ingress* is desired: `ingress.enabl
 
 ### Ingress TLS
 
-If your cluster allows automatic creation/retrieval of TLS certificates (e.g. [kube-lego](https://github.com/jetstack/kube-lego)), please refer to the documentation for that mechanism.
+If your cluster allows automatic creation/retrieval of TLS certificates, please refer to the documentation for that mechanism.
 
 To manually configure TLS, first create/retrieve a key & certificate pair for the address(es) you wish to protect. Then create a TLS secret (named `moodle-server-tls` in this example) in the namespace. Include the secret's name, along with the desired hostnames, in the Ingress TLS section of your custom `values.yaml` file:
 
@@ -162,14 +160,15 @@ You may want to review the [PV reclaim policy](https://kubernetes.io/docs/tasks/
 
 ### Common parameters
 
-| Name                | Description                                                                                                | Value |
-| ------------------- | ---------------------------------------------------------------------------------------------------------- | ----- |
-| `kubeVersion`       | Force target Kubernetes version (using Helm capabilities if not set)                                       | `""`  |
-| `nameOverride`      | String to partially override moodle.fullname template                                                      | `""`  |
-| `fullnameOverride`  | String to fully override moodle.fullname template                                                          | `""`  |
-| `commonAnnotations` | Common annotations to add to all Harbor resources (sub-charts are not considered). Evaluated as a template | `{}`  |
-| `commonLabels`      | Common labels to add to all Harbor resources (sub-charts are not considered). Evaluated as a template      | `{}`  |
-| `extraDeploy`       | Array with extra yaml to deploy with the chart. Evaluated as a template                                    | `[]`  |
+| Name                | Description                                                                                                | Value  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- | ------ |
+| `kubeVersion`       | Force target Kubernetes version (using Helm capabilities if not set)                                       | `""`   |
+| `nameOverride`      | String to partially override moodle.fullname template                                                      | `""`   |
+| `fullnameOverride`  | String to fully override moodle.fullname template                                                          | `""`   |
+| `commonAnnotations` | Common annotations to add to all Harbor resources (sub-charts are not considered). Evaluated as a template | `{}`   |
+| `commonLabels`      | Common labels to add to all Harbor resources (sub-charts are not considered). Evaluated as a template      | `{}`   |
+| `extraDeploy`       | Array with extra yaml to deploy with the chart. Evaluated as a template                                    | `[]`   |
+| `usePasswordFiles`  | Mount credentials as files instead of using environment variables                                          | `true` |
 
 ### Moodle&trade; parameters
 
@@ -441,6 +440,10 @@ Find more information about how to deal with common errors related to Bitnami's 
 
 ## Upgrading
 
+### To 27.0.0
+
+This major release bumps the MariaDB version to 11.8. Follow the [upstream instructions](https://mariadb.com/kb/en/upgrading-from-mariadb-11-4-to-mariadb-11-8/) for upgrading from MariaDB 11.4 to 11.8. No major issues are expected during the upgrade.
+
 ### To 25.1.0
 
 This version introduces image verification for security purposes. To disable it, set `global.security.allowInsecureImages` to `true`. More details at [GitHub issue](https://github.com/bitnami/charts/issues/30850).
@@ -604,7 +607,7 @@ kubectl delete statefulset moodle-mariadb --cascade=false
 
 ## License
 
-Copyright &copy; 2024 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -16,11 +16,20 @@ helm install my-release oci://registry-1.docker.io/bitnamicharts/mysql
 
 Looking to use MySQL in production? Try [VMware Tanzu Application Catalog](https://bitnami.com/enterprise), the commercial edition of the Bitnami catalog.
 
+## ⚠️ Important Notice: Upcoming changes to the Bitnami Catalog
+
+Beginning August 28th, 2025, Bitnami will evolve its public catalog to offer a curated set of hardened, security-focused images under the new [Bitnami Secure Images initiative](https://news.broadcom.com/app-dev/broadcom-introduces-bitnami-secure-images-for-production-ready-containerized-applications). As part of this transition:
+
+- Granting community users access for the first time to security-optimized versions of popular container images.
+- Bitnami will begin deprecating support for non-hardened, Debian-based software images in its free tier and will gradually remove non-latest tags from the public catalog. As a result, community users will have access to a reduced number of hardened images. These images are published only under the “latest” tag and are intended for development purposes
+- Starting August 28th, over two weeks, all existing container images, including older or versioned tags (e.g., 2.50.0, 10.6), will be migrated from the public catalog (docker.io/bitnami) to the “Bitnami Legacy” repository (docker.io/bitnamilegacy), where they will no longer receive updates.
+- For production workloads and long-term support, users are encouraged to adopt Bitnami Secure Images, which include hardened containers, smaller attack surfaces, CVE transparency (via VEX/KEV), SBOMs, and enterprise support.
+
+These changes aim to improve the security posture of all Bitnami users by promoting best practices for software supply chain integrity and up-to-date deployments. For more details, visit the [Bitnami Secure Images announcement](https://github.com/bitnami/containers/issues/83267).
+
 ## Introduction
 
 This chart bootstraps a [MySQL](https://github.com/bitnami/containers/tree/main/bitnami/mysql) replication cluster deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
 
 ## Prerequisites
 
@@ -48,7 +57,7 @@ These commands deploy MySQL on the Kubernetes cluster in the default configurati
 
 Bitnami charts allow setting resource requests and limits for all containers inside the chart deployment. These are inside the `resources` value (check parameter table). Setting requests is essential for production workloads and these should be adapted to your specific use case.
 
-To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcePreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+To make this process easier, the chart contains the `resourcesPreset` values, which automatically sets the `resources` section according to different presets. Check these presets in [the bitnami/common chart](https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15). However, in production workloads using `resourcesPreset` is discouraged as it may not fully adapt to your specific needs. Find more information on container resource management in the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 ### Prometheus metrics
 
@@ -276,7 +285,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `auth.replicationUser`      | MySQL replication user                                                                                                                                                              | `replicator`            |
 | `auth.replicationPassword`  | MySQL replication user password. Ignored if existing secret is provided                                                                                                             | `""`                    |
 | `auth.existingSecret`       | Use existing secret for password details. The secret has to contain the keys `mysql-root-password`, `mysql-replication-password` and `mysql-password`                               | `""`                    |
-| `auth.usePasswordFiles`     | Mount credentials as files instead of using an environment variable                                                                                                                 | `false`                 |
+| `auth.usePasswordFiles`     | Mount credentials as files instead of using an environment variable                                                                                                                 | `true`                  |
 | `auth.customPasswordFiles`  | Use custom password files when `auth.usePasswordFiles` is set to `true`. Define path for keys `root` and `user`, also define `replicator` if `architecture` is set to `replication` | `{}`                    |
 | `auth.authenticationPolicy` | Sets the authentication policy, by default it will use `* ,,`                                                                                                                       | `""`                    |
 | `initdbScripts`             | Dictionary of initdb scripts                                                                                                                                                        | `{}`                    |
@@ -402,6 +411,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `primary.service.clusterIP`                                 | MySQL Primary K8s service clusterIP IP                                                                                                                                                                                            | `""`                |
 | `primary.service.loadBalancerIP`                            | MySQL Primary loadBalancerIP if service type is `LoadBalancer`                                                                                                                                                                    | `""`                |
 | `primary.service.externalTrafficPolicy`                     | Enable client source IP preservation                                                                                                                                                                                              | `Cluster`           |
+| `primary.service.externalIPs`                               | MySQL Primary K8s service externalIPs                                                                                                                                                                                             | `[]`                |
 | `primary.service.loadBalancerSourceRanges`                  | Addresses that are allowed when MySQL Primary service is LoadBalancer                                                                                                                                                             | `[]`                |
 | `primary.service.extraPorts`                                | Extra ports to expose (normally used with the `sidecar` value)                                                                                                                                                                    | `[]`                |
 | `primary.service.annotations`                               | Additional custom annotations for MySQL primary service                                                                                                                                                                           | `{}`                |
@@ -511,6 +521,7 @@ If you encounter errors when working with persistent volumes, refer to our [trou
 | `secondary.service.clusterIP`                                 | MySQL secondary Kubernetes service clusterIP IP                                                                                                                                                                                       | `""`                |
 | `secondary.service.loadBalancerIP`                            | MySQL secondary loadBalancerIP if service type is `LoadBalancer`                                                                                                                                                                      | `""`                |
 | `secondary.service.externalTrafficPolicy`                     | Enable client source IP preservation                                                                                                                                                                                                  | `Cluster`           |
+| `secondary.service.externalIPs`                               | MySQL Secondary K8s service externalIPs                                                                                                                                                                                               | `[]`                |
 | `secondary.service.loadBalancerSourceRanges`                  | Addresses that are allowed when MySQL secondary service is LoadBalancer                                                                                                                                                               | `[]`                |
 | `secondary.service.extraPorts`                                | Extra ports to expose (normally used with the `sidecar` value)                                                                                                                                                                        | `[]`                |
 | `secondary.service.annotations`                               | Additional custom annotations for MySQL secondary service                                                                                                                                                                             | `{}`                |
@@ -690,6 +701,10 @@ Find more information about how to deal with common errors related to Bitnami's 
 
 ## Upgrading
 
+### To 13.0.0
+
+This major bump uses mysql `9.3` image. Follow the [official instructions](https://dev.mysql.com/doc/refman/9.3/en/upgrading.html) to upgrade.
+
 ### To 12.2.0
 
 This version introduces image verification for security purposes. To disable it, set `global.security.allowInsecureImages` to `true`. More details at [GitHub issue](https://github.com/bitnami/charts/issues/30850).
@@ -798,7 +813,7 @@ kubectl delete statefulset mysql-slave --cascade=false
 
 ## License
 
-Copyright &copy; 2024 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+Copyright &copy; 2025 Broadcom. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
