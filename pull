@@ -4,18 +4,15 @@ SCRIPT_PATH="$(
   pwd -P
 )"
 
-helm repo add --force-update requarks https://charts.js.wiki
 helm repo add --force-update bitnami https://charts.bitnami.com/bitnami
 
 CLOUVE_CHARTS=(
   "bitnami/drupal" \
   "bitnami/ghost" \
   "bitnami/joomla" \
-  "bitnami/mediawiki" \
   "bitnami/moodle" \
   "bitnami/odoo" \
   "bitnami/suitecrm" \
-  "requarks/wiki" \
   "bitnami/wordpress"
 )
 
