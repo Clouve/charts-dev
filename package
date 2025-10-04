@@ -27,4 +27,4 @@ echo "Generating README.md"
 echo "# Clouve's Charts (Build ID: $BUILD_ID)" > README.md
 echo "" >> README.md
 
-yq '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
+yq -r '.entries | to_entries | .[] | .value | .[] | "- [" + .name + " " + .version + "]("+ .urls[0] +")"' "$SCRIPT_PATH/repo/index.yaml" >> README.md
