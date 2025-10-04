@@ -7,7 +7,7 @@ FILE_PATH="$2"
 # Format: "pattern|replacement|previous_line_replacement" (previous_line_replacement is optional)
 PATTERN_DEFINITIONS=(
   "$CHART_NAME-password|clouve-password|name: {{ include \"$CHART_NAME.secretName\" . }}"
-  "docker.io/bitnami/|docker.io/bitnamilegacy/"
+  "repository: bitnami/|repository: bitnamilegacy/"
   "allowInsecureImages: false|allowInsecureImages: true"
   # Add more patterns here as needed
 )

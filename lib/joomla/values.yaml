@@ -69,7 +69,7 @@ extraDeploy: []
 ##
 image:
   registry: docker.io
-  repository: bitnami/joomla
+  repository: bitnamilegacy/joomla
   tag: 5.1.2-debian-12-r3
   digest: ""
   ## Specify a imagePullPolicy
@@ -708,7 +708,7 @@ metrics:
   ##
   image:
     registry: docker.io
-    repository: bitnami/apache-exporter
+    repository: bitnamilegacy/apache-exporter
     tag: 1.0.8-debian-12-r6
     digest: ""
     pullPolicy: IfNotPresent

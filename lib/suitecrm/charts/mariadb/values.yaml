@@ -89,7 +89,7 @@ serviceBindings:
 ##
 image:
   registry: docker.io
-  repository: bitnami/mariadb
+  repository: bitnamilegacy/mariadb
   tag: 11.1.2-debian-11-r1
   digest: ""
   ## Specify a imagePullPolicy
@@ -1015,7 +1015,7 @@ volumePermissions:
   ##
   image:
     registry: docker.io
-    repository: bitnami/os-shell
+    repository: bitnamilegacy/os-shell
     tag: 11-debian-11-r90
     digest: ""
     pullPolicy: IfNotPresent
@@ -1051,7 +1051,7 @@ metrics:
   ##
   image:
     registry: docker.io
-    repository: bitnami/mysqld-exporter
+    repository: bitnamilegacy/mysqld-exporter
     tag: 0.15.0-debian-11-r70
     digest: ""
     pullPolicy: IfNotPresent
