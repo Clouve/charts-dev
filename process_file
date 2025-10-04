@@ -8,6 +8,7 @@ FILE_PATH="$2"
 PATTERN_DEFINITIONS=(
   "$CHART_NAME-password|clouve-password|name: {{ include \"$CHART_NAME.secretName\" . }}"
   "docker.io/bitnami/|docker.io/bitnamilegacy/"
+  "allowInsecureImages: false|allowInsecureImages: true"
   # Add more patterns here as needed
 )
 
