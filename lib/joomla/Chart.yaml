@@ -2,9 +2,9 @@ annotations:
   category: CMS
   images: |
     - name: apache-exporter
-      image: docker.io/bitnami/apache-exporter:1.0.8-debian-12-r6
+      image: docker.io/bitnamilegacy/apache-exporter:1.0.8-debian-12-r6
     - name: joomla
-      image: docker.io/bitnami/joomla:5.1.2-debian-12-r3
+      image: docker.io/bitnamilegacy/joomla:5.1.2-debian-12-r3
   licenses: Apache-2.0
 apiVersion: v2
 appVersion: 5.1.2

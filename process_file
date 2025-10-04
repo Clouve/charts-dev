@@ -2,37 +2,80 @@
 IFS=$'\n'
 CHART_NAME="$1"
 FILE_PATH="$2"
-PATTERN="$CHART_NAME-password"
-REPLACEMENT="clouve-password"
-PREVIOUS_LINE_REPLACEMENT="name: {{ include \"$CHART_NAME.secretName\" . }}"
 
-if grep -q "$PATTERN" "$FILE_PATH"; then
-  echo "REPLACING [$PATTERN] WITH [$REPLACEMENT] -> $FILE_PATH"
+# Define multiple patterns and their replacements
+# Format: "pattern|replacement|previous_line_replacement" (previous_line_replacement is optional)
+PATTERN_DEFINITIONS=(
+  "$CHART_NAME-password|clouve-password|name: {{ include \"$CHART_NAME.secretName\" . }}"
+  "docker.io/bitnami/|docker.io/bitnamilegacy/"
+  # Add more patterns here as needed
+)
 
-  #Reading content of file into an array
+# Parse pattern definitions into separate arrays
+PATTERNS=()
+REPLACEMENTS=()
+PREVIOUS_LINE_REPLACEMENTS=()
+
+for def in "${PATTERN_DEFINITIONS[@]}"; do
+  IFS='|' read -r pattern replacement prev_line_replacement <<< "$def"
+  PATTERNS+=("$pattern")
+  REPLACEMENTS+=("$replacement")
+  PREVIOUS_LINE_REPLACEMENTS+=("$prev_line_replacement")
+done
+
+# Check if any pattern exists in the file
+FOUND=false
+for pattern in "${PATTERNS[@]}"; do
+  if grep -q "$pattern" "$FILE_PATH"; then
+    FOUND=true
+    break
+  fi
+done
+
+if [ "$FOUND" = true ]; then
+  echo "Processing file: $FILE_PATH"
+
+  # Reading content of file into an array
   FILE_LINES=()
-  while IFS= read -r line
-  do
+  while IFS= read -r line; do
     FILE_LINES+=("$line")
   done < "$FILE_PATH"
 
-  #Replacing the pattern with the replacement
+  # Replacing all patterns with their replacements
   UPDATED_FILE_LINES=()
   TEMP_FILE_PATH="$FILE_PATH.tmp"
+  
   for i in "${!FILE_LINES[@]}"; do
-    if [[ "${FILE_LINES[$i]}" == *"$PATTERN"* ]]; then
-      UPDATED_FILE_LINES[$i]=$(echo "${FILE_LINES[$i]}" | sed "s;$PATTERN;$REPLACEMENT;g")
-      if [[ "${FILE_LINES[$i]}" == *"key: $PATTERN"* && "${FILE_LINES[$i-1]}" == *"name: "* ]]; then
-        UPDATED_FILE_LINES[$i-1]=$(echo "${FILE_LINES[$i-1]}" | sed -e "s;name: .*$;$PREVIOUS_LINE_REPLACEMENT;g")
+    current_line="${FILE_LINES[$i]}"
+    line_modified=false
+    
+    # Check each pattern
+    for idx in "${!PATTERNS[@]}"; do
+      pattern="${PATTERNS[$idx]}"
+      replacement="${REPLACEMENTS[$idx]}"
+      prev_line_replacement="${PREVIOUS_LINE_REPLACEMENTS[$idx]}"
+      
+      if [[ "$current_line" == *"$pattern"* ]]; then
+        echo "  REPLACING [$pattern] WITH [$replacement]"
+        current_line=$(echo "$current_line" | sed "s;$pattern;$replacement;g")
+        line_modified=true
+        
+        # Check if we need to modify the previous line (only if prev_line_replacement is provided)
+        if [[ -n "$prev_line_replacement" ]] && [[ "$current_line" == *"key: $replacement"* ]] && [[ $i -gt 0 ]] && [[ "${FILE_LINES[$i-1]}" == *"name: "* ]]; then
+          UPDATED_FILE_LINES[$i-1]=$(echo "${FILE_LINES[$i-1]}" | sed -e "s;name: .*$;$prev_line_replacement;g")
+        fi
       fi
-    else
-      UPDATED_FILE_LINES[$i]="${FILE_LINES[$i]}"
-    fi
+    done
+    
+    UPDATED_FILE_LINES[$i]="$current_line"
   done
 
-  #Writing the updated content to the file
+  # Writing the updated content to the file
   mv "$FILE_PATH" "$TEMP_FILE_PATH"
-  printf "%s\n" "${UPDATED_FILE_LINES[@]}" > $FILE_PATH
+  printf "%s\n" "${UPDATED_FILE_LINES[@]}" > "$FILE_PATH"
   rm "$TEMP_FILE_PATH"
+  
+  echo "File processing complete."
+else
+  echo "No patterns found in $FILE_PATH"
 fi
-
