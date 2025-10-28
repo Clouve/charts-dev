@@ -1,6 +1,12 @@
-# Bitnami Common Library Chart
+<!--- app-name: Common -->
 
-A [Helm Library Chart](https://helm.sh/docs/topics/library_charts/#helm) for grouping common logic between Bitnami charts.
+# Common library for Bitnami packages
+
+A Library Helm Chart for grouping common logic between bitnami charts. This chart is not deployable by itself.
+
+[Overview of Common](https://github.com/bitnami/charts/tree/main/bitnami/common)
+
+Trademarks: This software listing is packaged by Bitnami. The respective trademarks mentioned in the offering are owned by the respective companies, and use of them does not imply any affiliation or endorsement.
 
 ## TL;DR
 

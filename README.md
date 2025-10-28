@@ -1,4 +1,4 @@
-# Clouve's Charts (Build ID: "2025-10-04T05:56:03.190578786Z")
+# Clouve's Charts (Build ID: 2025-10-28T08:37:56.53927-07:00)
 
 - [bluesky-pds 0.1.4](/repo/bluesky-pds-0.1.4.tgz)
 - [bluesky-pds 0.1.3](/repo/bluesky-pds-0.1.3.tgz)
@@ -106,6 +106,7 @@
 - [suitecrm 12.1.2](/repo/suitecrm-12.1.2.tgz)
 - [suitecrm 11.2.13](/repo/suitecrm-11.2.13.tgz)
 - [suitecrm 11.2.4](/repo/suitecrm-11.2.4.tgz)
+- [wordpress 27.1.3](/repo/wordpress-27.1.3.tgz)
 - [wordpress 26.0.0](/repo/wordpress-26.0.0.tgz)
 - [wordpress 25.0.5](/repo/wordpress-25.0.5.tgz)
 - [wordpress 24.1.2](/repo/wordpress-24.1.2.tgz)

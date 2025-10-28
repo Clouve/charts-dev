@@ -84,9 +84,9 @@ diagnosticMode:
 ## @param image.debug Specify if debug values should be set
 ##
 image:
-  registry: docker.io
+  registry: registry-1.docker.io
   repository: bitnamilegacy/memcached
-  tag: 1.6.39-debian-12-r0
+  tag: latest
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -633,9 +633,9 @@ volumePermissions:
   ## @param volumePermissions.image.pullSecrets Init container volume-permissions image pull secrets
   ##
   image:
-    registry: docker.io
+    registry: registry-1.docker.io
     repository: bitnamilegacy/os-shell
-    tag: 12-debian-12-r50
+    tag: latest
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
@@ -688,9 +688,9 @@ metrics:
   ## @param metrics.image.pullSecrets Specify docker-registry secret names as an array
   ##
   image:
-    registry: docker.io
+    registry: registry-1.docker.io
     repository: bitnamilegacy/memcached-exporter
-    tag: 0.15.3-debian-12-r5
+    tag: latest
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
